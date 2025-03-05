@@ -3,13 +3,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Bootstrap with JSP</title>
+    <title>Common JSP file</title>
     
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     
-    <!-- Link bootstrap style sheet -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/">
+    <!-- Link style sheet -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
     <div class="container">
@@ -20,6 +20,6 @@
 
 
 	<!-- Link bootstrap script file -->
-    <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
