@@ -8,17 +8,24 @@
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     
+    <!-- Favicon -->
+    <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
+    
     <!-- Link style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-5">Hello, Bootstrap!</h1>
-        <button class="btn btn-primary">Click me</button>
-    </div>
+	<!-- include header -->
+    <jsp:include page="Header.jsp"/>
+    
+    
+    
+
 
 	
-
+	<!-- include footer -->
+    <jsp:include page="Footer.jsp"/>
+    
 	<!-- Link bootstrap script file -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
 </body>
