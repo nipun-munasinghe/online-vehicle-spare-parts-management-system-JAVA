@@ -8,6 +8,9 @@
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     
+    <!-- Link bootstrap icons -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
+    
     <!-- Favicon -->
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
     
@@ -15,13 +18,16 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
+	<!-- include header -->
+    <jsp:include page="Header.jsp"/>
     
     
     
 
 
 	
-
+	<!-- include footer -->
+    <jsp:include page="Footer.jsp"/>
     
 	<!-- Link bootstrap script file -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>

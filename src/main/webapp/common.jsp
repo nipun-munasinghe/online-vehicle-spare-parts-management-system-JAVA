@@ -8,6 +8,9 @@
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     
+    <!-- Link bootstrap icons -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
+    
     <!-- Favicon -->
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
     
