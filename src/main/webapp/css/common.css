@@ -1,21 +1,19 @@
-/* Poppins Regular */
-@font-face {
+/* Main Styles */
+@font-face {/* Poppins Regular */
     font-family: 'Poppins';
     src: url('../fonts/Poppins-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
-/* Roboto Semi Bold */
-@font-face {
+@font-face {/* Roboto Semi Bold */
     font-family: 'Roboto';
     src: url('../fonts/Roboto-SemiBold.woff2') format('woff2');
     font-weight: 600; /* Semi Bold */
     font-style: normal;
 }
 
-/* Roboto Bold */
-@font-face {
+@font-face {/* Roboto Bold */
     font-family: 'Roboto';
     src: url('../fonts/Roboto-Bold.woff2') format('woff2');
     font-weight: bold;
@@ -41,3 +39,5 @@ h2, h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 600; /* Semi-bold */
 }
+
+/*Page's CSS Starts from here */
