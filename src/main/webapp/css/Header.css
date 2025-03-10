@@ -122,7 +122,7 @@ nav {
 
 .navbar li a {
     text-decoration: none;
-    color: #313233;
+    color: #222831;
     padding: 8px 16px;
 }
 
@@ -132,7 +132,7 @@ nav {
 
 .nav-section .container-nav ul .separator {
     cursor: default;
-    color: black;
+    color: #222831;
 }
 
 .nav-section .container-nav ul .signin-btn {
