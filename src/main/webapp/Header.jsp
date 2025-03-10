@@ -20,7 +20,7 @@
 <body>
     <section class="nav-section">
         <div class="container-nav">
-            <nav>
+            <nav class="nav-class">
                 <div class="navbar-widget">
                     <ul class="navbar">
                         <li class="nav-item"><a href="${pageContext.request.contextPath}">Shop</a></li>

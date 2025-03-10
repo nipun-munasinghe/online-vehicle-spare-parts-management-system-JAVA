@@ -1,4 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,8 +81,11 @@
             <!-- Copyright Row -->
             <div class="row copyright-row">
                 <div class="col-md-8">
+                    <jsp:useBean id="now" class="java.util.Date" />
+                    <fmt:formatDate value="${now}" pattern="yyyy" var="currentYear" />
+                    
                     <p class="copyright-text">
-                        © 2025. All Rights Reserved. We are regulated by the Finance Conduct Authority.
+                        &copy; <c:out value="${currentYear}" />. All Rights Reserved. We are regulated by the Finance Conduct Authority.
                     </p>
                 </div>
                 <div class="col-md-4 text-end">

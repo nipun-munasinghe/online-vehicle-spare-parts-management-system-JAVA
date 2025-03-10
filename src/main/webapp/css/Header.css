@@ -62,7 +62,7 @@ h2, h3 {
     margin: 0 auto;
 }
 
-nav {
+.nav-class {
     display: flex;
     align-items: center;
 }
@@ -138,7 +138,7 @@ nav {
 .nav-section .container-nav ul .signin-btn {
     border: 2px solid #A6FF00 !important;
     border-radius: 20px;
-    padding: 5px 12px;
+    padding: 5px 8px;
     margin-left: 16px;
     margin-right: 5px;
 }
@@ -150,7 +150,7 @@ nav {
 .nav-section .container-nav ul .signup-btn {
     border: 2px solid #A6FF00 !important;
     border-radius: 20px;
-    padding: 5px 12px;
+    padding: 5px 8px;
     background-color: #A6FF00;
     margin-left: 5px;
 }
