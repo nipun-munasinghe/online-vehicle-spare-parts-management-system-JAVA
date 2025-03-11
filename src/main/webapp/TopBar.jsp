@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/TopBar.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-md topbar">
-        <div class="container-fluid">
+    <nav class="custom-navbar custom-navbar-expand-md topbar my-4 mx-2">
+        <div class="container-fluid navbar-div">
             <i class="bi bi-list" id="toggle-sidebar" title="Open Dashboard"></i>
-            <h1 class="navbar-brand mb-0">Welcome UserName!</h1>
+            <h1 class="custom-navbar-brand mb-0">Welcome UserName!</h1>
             
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <div class="collapse custom-navbar-collapse" id="navbarContent">
+                <ul class="custom-navbar-nav ms-auto mb-2 mb-md-0">
                     <!-- Add navigation items here if needed -->
                     <li></li>
                 </ul>
