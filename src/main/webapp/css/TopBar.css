@@ -1,0 +1,96 @@
+@font-face {/* Roboto Semi Bold */
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-SemiBold.woff2') format('woff2');
+    font-weight: 600; /* Semi Bold */
+    font-style: normal;
+}
+
+@font-face {/* Roboto Bold */
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold */
+}
+
+h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600; /* Semi-bold */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Topbar Styling */
+.topbar {
+    background: linear-gradient(to right, #000000, #A6FF00);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+.topbar i {
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+    
+    .topbar i {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .topbar i {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    .topbar {
+        padding: 8px 12px;
+    }
+}
