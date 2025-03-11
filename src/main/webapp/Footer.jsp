@@ -89,7 +89,7 @@
                     </p>
                 </div>
                 <div class="col-md-4 text-end">
-                    <img src="${pageContext.request.contextPath}/images/logo.png" alt="Small Logo" class="small-logo">
+                    <img src="${pageContext.request.contextPath}/images/ae-white.png" alt="Small Logo" class="small-logo">
                 </div>
             </div>
         </div>
