@@ -30,7 +30,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    background: linear-gradient(#000000, #A6FF00);
 }
 
 h1 {
@@ -50,7 +49,6 @@ h2, h3 {
 }
 
 .nav-section {
-    height: 100vh;
     width: 100%;
     border-top: 6px solid #fff;
     z-index: 1000;

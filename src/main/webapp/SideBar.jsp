@@ -15,12 +15,15 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
     
     <!-- Link style sheet -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/SideBar.css">
 </head>
 <body>
 	
     
 	<!-- Link bootstrap script file -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
+    
+    <!-- Link script file -->
+    <script src="${pageContext.request.contextPath}/js/TopBar.js"></script>
 </body>
 </html>

@@ -21,6 +21,8 @@
 	<!-- include header -->
     <jsp:include page="Header.jsp"/>
     
+    <jsp:include page="TopBar.jsp"/>
+    
     
     
 
