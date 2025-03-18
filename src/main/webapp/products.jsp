@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Common JSP file</title>
+    <title>Product JSP file</title>
     
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
     
     <!-- Link style sheet -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/products.css">
 </head>
 <body>
 	<!-- include header -->
@@ -27,16 +27,15 @@
 
     <div class="image-container">
         <img src="${pageContext.request.contextPath}/images/b-image.jpg" alt="Company Logo" class="b-image" >
-        <h1 class="text-overlayer">Welcome to Auto Elight</h1>
+        <h1 class="text-overlayer">Welcome to AutoElight</h1>
+        <div class="button-row">
+            <button class="circle-button">Button 1</button>
+            <button class="circle-button">Button 2</button>
+            <button class="circle-button">Button 3</button>
+            <button class="circle-button">Button 4</button>
+            <button class="circle-button">Button 5</button>
+        </div>
     </div>
-
-    
-    
-    
-    
-
-
-	
 	<!-- include footer -->
     <jsp:include page="Footer.jsp"/>
     
