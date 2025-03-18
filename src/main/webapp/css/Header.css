@@ -48,30 +48,30 @@ h2, h3 {
     box-sizing: border-box;
 }
 
-.nav-section {
+.ae-nav-section {
     width: 100%;
     border-top: 6px solid #fff;
     z-index: 1000;
 }
 
-.container-nav {
+.ae-container-nav {
     width: 90%;
     max-width: 900px;
     margin: 0 auto;
 }
 
-.nav-class {
+.ae-nav-class {
     display: flex;
     align-items: center;
 }
 
-.navbar-widget {
-    width: calc(100% - 300px);
+.ae-navbar-widget {
+    width: calc(95% - 300px);
     height: 52px;
     position: relative;
 }
 
-.navbar-widget::before, .navbar-widget::after {
+.ae-navbar-widget::before, .ae-navbar-widget::after {
     content: '';
     position: absolute;
     top: -2px;
@@ -82,17 +82,17 @@ h2, h3 {
     background-size: 90px 90px;
 }
 
-.navbar-widget::before {
-    left: -48px;
+.ae-navbar-widget::before {
+    left: -32px;
     transform: rotate(58deg);
 } 
 
-.navbar-widget::after {
-    right: -48px;
+.ae-navbar-widget::after {
+    right: -64px;
     transform: rotate(9deg);
 }
 
-.navbar {
+.ae-navbar {
     position: relative;
     display: flex;
     align-items: center;
@@ -102,7 +102,7 @@ h2, h3 {
     padding-bottom: 8px;
 }
 
-.navbar::before {
+.ae-navbar::before {
     content: '';
     position: absolute;
     top: -46px;
@@ -114,26 +114,26 @@ h2, h3 {
     z-index: -1;
 }
 
-.navbar li {
+.ae-navbar li {
     list-style: none;
 }
 
-.navbar li a {
+.ae-navbar li a {
     text-decoration: none;
     color: #222831;
     padding: 8px 16px;
 }
 
-.navbar li a:hover {
+.ae-navbar li a:hover {
     color: #A6FF00;
 }
 
-.nav-section .container-nav ul .separator {
+.ae-nav-section .ae-container-nav ul .ae-separator {
     cursor: default;
     color: #222831;
 }
 
-.nav-section .container-nav ul .signin-btn {
+.ae-nav-section .ae-container-nav ul .ae-signin-btn {
     border: 2px solid #A6FF00 !important;
     border-radius: 20px;
     padding: 5px 8px;
@@ -141,11 +141,16 @@ h2, h3 {
     margin-right: 5px;
 }
 
-.nav-section .container-nav ul .signin-btn a {
+.ae-nav-section .ae-container-nav ul .ae-signin-btn a {
+    color: #222831;
+    transition: color 0.3s ease;
+}
+
+.ae-nav-section .ae-container-nav ul .ae-signin-btn a:hover {
     color: #A6FF00;
 }
 
-.nav-section .container-nav ul .signup-btn {
+.ae-nav-section .ae-container-nav ul .ae-signup-btn {
     border: 2px solid #A6FF00 !important;
     border-radius: 20px;
     padding: 5px 8px;
@@ -153,6 +158,11 @@ h2, h3 {
     margin-left: 5px;
 }
 
-.nav-section .container-nav ul .signup-btn a {
+.ae-nav-section .ae-container-nav ul .ae-signup-btn a {
+    color: #222831;
+    transition: color 0.3s ease;
+}
+
+.ae-nav-section .ae-container-nav ul .ae-signup-btn a:hover {
     color: #fff;
 }
