@@ -54,3 +54,22 @@ h2, h3 {
 .firstH1 {
 	color: #A6FF00;
 }
+
+.normalBtn {
+	background-color: #A6FF00 !important;
+	border-color: #A6FF00 !important;
+	color: #393E46 !important;
+	font-weight: 600 !important;
+    transition: color 0.3s ease;
+}
+
+.normalBtn:hover {
+    background-color: #FFFFFF !important;
+	border-color: #FFFFFF !important;
+    text-decoration: none;
+}
+
+#searchInput:focus {
+	border-color: #A6FF00 !important;
+    box-shadow: 0 0 0 2px #A6FF00 !important;
+}

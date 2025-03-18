@@ -26,6 +26,25 @@
     
     <h1 class="text-center firstH1">Product Management</h1>
     
+    <!-- Search and Add Product Section -->
+    <section>
+    	<div class="row mb-4 mx-5">
+        	<div class="col-md-8">
+            	<div class="input-group">
+                	<input type="text" id="searchInput" class="form-control" placeholder="Search by product name or ID...">
+                    <button class="btn btn-primary normalBtn" type="button" id="searchButton">
+                    	<i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4 text-end">
+            	<button class="btn btn-success normalBtn" id="addProductBtn">
+                	<i class="bi bi-plus"></i> Add New Product
+                </button>
+            </div>
+		</div>
+    </section>
+    
 	
 	<!-- include footer -->
     <jsp:include page="Footer.jsp"/>
