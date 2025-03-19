@@ -24,18 +24,24 @@
     <jsp:include page="TopBar.jsp"/>
 
     <!-- Home Product page -->
-
-    <div class="image-container">
-        <img src="${pageContext.request.contextPath}/images/b-image.jpg" alt="Company Logo" class="b-image" >
-        <h1 class="text-overlayer">Welcome to AutoElight</h1>
-        <div class="button-row">
-            <button class="circle-button">Button 1</button>
-            <button class="circle-button">Button 2</button>
-            <button class="circle-button">Button 3</button>
-            <button class="circle-button">Button 4</button>
-            <button class="circle-button">Button 5</button>
+     <section id="hero" class="min-vh-100 d-flex align-items-center text-center">
+        <div class="d-flex justify-content-center align-items-center w-100 z-n1 position-absolute p-5 rounded-3 opacity-50">
+            <img src="${pageContext.request.contextPath}/images/b-image.jpg" alt="background-image" class="b-image">
         </div>
-    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-uppercase fw-semibold display-1 text-white">Welcome to AutoElight</h1>
+                    <p class="text-white">Find the best products for your car</p>
+                    <div class="button">
+                        <button type="button"class="btn btn-primary ">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+     
+  
 	<!-- include footer -->
     <jsp:include page="Footer.jsp"/>
     
