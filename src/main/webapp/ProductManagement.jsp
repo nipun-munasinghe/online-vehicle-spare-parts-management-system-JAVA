@@ -30,18 +30,22 @@
     <h1 class="text-center firstH1 mb-5">Product Management</h1>
     
     <!-- Search and Add Product Section -->
-	<section class="d-flex justify-content-center mb-4">
-	    <div class="row">
-	        <div class="col-12 d-flex justify-content-center align-items-center gap-3">
-	            <div class="input-group search-input-group">
-	                <input type="text" id="searchInput" class="form-control" placeholder="Search by product name or ID...">
-	                <button class="btn btn-primary normalBtn search-btn" type="button" id="searchButton">
-	                    <i class="bi bi-search"></i> Search
+	<section class="mb-4">
+	    <div class="container">
+	        <div class="searchNadd d-flex flex-column flex-sm-row gap-2 gap-sm-3">
+	            <div class="flex-grow-1 order-xs-2 order-sm-1">
+	                <div class="input-group">
+	                    <input type="text" id="searchInput" class="form-control" placeholder="Search by product name or ID...">
+	                    <button class="btn btn-primary normalBtn search-btn" type="button" id="searchButton">
+	                        <i class="bi bi-search"></i> <span>Search</span>
+	                    </button>
+	                </div>
+	            </div>
+	            <div class="order-xs-1 order-sm-2">
+	                <button class="btn btn-success normalBtn add-btn w-100 w-sm-auto" id="addProductBtn">
+	                    <i class="bi bi-plus"></i> Add Product
 	                </button>
 	            </div>
-	            <button class="btn btn-success normalBtn add-btn" id="addProductBtn">
-	                <i class="bi bi-plus"></i> New Product
-	            </button>
 	        </div>
 	    </div>
 	</section>
