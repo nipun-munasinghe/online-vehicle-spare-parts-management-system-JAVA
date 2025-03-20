@@ -200,12 +200,12 @@ h2, h3 {
   font-weight: 600;
   text-decoration: none;
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateX(150px);
   transition: all 500ms ease-in-out;
 }
 
 .card__article:hover .card__button {
-  transform: translateY(0px);
+  transform: translateX(0px);
   opacity: 1;
 }
 
@@ -256,6 +256,7 @@ h2, h3 {
 .swiper-pagination-bullet {
   background-color: var(--text-color);
   opacity: 1;
+  transform: translateY(0px);
 }
 
 .swiper-pagination-bullet-active {
@@ -276,6 +277,11 @@ h2, h3 {
     
     .add-btn {
         width: 100%;
+    }
+    
+    .card__button {
+    	transform: translateX(0px);
+  		opacity: 1;
     }
 }
 
