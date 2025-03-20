@@ -104,8 +104,14 @@ h2, h3 {
 }
 
 #searchInput:focus {
+	background: transparent;
 	border-color: var(--first-color) !important;
-    box-shadow: 0 0 0 2px var(--first-color) !important;
+    box-shadow: 0 0 0 1px var(--first-color) !important;
+}
+
+#searchInput:focus + .search-btn {
+	border-color: var(--first-color) !important;
+    box-shadow: 0 0 0 1px var(--first-color) !important;
 }
 
 /*=============== CARD ===============*/
