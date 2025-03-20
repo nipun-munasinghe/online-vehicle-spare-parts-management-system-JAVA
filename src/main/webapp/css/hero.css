@@ -51,34 +51,22 @@ h2, h3 {
 }
 
 /*Page's CSS Starts from here */
-.card{
-    border-radius: 80px;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-}
-.card-body{
-    padding: 25px;
-    margin-top: -15px;
-}
-.card img{
-    border-radius: 90px;
-}
-.btn-primary-card1{
-    background-color: #A6FF00 !important;
-    border: 1px solid #A6FF00 !important;
-    color: #000 !important;
-    border-radius: 10px;
-}
-.btn-primary-card1:hover{
-    background-color: #fffcfc !important;
-    border: 1px solid #A6FF00 !important;
-    color: #000 !important;
-}
-.container h1{
-    background-color: #222831 ;
-    color: #ffffff;
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 20px;
-    text-align: center;
 
+#shop{
+    background-color: #A6FF00 ;
+    color: #000 ;
+    border: 1px solid #fffcfc ;
+    font-size: 20px ;
+}
+#shop:hover{
+    background-color: #fffcfc ;
+    color: #000 ;
+    border: 1px solid #A6FF00 ;
+}
+.b-image{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    border-radius: 30px;
+    border: 2px solid #A6FF00;
 }
