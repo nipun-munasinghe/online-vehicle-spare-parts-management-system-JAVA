@@ -10,6 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		addProductModal.show();
 	});
 	
+	productImage.addEventListener('change', function(event) {
+		const file = event.target.files[0];
+		if(file) {
+			const reader = new FileReader();
+			reader.onload = function(e) {
+				imagePreview.src = e.target.result;
+				imagePreview.classList.remove('d-none');
+			}
+			reader.readAsDataURL(file);
+		}
+	});
 });
 
 /*=============== SWIPER JS ===============*/
