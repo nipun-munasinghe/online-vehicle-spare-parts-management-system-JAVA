@@ -1,0 +1,107 @@
+/* Main Styles */
+@font-face {/* Poppins Regular */
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {/* Roboto Semi Bold */
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-SemiBold.woff2') format('woff2');
+    font-weight: 600; /* Semi Bold */
+    font-style: normal;
+}
+
+@font-face {/* Roboto Bold */
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: linear-gradient(#222831, #F7F7F7);
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold */
+}
+
+h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600; /* Semi-bold */
+}
+
+
+
+/*Page's CSS Starts from here */
+
+body {
+    background-color: #c0c0c0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Profile Box Styling */
+.profile-box {
+    max-width: 400px;
+    margin: auto;
+    background-color: #e0e5ec;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 8px 8px 16px #b8bcc2, -6px -6px 14px;
+    text-align: center;
+}
+
+/* Profile Picture Styling */
+.profile-box img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 8px 8px 16px #b8bcc2, -8px -8px 16px #ffffff;
+}
+
+/* Input Fields Styling */
+.profile-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 12px;
+    box-shadow: inset 4px 4px 8px #b8bcc2, inset -4px -4px 8px #ffffff;
+    background-color: #e0e5ec;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .profile-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .profile-box img {
+        width: 120px;
+        height: 120px;
+    }
+}
