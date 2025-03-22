@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Common JSP file</title>
+    <title>Products</title>
     
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
@@ -66,7 +66,7 @@
             </div>
             <div class="col">
                 <div class="card ">
-                    <img src="${pageContext.request.contextPath}/images/wheel.jpg" alt="background-image" class="b-image">
+                    <img src="${pageContext.request.contextPath}/images/products/spoiler.png" alt="background-image" class="b-image">
                     <div class="card-body">
                       <h5 class="card-title text-center">Rear Bumper</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

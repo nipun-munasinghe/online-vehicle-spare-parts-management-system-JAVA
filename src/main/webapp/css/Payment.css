@@ -51,22 +51,39 @@ h2, h3 {
 }
 
 /*Page's CSS Starts from here */
+.summary span{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.paypal span{
+    font-weight: 600;
+}
+.card {
+    border-radius: 15px !important; 
+    overflow: hidden !important; 
+    border: none !important;
+    box-shadow: none !important;
+}
 
-#shop{
-    background-color: #A6FF00 ;
-    color: #000 ;
-    border: 1px solid #fffcfc ;
-    font-size: 20px ;
+.card-header button {
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
 }
-#shop:hover{
-    background-color: #fffcfc ;
-    color: #000 ;
-    border: 1px solid #A6FF00 ;
+.container {
+    width: 30%;
+    overflow: hidden;
+  }
+.textarea h2{
+    font-family:cursive,'Lucida Handwriting';
+    font-size: 50px;
+    font-weight: 600;
+    color:#A6FF00 ;
+    text-align: center;
 }
-.b-image{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 100%;
-    border-radius: 30px;
-    border: 2px solid #A6FF00;
+.textarea p{
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;  
+    text-align: center;
 }

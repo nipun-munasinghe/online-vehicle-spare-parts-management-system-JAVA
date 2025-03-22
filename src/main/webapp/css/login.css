@@ -51,22 +51,16 @@ h2, h3 {
 }
 
 /*Page's CSS Starts from here */
-
-#shop{
-    background-color: #A6FF00 ;
-    color: #000 ;
-    border: 1px solid #fffcfc ;
-    font-size: 20px ;
+.logo span{
+    color: #222831 ;
 }
-#shop:hover{
-    background-color: #fffcfc ;
-    color: #000 ;
-    border: 1px solid #A6FF00 ;
-}
-.b-image{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 100%;
-    border-radius: 30px;
-    border: 2px solid #A6FF00;
+.b-login button{
+    background-color: #A6FF00;
+    color: #242323;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 80px, 0px 80px 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

@@ -56,7 +56,7 @@
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Register</a></li>
                         <li><a href="#">Login</a></li>
-                        <li><a href="#">T&C</a></li>
+                        <li><a href="#">T&amp;C</a></li>
                     </ul>
                 </div>
                 
@@ -73,7 +73,9 @@
                         <div class="mb-3">
                             <textarea class="form-control" rows="3" placeholder="Your Message" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-submit">Send Message</button>
+                        <div class="button-wrapper">
+						    <button type="submit" class="btn btn-submit" id="sendMsg">Send Message</button>
+						</div>
                     </form>
                 </div>
             </div>

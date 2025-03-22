@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Common JSP file</title>
+    <title>Cart</title>
     
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
@@ -131,8 +131,12 @@
                           <h5 class="text-uppercase">Total price</h5>
                           <h5>Rs. 13700.00</h5>
                         </div>
+                        <!-- Payment Page -->
+                        <div class="pt-3">
+                          <a href="${pageContext.request.contextPath}/Payment.jsp">
                         <button type="button"class="btn btn-primary btn-lg ">Check Out</button>
-                      </div>
+                      </a>
+                        </div>
                     </div>
                   </div>
                 </div>

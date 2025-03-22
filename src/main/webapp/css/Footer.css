@@ -232,6 +232,14 @@ h2, h3 {
     	display: flex;
     	flex-direction: column;
     }
+    
+    .button-wrapper {
+        text-align: center;
+    }
+    
+    .btn-submit {
+        display: inline-block;
+    }
 }
 
 /* Additional responsive fixes for very small screens */
