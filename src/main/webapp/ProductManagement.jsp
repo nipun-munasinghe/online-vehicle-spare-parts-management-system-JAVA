@@ -29,7 +29,7 @@
     
     <h1 class="text-center firstH1 mb-5">Product Management</h1>
     
-    <!-- Search and Add Product Section -->
+    <!-- Search and Add Product button Section -->
 	<section class="mb-4">
 	    <div class="container">
 	        <div class="searchNadd d-flex flex-column flex-sm-row gap-2 gap-sm-3">
@@ -45,6 +45,60 @@
 	                <button class="btn btn-success normalBtn add-btn w-100 w-sm-auto" id="addProductBtn">
 	                    <i class="bi bi-plus"></i> Add Product
 	                </button>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	
+	<!-- Add Product form Section -->
+	<section>
+	    <div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
+	        <div class="modal-dialog modal-lg modal-dialog-centered">
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <h5 class="modal-title">Add New Product</h5>
+	                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	                </div>
+	                <div class="modal-body">
+	                    <form id="addProductForm" enctype="multipart/form-data">
+	                        <div class="form-floating mb-3">
+	                            <input type="text" class="form-control" id="productName" name="productName" placeholder="Product Name" required>
+	                            <label for="productName">Product Name</label>
+	                        </div>
+	                        <div class="form-floating mb-3">
+	                            <input type="text" class="form-control" id="productCategory" name="productCategory" placeholder="Product Category">
+	                            <label for="productCategory">Product Category</label>
+	                        </div>
+	                        <div class="form-floating mb-3">
+	                            <textarea class="form-control" id="productDescription" name="productDescription" placeholder="Description" style="height: 100px" required></textarea>
+	                            <label for="productDescription">Description</label>
+	                        </div>
+	                        <div class="quantityNprice row mb-3">
+	                            <div class="col-md-6">
+	                                <div class="form-floating">
+	                                    <input type="number" class="form-control" id="productQuantity" name="productQuantity" min="0" placeholder="Quantity" required>
+	                                    <label for="productQuantity">Quantity</label>
+	                                </div>
+	                            </div>
+	                            <div class="col-md-6">
+	                                <div class="form-floating">
+	                                    <input type="number" class="form-control" id="productPrice" name="productPrice" min="0" step="0.01" placeholder="Price (Rs.)" required>
+	                                    <label for="productPrice">Price (Rs.)</label>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="mb-3">
+	                            <label for="productImage" class="form-label">Product Image</label>
+	                            <input type="file" class="form-control" id="productImage" name="productImage" accept="image/*" required>
+	                        </div>
+	                        <div class="mb-3">
+	                            <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid d-none">
+	                        </div>
+	                        <div class="text-end">
+	                            <button type="submit" class="btn normalBtn">Add Product</button>
+	                        </div>
+	                    </form>
+	                </div>
 	            </div>
 	        </div>
 	    </div>

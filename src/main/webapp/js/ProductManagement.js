@@ -1,3 +1,9 @@
+// Add Product Form Function
+document.addEventListener('DOMContentLoaded', function() {
+	const addProductBtn = document.getElementById('addProductBtn');
+	
+});
+
 /*=============== SWIPER JS ===============*/
 let swiperCards = new Swiper(".card__content", {
   loop: true,
