@@ -21,6 +21,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			reader.readAsDataURL(file);
 		}
 	});
+	
+	addProductForm.addEventListener('submit', function(event) {
+	    event.preventDefault();
+	    // Send the form data to server
+	    console.log('Form submitted:', new FormData(addProductForm));
+	    addProductModal.hide();
+	    addProductForm.reset();
+	    imagePreview.src = '#';
+	    imagePreview.classList.add('d-none');
+	});
 });
 
 /*=============== SWIPER JS ===============*/
