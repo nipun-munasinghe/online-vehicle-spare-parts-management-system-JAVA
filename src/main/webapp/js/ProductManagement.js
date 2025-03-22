@@ -1,6 +1,14 @@
 // Add Product Form Function
 document.addEventListener('DOMContentLoaded', function() {
 	const addProductBtn = document.getElementById('addProductBtn');
+	const addProductModal = new bootstrap.Modal(document.getElementById('addProductModal'));
+	const addProductForm = document.getElementById('addProductForm');
+	const imagePreview = document.getElementById('imagePreview');
+	const productImage = document.getElementById('productImage');
+	
+	addProductBtn.addEventListener('click', function() {
+		addProductModal.show();
+	});
 	
 });
 
