@@ -339,6 +339,31 @@ h2, h3 {
   color: var(--white-color);
 }
 
+/* Delete confirmation modal styles */
+#deleteConfirmModal .modal-content {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+
+#deleteConfirmModal .modal-header {
+    border-bottom: 1px solid var(--danger);
+}
+
+#deleteConfirmModal .modal-title {
+    color: var(--danger);
+}
+
+#deleteConfirmModal .btn-secondary {
+    background-color: var(--container-color);
+    border-color: var(--container-color);
+    color: var(--white-color);
+}
+
+#deleteConfirmModal .btn-danger {
+    background-color: var(--danger);
+    border-color: var(--danger);
+}
+
 /* Swiper class */
 .swiper-button-prev:after,
 .swiper-button-next:after {

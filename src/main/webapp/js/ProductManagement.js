@@ -33,6 +33,48 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
+// Delete confirmation functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all delete buttons
+    const deleteButtons = document.querySelectorAll('.card__button_delete');
+    const deleteConfirmModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+    const deleteProductIdInput = document.getElementById('deleteProductId');
+    
+    // Add click event to all delete buttons
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Get the product ID from the parent article's data attribute or from the button
+            const productCard = this.closest('.card__article');
+            const productId = productCard.getAttribute('data-product-id') || this.getAttribute('data-product-id');
+            
+            // Store the product ID in the hidden input
+            deleteProductIdInput.value = productId;
+            
+            // Show the confirmation modal
+            deleteConfirmModal.show();
+        });
+    });
+    
+    // Handle confirm delete button click
+    confirmDeleteBtn.addEventListener('click', function() {
+        const productId = deleteProductIdInput.value;
+        
+        // Here you would typically send a request to your server to delete the product
+        console.log('Deleting product with ID:', productId);
+        
+        // For demo purposes, let's just hide the product card
+        const productCard = document.querySelector(`.card__article[data-product-id="${productId}"]`);
+        if (productCard) {
+            productCard.style.display = 'none';
+        }
+        
+        // Close the modal
+        deleteConfirmModal.hide();
+    });
+});
+
 /*=============== SWIPER JS ===============*/
 let swiperCards = new Swiper(".card__content", {
   loop: true,
