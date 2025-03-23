@@ -56,7 +56,7 @@
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Register</a></li>
                         <li><a href="#">Login</a></li>
-                        <li><a href="#">T&C</a></li>
+                        <li><a href="#">T&amp;C</a></li>
                     </ul>
                 </div>
                 
