@@ -57,20 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Handle confirm delete button click
+	// Close the modal
     confirmDeleteBtn.addEventListener('click', function() {
-        const productId = deleteProductIdInput.value;
-        
-        // Here you would typically send a request to your server to delete the product
-        console.log('Deleting product with ID:', productId);
-        
-        // For demo purposes, let's just hide the product card
-        const productCard = document.querySelector(`.card__article[data-product-id="${productId}"]`);
-        if (productCard) {
-            productCard.style.display = 'none';
-        }
-        
-        // Close the modal
         deleteConfirmModal.hide();
     });
 });
