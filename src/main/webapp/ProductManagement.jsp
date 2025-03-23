@@ -60,7 +60,7 @@
 	                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	                </div>
 	                <div class="modal-body">
-	                    <form id="addProductForm" enctype="multipart/form-data">
+	                    <form id="addProductForm" action="" method="POST" enctype="multipart/form-data">
 	                        <div class="form-floating mb-3">
 	                            <input type="text" class="form-control" id="productName" name="productName" placeholder="Product Name" required>
 	                            <label for="productName">Product Name</label>
@@ -224,8 +224,8 @@
          </div>
     </section>
     
+	<!-- Delete Confirmation Modal -->
     <section>
-		<!-- Delete Confirmation Modal -->
 		<div class="modal fade" id="deleteConfirmModal" tabindex="-1">
 		    <div class="modal-dialog modal-dialog-centered">
 		        <div class="modal-content">
@@ -245,6 +245,68 @@
 		    </div>
 		</div>
 	</section>
+	
+	<!-- Edit details modal -->
+    <section>
+    	<div class="modal fade" id="editProductModal" tabindex="-1" aria-hidden="true">
+	        <div class="modal-dialog modal-lg modal-dialog-centered">
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <h5 class="modal-title">Edit Product Details</h5>
+	                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	                </div>
+	                <div class="modal-body">
+	                    <form id="editProductForm" action="" method="POST" enctype="multipart/form-data">
+	                        <div class="form-floating mb-3">
+	                            <input type="text" class="form-control" id="editProductName" name="editProductName" placeholder="Product Name" 
+	                            	value="Garrett Turbocharger" required>
+	                            <label for="editProductName">Product Name</label>
+	                        </div>
+	                        <div class="form-floating mb-3">
+	                            <input type="text" class="form-control" id="editProductCategory" name="editProductCategory" placeholder="Product Category"
+	                            	value="Turbo">
+	                            <label for="editProductCategory">Product Category</label>
+	                        </div>
+	                        <div class="form-floating mb-3">
+	                            <textarea class="form-control" id="editProductDescription" name="editProductDescription" placeholder="Description" 
+	                            	style="height: 100px" required>
+	                            		Garrett Turbochargers are highly advanced forced induction systems designed to enhance engine performance 
+	                            		by compressing air and delivering it to the engine at higher pressure. 
+	                            	</textarea>
+	                            <label for="editProductDescription">Description</label>
+	                        </div>
+	                        <div class="quantityNprice row mb-3">
+	                            <div class="col-md-6">
+	                                <div class="form-floating">
+	                                    <input type="number" class="form-control" id="editProductQuantity" name="editProductQuantity" min="0" placeholder="Quantity" 
+	                                    	value="80" required>
+	                                    <label for="editProductQuantity">Quantity</label>
+	                                </div>
+	                            </div>
+	                            <div class="col-md-6">
+	                                <div class="form-floating">
+	                                    <input type="number" class="form-control" id="editProductPrice" name="editProductPrice" min="0" step="0.01" placeholder="Price (Rs.)" 
+	                                    	value="213,000.00" required>
+	                                    <label for="editProductPrice">Price (Rs.)</label>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="mb-3">
+	                            <label for="editProductImage" class="form-label">Product Image</label>
+	                            <input type="file" class="form-control" id="editProductImage" name="editProductImage" accept="image/*" required>
+	                        </div>
+	                        <div class="mb-3">
+	                            <img id="editImagePreview" src="#" alt="Image Preview" class="img-fluid d-none">
+	                        </div>
+	                        <div class="text-end">
+	                            <button type="submit" class="btn normalBtn">Save</button>
+	                        </div>
+	                    </form>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    </section>
     
 	<!-- Link bootstrap script file -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
