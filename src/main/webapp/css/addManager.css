@@ -1,24 +1,20 @@
-/* General styles */
+/* General Styles */
 body {
     background-color: #1E1E1E; /* Dark background */
     color: white;
 }
 
-/* Style for left and right sections */
+/* Flex Container */
 .flex-container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
-/* Left side (Manager List & Actions) */
-.manage-manager-section {
-    width: 48%;
-}
-
-/* Right side (Add Manager Form) */
-.add-manager-section {
-    width: 48%;
+/* Sections */
+.manage-manager-section, .add-manager-section {
+    flex: 1;
+    min-width: 350px; /* Prevents collapsing on small screens */
 }
 
 /* Cards */
@@ -28,19 +24,9 @@ body {
     border-radius: 8px;
 }
 
-/* Table */
-.table-dark {
-    background-color: #222831;
-    color: white;
-}
-
-.table-dark th {
-    background-color: #393E46;
-}
-
 /* Input Fields */
 .form-control {
-    background-color: #222831;
+    background-color: #A6FF00;
     color: white;
     border: 2px solid transparent;
     padding: 10px;
@@ -57,6 +43,33 @@ body {
     outline: none;
 }
 
+/* Add Manager Modal Specific Styles */
+.add-manager-modal {
+    background-color: #1E1E1E;
+}
+
+.add-manager-modal .modal-content {
+    background-color: #393E46;
+}
+
+.add-manager-modal .modal-header {
+    border-bottom-color: #A6FF00;
+}
+
+.add-manager-modal .form-control {
+    background-color: #A6FF00;
+    color: black;
+}
+
+.add-manager-modal .form-control::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.add-manager-modal .btn-success {
+    background-color: #A6FF00 !important;
+    color: black !important;
+}
+
 /* Buttons */
 .btn-success {
     background-color: #A6FF00 !important; /* Neon Green */
@@ -70,7 +83,6 @@ body {
     background-color: #8FE600 !important; /* Darker Neon Green */
 }
 
-/* Action Buttons */
 .btn-primary {
     background-color: #007BFF !important;
     border: none;
@@ -79,4 +91,26 @@ body {
 .btn-danger {
     background-color: #FF4C4C !important;
     border: none;
+}
+
+/* Table */
+.table-dark {
+    background-color: white !important; /* Change table background to white */
+    color: black !important; /* Ensure text is readable */
+    border-color: #dee2e6; /* Light grey borders */
+}
+
+.table-dark th {
+    background-color: #f8f9fa !important; /* Light grey background for headers */
+    color: black !important; /* Black text for headers */
+}
+
+.table-dark td {
+    color: white !important; /* Black text for table data */
+}
+
+/* Table Borders */
+.table-bordered th, 
+.table-bordered td {
+    border-color: #000040!important; /* Light grey border */
 }
