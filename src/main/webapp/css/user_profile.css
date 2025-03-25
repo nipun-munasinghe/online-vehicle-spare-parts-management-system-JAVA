@@ -51,132 +51,176 @@ h2, h3 {
 
 /*Page's CSS Starts from here */
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 body {
-    background-color: #c0c0c0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Profile Box Styling */
 .profile-box {
-    max-width: 900px;
-    margin: auto;
-    background-color: #ffffff;
-    border-radius: 20px;
+    background-color: #2a2a2a;
+    border-radius: 15px;
     padding: 30px;
-    box-shadow: 8px 8px 16px #b8bcc2, -6px -6px 14px;
-    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-out;
 }
 
-/* Profile Picture Styling */
-.profile-box img {
+.profile-header h2 {
+    margin: 0;
+    animation: slideIn 0.5s ease-out;
+}
+
+.text-lime {
+    color: #32cd32;
+}
+
+.btn-outline-lime {
+    color: #32cd32;
+    border-color: #32cd32;
+}
+
+.btn-outline-lime:hover {
+    background-color: #32cd32;
+    color: #1a1a1a;
+}
+
+.btn-lime {
+    background-color: #32cd32;
+    color: #1a1a1a;
+}
+
+.btn-lime:hover {
+    background-color: #28a428;
+    color: #ffffff;
+}
+
+.profile-image-container {
+    position: relative;
     width: 150px;
     height: 150px;
+    margin: 0 auto;
+    overflow: hidden;
     border-radius: 50%;
-    margin-bottom: 20px;
-    box-shadow: 8px 8px 16px #b8bcc2, -8px -8px 16px #ffffff;
-    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Input Fields Styling */
-.profile-box input {
+.profile-image {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 12px;
-    background-color: #e0e5ec;
-    text-align: center;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-/* Update Button Styling */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.profile-image-container:hover .profile-image {
+    transform: scale(1.1);
+}
+
+.profile-details {
+    margin-top: 30px;
+    animation: slideIn 0.5s ease-out 0.2s both;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.detail-item:hover {
+    background-color: #4a4a4a;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #32cd32;
+    margin-right: 10px;
+}
+
+.detail-value {
+    color: #ffffff;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.modal-header {
+    border-bottom-color: #3a3a3a;
+}
+
+.modal-footer {
+    border-top-color: #3a3a3a;
+}
+
+.form-control {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border-color: #4a4a4a;
+}
+
+.form-control:focus {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border-color: #32cd32;
+    box-shadow: 0 0 0 0.25rem rgba(50, 205, 50, 0.25);
+}
+
 .btn-update {
-    width: 10%;
+    width: 100%;
     padding: 12px;
-    background-color: #4a76a8;
-    color: white;
+    background-color: #2cd349;
+    color: black;
     border: none;
-    border-radius: 12px;
-    box-shadow: 6px 6px 12px #b8bcc2, -6px -6px 12px #ffffff;
+    border-radius: 2px;
+    box-shadow: 2px 2px 4px #ffffff;
     transition: all 0.3s ease;
     font-weight: bold;
     margin-top: 15px;
 }
 
 .btn-update:hover {
-    background-color: #3a5a78;
-    box-shadow: 4px 4px 8px #b8bcc2, -4px -4px 8px #ffffff;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 2px #ffffff;
     transform: translateY(2px);
 }
 
-/* Modal Styling */
-.modal-content {
-    background-color: #e0e5ec;
-    border-radius: 15px;
-    box-shadow: 8px 8px 16px #b8bcc2, -8px -8px 16px #ffffff;
-    border: none;
-}
-
-.modal-header {
-    border-bottom: 1px solid #d1d9e6;
-    background-color: #e0e5ec;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-.modal-footer {
-    border-top: 1px solid #d1d9e6;
-}
-
-.modal-body .form-control {
-    background-color: #e0e5ec;
-    border: none;
-    box-shadow: inset 4px 4px 8px #b8bcc2, inset -4px -4px 8px #ffffff;
-    border-radius: 12px;
-    padding: 10px 15px;
-}
-
-.btn-primary {
-    background-color: #4a76a8;
-    border: none;
-    box-shadow: 6px 6px 12px #b8bcc2, -6px -6px 12px #ffffff;
-    border-radius: 12px;
-    padding: 8px 16px;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #3a5a78;
-    box-shadow: 4px 4px 8px #b8bcc2, -4px -4px 8px #ffffff;
-}
-
-.btn-secondary {
-    background-color: #d1d9e6;
-    color: #555;
-    border: none;
-    box-shadow: 6px 6px 12px #b8bcc2, -6px -6px 12px #ffffff;
-    border-radius: 12px;
-    padding: 8px 16px;
-    transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background-color: #c0c7d2;
-    box-shadow: 4px 4px 8px #b8bcc2, -4px -4px 8px #ffffff;
-}
-.btn{
-	
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .profile-box {
-        width: 90%;
         padding: 20px;
     }
 
-    .profile-box img {
+    .profile-image-container {
         width: 120px;
         height: 120px;
     }
