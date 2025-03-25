@@ -174,3 +174,8 @@ h2, h3 {
 .ae-nav-section .ae-container-nav ul .ae-signup-btn a:hover {
     color: #fff;
 }
+
+.ae-logout-btn:hover {
+    text-decoration: underline;
+    text-decoration-color: #A6FF00;
+}

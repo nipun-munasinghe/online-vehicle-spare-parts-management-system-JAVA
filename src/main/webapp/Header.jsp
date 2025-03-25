@@ -18,6 +18,10 @@
                     <li class="ae-separator">|</li>
                     <li class="ae-nav-item ae-signin-btn"><a href="#">Login</a></li>
                     <li class="ae-nav-item ae-signup-btn"><a href="#">Register</a></li>
+                    <!--<li class="ae-nav-item"><a href="#">My Profile</a></li>
+                    <li class="ae-nav-item ae-logout-btn">
+                    	<a href="#"><i class="bi bi-box-arrow-right"></i> Sign Out</a>
+                    </li>-->
                 </ul>
             </div>
         </nav>

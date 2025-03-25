@@ -33,6 +33,36 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
+// Delete confirmation functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all delete buttons
+    const deleteButtons = document.querySelectorAll('.card__button_delete');
+    const deleteConfirmModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+    const deleteProductIdInput = document.getElementById('deleteProductId');
+    
+    // Add click event to all delete buttons
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Get the product ID from the parent article's data attribute or from the button
+            const productCard = this.closest('.card__article');
+            const productId = productCard.getAttribute('data-product-id') || this.getAttribute('data-product-id');
+            
+            // Store the product ID in the hidden input
+            deleteProductIdInput.value = productId;
+            
+            // Show the confirmation modal
+            deleteConfirmModal.show();
+        });
+    });
+    
+	// Close the modal
+    confirmDeleteBtn.addEventListener('click', function() {
+        deleteConfirmModal.hide();
+    });
+});
+
 /*=============== SWIPER JS ===============*/
 let swiperCards = new Swiper(".card__content", {
   loop: true,
