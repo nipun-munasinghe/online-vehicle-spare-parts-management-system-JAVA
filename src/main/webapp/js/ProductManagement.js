@@ -1,4 +1,4 @@
-// Add Product Form Function
+/*=============== Add Product Form Function ===============*/
 document.addEventListener('DOMContentLoaded', function() {
 	const addProductBtn = document.getElementById('addProductBtn');
 	const addProductModal = new bootstrap.Modal(document.getElementById('addProductModal'));
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
-// Delete confirmation functionality
+/*=============== Delete confirmation functionality ===============*/
 document.addEventListener('DOMContentLoaded', function() {
     // Get all delete buttons
     const deleteButtons = document.querySelectorAll('.card__button_delete');
@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
         deleteConfirmModal.hide();
     });
 });
+
+
 
 /*=============== SWIPER JS ===============*/
 let swiperCards = new Swiper(".card__content", {

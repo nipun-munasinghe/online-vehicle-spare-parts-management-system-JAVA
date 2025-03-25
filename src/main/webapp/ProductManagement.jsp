@@ -269,9 +269,7 @@
 	                        </div>
 	                        <div class="form-floating mb-3">
 	                            <textarea class="form-control" id="editProductDescription" name="editProductDescription" placeholder="Description" 
-	                            	style="height: 100px" required>
-	                            		Garrett Turbochargers are highly advanced forced induction systems designed to enhance engine performance 
-	                            		by compressing air and delivering it to the engine at higher pressure. 
+	                            	style="height: 100px" required>Garrett Turbochargers are highly advanced forced induction systems designed to enhance engine performance by compressing air and delivering it to the engine at higher pressure. 
 	                            	</textarea>
 	                            <label for="editProductDescription">Description</label>
 	                        </div>
@@ -286,7 +284,7 @@
 	                            <div class="col-md-6">
 	                                <div class="form-floating">
 	                                    <input type="number" class="form-control" id="editProductPrice" name="editProductPrice" min="0" step="0.01" placeholder="Price (Rs.)" 
-	                                    	value="213,000.00" required>
+	                                    	value="213000.00" required>
 	                                    <label for="editProductPrice">Price (Rs.)</label>
 	                                </div>
 	                            </div>
@@ -296,7 +294,7 @@
 	                            <input type="file" class="form-control" id="editProductImage" name="editProductImage" accept="image/*" required>
 	                        </div>
 	                        <div class="mb-3">
-	                            <img id="editImagePreview" src="#" alt="Image Preview" class="img-fluid d-none">
+	                            <img id="editImagePreview" src="${pageContext.request.contextPath}/images/products/garrett-turbo.png" alt="Image Preview" class="img-fluid">
 	                        </div>
 	                        <div class="text-end">
 	                            <button type="submit" class="btn normalBtn">Save</button>
