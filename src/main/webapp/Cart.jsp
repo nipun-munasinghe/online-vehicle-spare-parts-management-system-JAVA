@@ -54,8 +54,13 @@
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                             <h6 class="mb-0">€ 44.00</h6>
                           </div>
-                          <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                           <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                            <form action="${pageContext.request.contextPath}/RemoveFromCartServlet" method="post">
+                              <input type="hidden" name="productId" value="wheel">
+                              <button type="submit" class="btn btn-link text-muted">
+                                  <i class="bi bi-x-lg"></i>
+                              </button>
+                            </form>
                           </div>
                         </div>
       
@@ -73,10 +78,15 @@
                             <input id="form1" min="0" name="quantity" value="1" type="number"class="form-control form-control-sm" />
                           </div>
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 class="mb-0">€ 44.00</h6>
+                            <h6 class="mb-0">Rs. 44.00</h6>
                           </div>
-                          <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                            <form action="${pageContext.request.contextPath}/RemoveFromCartServlet" method="post">
+                              <input type="hidden" name="productId" value="wheel">
+                              <button type="submit" class="btn btn-link text-muted">
+                                  <i class="bi bi-x-lg"></i>
+                              </button>
+                            </form>
                           </div>
                         </div>
       
@@ -96,15 +106,20 @@
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                             <h6 class="mb-0">€ 44.00</h6>
                           </div>
-                          <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                            <form action="${pageContext.request.contextPath}/RemoveFromCartServlet" method="post">
+                              <input type="hidden" name="productId" value="wheel">
+                              <button type="submit" class="btn btn-link text-muted">
+                                  <i class="bi bi-x-lg"></i>
+                              </button>
+                            </form>
                           </div>
                         </div>
                         <hr class="my-4">
                         <!-- Back to shop -->
                         <div class="pt-3">
                             <a href="${pageContext.request.contextPath}/products.jsp">
-                            <button type="button"class="btn btn-primary btn-lg ">Back to Shop</button>
+                            <button type="button" id="btnstyle" class="btn btn-primary custom-button">Back to Shop</button>
                         </a>
                         </div>
                       </div>
@@ -134,7 +149,7 @@
                         <!-- Payment Page -->
                         <div class="pt-3">
                           <a href="${pageContext.request.contextPath}/Payment.jsp">
-                        <button type="button"class="btn btn-primary btn-lg ">Check Out</button>
+                        <button type="button"class="btn btn-primary custom-button">Check Out</button>
                       </a>
                         </div>
                     </div>
@@ -144,6 +159,7 @@
             </div>
           </div>
         </div>
+      </div>
       </section>
 	<!-- include footer -->
     <jsp:include page="Footer.jsp"/>

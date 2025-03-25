@@ -51,3 +51,12 @@ h2, h3 {
 }
 
 /*Page's CSS Starts from here */
+.custom-button{
+    background-color: #A6FF00 !important;
+    color: #242323 !important;
+    font-weight: 600 !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+}
