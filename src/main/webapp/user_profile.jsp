@@ -19,53 +19,60 @@
     
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
     
+    <!-- Link bootstrap script file -->
+   <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
+    
+     <script src="${pageContext.request.contextPath}/js/user_profile.js" defer></script>
+
+     
+     <!-- include header -->
+    <jsp:include page="Header.jsp"/>
     
      <!-- include top bar -->
     <jsp:include page="TopBar.jsp"/>
     
-    <!-- include header -->
-    <jsp:include page="Header.jsp"/>
+    
      
 </head>
 <body>
 	
     
-   <div class="container mt-5">
-        <!-- Profile Box -->
-        <div class="profile-box">
-            <!-- Header with Title and Dropdown -->
-            <div class="profile-header d-flex justify-content-between align-items-center mb-3">
-                <h3 class="text-dark">Your Profile</h3>
-                <!-- Dropdown Button -->
-                <div class="dropdown">
-                    <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">☰</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="javascript:void(0);" onclick="showUpdatePopup()">Update Profile</a></li>
-                        <li><a class="dropdown-item text-danger" href="javascript:void(0);" onclick="showDeletePopup()">Delete Profile</a></li>
-                    </ul>
-                </div>
+ <div class="container mt-5">
+    <!-- Profile Box -->
+    <div class="profile-box">
+        <!-- Header with Title and Dropdown -->
+        <div class="profile-header d-flex justify-content-between align-items-center mb-3">
+            <h3 class="text-dark">Your Profile</h3>
+            <!-- Dropdown Button -->
+            <div class="dropdown">
+                <button class="btn btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">☰</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item text-danger" href="javascript:void(0);" onclick="showDeletePopup()">Delete Profile</a></li>
+                </ul>
             </div>
-            <!-- Profile Content -->
-            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="mb-3">
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" class="form-control mb-2" readonly>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" class="form-control mb-2" readonly>
-
-                <label for="userID">User ID:</label>
-                <input type="text" id="userID" class="form-control mb-2" readonly>
-            </form>
         </div>
+        <!-- Profile Content -->
+        <img src="${pageContext.request.contextPath}/images/car1.jpg" alt="Profile Picture" class="profile-image mb-3">
+        
+        <p><span>FIRST NAME:</span></p>
+                <p><span>LAST NAME:</span></p>
+                <p><span>EMAIL:</span></p>
+                <p><span>PASSWORD</span></p>
+                <p><span>ADDRESS:</span></p>
+                <p><span>PHONE:</span></p>
+        
+        <button class="btn-update" type="button" >Edit</button>
     </div>
+</div>
+
+ <br><br>
+ 
   
 	<!-- include footer -->
     <jsp:include page="Footer.jsp"/>
     
-	<!-- Link bootstrap script file -->
-   <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
+	
 
-    <script src="user_profile.js"></script>
+   
 </body>
 </html>
