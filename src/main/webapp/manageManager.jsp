@@ -97,14 +97,7 @@
                           <td>+94 77 987 6543</td>
                           <td>Inactive</td>
                       </tr>
-                      
-                       <tr class="clickable-row">
-                           <td>Ruwan</td>
-                           <td>Silva</td>
-                           <td>ruwan.silva@example.lk</td>
-                           <td>+94 76 123 4567</td>
-                           <td>Active</td>
-                        </tr>
+
 
                     </table>
                 </div>
@@ -120,7 +113,8 @@
                 <i class="bi bi-person-plus-fill"></i> Add Manager
                 </h5>
    
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close">
+                </button>
                       </div>
 
                             <!-- Modal Body - Add Manager Form -->
@@ -129,18 +123,23 @@
                                     <div class="mb-3">
                                         <input type="text" class="form-control" placeholder="First Name" required>
                                     </div>
+                                    
                                     <div class="mb-3">
                                         <input type="text" class="form-control" placeholder="Last Name" required>
                                     </div>
+                                    
                                     <div class="mb-3">
                                         <input type="email" class="form-control" placeholder="E-mail" required>
                                     </div>
+                                    
                                     <div class="mb-3">
                                         <input type="text" class="form-control" placeholder="Phone Number" required>
                                     </div>
+                                    
                                     <div class="mb-3">
                                         <input type="password" class="form-control" placeholder="Password" required>
                                     </div>
+                                    
                                     <button type="submit" class="btn btn-success w-100">
                                         <i class="bi bi-plus-circle-fill"></i> Add
                                     </button>
