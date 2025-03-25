@@ -24,7 +24,7 @@
     <!-- include top bar -->
     <jsp:include page="TopBar.jsp"/>
     
-    
+      
     <!-- products cards -->
       <!-- trending -->
       <div class="container py-2">
