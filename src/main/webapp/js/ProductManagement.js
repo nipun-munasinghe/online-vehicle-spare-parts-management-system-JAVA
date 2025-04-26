@@ -63,7 +63,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
+/*=============== Edit Product functionality ===============*/
+document.addEventListener('DOMContentLoaded', function() {
+	const addProductBtn = document.querySelectorAll('.card__button_edit');
+	const addProductModal = new bootstrap.Modal(document.getElementById('editProductModal'));
+	const addProductForm = document.getElementById('editProductForm');
+	const imagePreview = document.getElementById('editImagePreview');
+	const productImage = document.getElementById('editProductImage');
+	
+	addProductBtn.addEventListener('click', function() {
+		addProductModal.show();
+	});
+	
+	productImage.addEventListener('change', function(event) {
+		const file = event.target.files[0];
+		if(file) {
+			const reader = new FileReader();
+			reader.onload = function(e) {
+				imagePreview.src = e.target.result;
+				imagePreview.classList.remove('d-none');
+			}
+			reader.readAsDataURL(file);
+		}
+	});
+	
+	addProductForm.addEventListener('submit', function(event) {
+	    event.preventDefault();
+	    // Send the form data to server
+	    console.log('Form submitted:', new FormData(addProductForm));
+	    addProductModal.hide();
+	    addProductForm.reset();
+	    imagePreview.src = '#';
+	    imagePreview.classList.add('d-none');
+	});
+});
 
 /*=============== SWIPER JS ===============*/
 let swiperCards = new Swiper(".card__content", {
