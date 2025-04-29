@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manage_msg.css">
 </head>
+
 <body>
     <!-- Include Header and Top Bar -->
     <jsp:include page="Header.jsp" />
@@ -29,38 +30,39 @@
             <table class="table table-dark table-bordered text-center">
                 <thead>
                     <tr>
-                        <th>Message ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Message</th>
-                        <th>Status</th>
+                        <th> Message ID </th>
+                        <th> Name </th>
+                        <th> Email </th>
+                        <th> Message </th>
+                        <th> Status </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>01</td>
-                        <td>Kasun Perera</td>
-                        <td>kasun.perera@email.lk</td>
-                        <td>Need help with my account.</td>
-                        <td><span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Pending</span></td>
-
+                        <td> Kasun Perera</td>
+                        <td> kasun.pere43ra@email.lk </td>
+                        <td> Need help with my account.</td>
+                        <td><span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Pending </span></td>
                     </tr>
+                    
                     <tr>
                         <td>02</td>
-                        <td>Thilini Silva</td>
-                        <td>thilini.silva@email.lk</td>
-                        <td>Requesting transaction details.</td>
-                        <td><span class="badge bg-success"><i class="bi bi-check-circle"></i> Read</span></td>
+                        <td> Thilini Silva </td>
+                        <td> thilini.silva23@email.lk </td>
+                        <td> Requesting transaction details.</td>
+                        <td><span class="badge bg-success"><i class="bi bi-check-circle"></i> Read </span></td>
                     </tr>
+                    
                     <tr>
                         <td>03</td>
-                        <td>Amal Fernando</td>
-                        <td>amal.fernando@email.lk</td>
-                        <td>Issue with login credentials.</td>
-                        <td><span class="badge bg-danger"><i class="bi bi-envelope"></i> Unread</span></td>
-
+                        <td> Amal Fernando </td>
+                        <td> amal.fernando78@email.lk </td>
+                        <td> Issue with login credentials.</td>
+                        <td><span class="badge bg-danger"><i class="bi bi-envelope"></i> Unread </span></td>
                     </tr>
                 </tbody>
+                
             </table>
         </div>
     </div>
