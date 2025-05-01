@@ -19,17 +19,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/TopBar.css">
 </head>
 <body>
+	<!-- Hidden Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <jsp:include page="SideBar.jsp"/>
+        </aside>
+        
     <nav class="custom-navbar custom-navbar-expand-md topbar my-4 mx-2">
         <div class="container-fluid navbar-div">
             <i class="bi bi-list" id="toggle-sidebar" title="Open Dashboard"></i>
             <h1 class="custom-navbar-brand mb-0">Welcome UserName!</h1>
-            
-            <div class="collapse custom-navbar-collapse" id="navbarContent">
-                <ul class="custom-navbar-nav ms-auto mb-2 mb-md-0">
-                    <!-- Add navigation items here if needed -->
-                    <li></li>
-                </ul>
-            </div>
         </div>
     </nav>
 	
@@ -37,6 +35,6 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
     
     <!-- Link script file -->
-    <script src="${pageContext.request.contextPath}/js/TopBar.js"></script>
+    <script src="${pageContext.request.contextPath}/js/SideBar.js"></script>
 </body>
 </html>
