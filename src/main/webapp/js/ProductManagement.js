@@ -65,37 +65,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*=============== Edit Product functionality ===============*/
 document.addEventListener('DOMContentLoaded', function() {
-	const addProductBtn = document.querySelectorAll('.card__button_edit');
-	const addProductModal = new bootstrap.Modal(document.getElementById('editProductModal'));
-	const addProductForm = document.getElementById('editProductForm');
-	const imagePreview = document.getElementById('editImagePreview');
-	const productImage = document.getElementById('editProductImage');
-	
-	addProductBtn.addEventListener('click', function() {
-		addProductModal.show();
-	});
-	
-	productImage.addEventListener('change', function(event) {
-		const file = event.target.files[0];
-		if(file) {
-			const reader = new FileReader();
-			reader.onload = function(e) {
-				imagePreview.src = e.target.result;
-				imagePreview.classList.remove('d-none');
-			}
-			reader.readAsDataURL(file);
-		}
-	});
-	
-	addProductForm.addEventListener('submit', function(event) {
-	    event.preventDefault();
-	    // Send the form data to server
-	    console.log('Form submitted:', new FormData(addProductForm));
-	    addProductModal.hide();
-	    addProductForm.reset();
-	    imagePreview.src = '#';
-	    imagePreview.classList.add('d-none');
-	});
+    // Get all edit buttons
+    const editButtons = document.querySelectorAll('.card__button_edit');
+    const editProductModal = new bootstrap.Modal(document.getElementById('editProductModal'));
+    const editProductForm = document.getElementById('editProductForm');
+    const editImagePreview = document.getElementById('editImagePreview');
+    const editProductImage = document.getElementById('editProductImage');
+    
+    // Add click event to all edit buttons
+    editButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Get the product ID from the parent article
+            const productCard = this.closest('.card__article');
+            const productId = productCard.getAttribute('data-product-id');
+            
+            // Here you would typically fetch the product data from your server
+            // For now, we'll just show the modal with the existing form data
+            editProductModal.show();
+        });
+    });
+    
+    editProductImage.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                editImagePreview.src = e.target.result;
+                editImagePreview.classList.remove('d-none');
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+    
+    editProductForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Send the form data to server
+        console.log('Form submitted:', new FormData(editProductForm));
+        editProductModal.hide();
+    });
 });
 
 /*=============== SWIPER JS ===============*/
