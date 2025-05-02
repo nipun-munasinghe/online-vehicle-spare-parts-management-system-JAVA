@@ -1,71 +1,155 @@
+/* Sidebar Overlay for mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(34, 40, 49, 0.5);
+    z-index: 1040;
+    transition: opacity 0.3s;
+}
+
+.sidebar.active ~ .sidebar-overlay {
+    display: block;
+    opacity: 1;
+}
+
 /* Sidebar Styling */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background: #4CAF50;
+    left: -270px;
+    width: 260px;
+    height: 100vh;
+    background: linear-gradient(160deg, #222831 60%, #A6FF00 100%);
     color: #fff;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
+    box-shadow: 2px 0 16px rgba(0,0,0,0.15);
+    border-radius: 0 18px 18px 0;
+    z-index: 1050;
+    transition: left 0.35s cubic-bezier(.4,2,.3,1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    overflow: hidden;
 }
 
-.sidebar-header {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.sidebar-header h2 {
-    font-size: 18px;
-}
-
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-menu li {
-    padding: 15px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-
-.sidebar-menu li a{
-    text-decoration: none;
-    color: #fff;
-}
-
-.sidebar-menu li:hover {
-    background-color: #3E8E41;
-}
-
-.sidebar-menu i {
-    margin-right: 10px;
-}
-
-/* Close Icon */
-#close-sidebar {
-    cursor: pointer;
-}
-
-/* Sidebar Toggle Styling */
 .sidebar.active {
     left: 0;
 }
 
-/* Main Content Styling */
-.main-content {
-    flex-grow: 1;
-    padding: 20px;
-    margin-left: 60px;
+.sidebar-header {
+    padding: 1.5rem 1.2rem 1rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(166,255,0,0.15);
+    border-bottom: 1px solid #A6FF00;
+}
+
+.sidebar-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #A6FF00;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+#close-sidebar {
+    font-size: 1.5rem;
+    color: #A6FF00;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+#close-sidebar:hover {
+    color: #fff;
+    background: #A6FF00;
+    border-radius: 50%;
+}
+
+.sidebar-menu {
+    flex: 1 1 auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: transparent;
+}
+
+.sidebar-menu li {
+    margin: 0.5rem 0.5rem;
+    border-radius: 10px;
+    transition: background 0.2s, color 0.2s;
+    overflow: hidden;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.2s, color 0.2s;
+    gap: 0.75rem;
+}
+
+.sidebar-menu li a i {
+    font-size: 1.25rem;
+    color: #A6FF00;
+    transition: color 0.2s;
+}
+
+.sidebar-menu li a:hover, .sidebar-menu li.active a {
+    background: linear-gradient(90deg, #A6FF00 30%, #393E46 100%);
+    color: #222831;
+}
+
+.sidebar-menu li a:hover i, .sidebar-menu li.active a i {
+    color: #222831;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        left: -270px;
+        width: 80vw;
+        max-width: 300px;
+        border-radius: 0 18px 18px 0;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .sidebar-overlay {
+        display: block;
+    }
+}
+
+/* Optional: Hide sidebar on small screens when not active */
+@media (max-width: 767.98px) {
+    .sidebar {
+        width: 90vw;
+        max-width: 330px;
+    }
+}
+
+/* Scrollbar styling for sidebar */
+.sidebar-menu {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #A6FF00 #222831;
+}
+.sidebar-menu::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-menu::-webkit-scrollbar-thumb {
+    background: #A6FF00;
+    border-radius: 10px;
+}
+.sidebar-menu::-webkit-scrollbar-track {
+    background: #222831;
+}
+
+/* Make sure main content doesn't shift when sidebar opens */
+body {
+    overflow-x: hidden;
 }
