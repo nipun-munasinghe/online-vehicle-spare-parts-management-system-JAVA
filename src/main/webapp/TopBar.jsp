@@ -20,9 +20,9 @@
 </head>
 <body>
 	<!-- Hidden Sidebar -->
-        <aside id="sidebar" class="sidebar">
-            <jsp:include page="SideBar.jsp"/>
-        </aside>
+    <aside id="sidebar" class="sidebar ">
+    	<jsp:include page="SideBar.jsp"/>
+    </aside>
         
     <nav class="custom-navbar custom-navbar-expand-md topbar my-4 mx-2">
         <div class="container-fluid navbar-div">

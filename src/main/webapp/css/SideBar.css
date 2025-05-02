@@ -17,7 +17,7 @@
 .sidebar {
     position: fixed;
     top: 0;
-    left: -270px;
+    left: 0;
     width: 260px;
     height: 100vh;
     background: linear-gradient(160deg, #222831 60%, #A6FF00 100%);
@@ -25,15 +25,16 @@
     box-shadow: 2px 0 16px rgba(0,0,0,0.15);
     border-radius: 0 18px 18px 0;
     z-index: 1050;
-    transition: left 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.sidebar.active {
+    transform: translateX(0);
 }
 
-.sidebar.active {
-    left: 0;
-}
 
 .sidebar-header {
     padding: 1.5rem 1.2rem 1rem 1.2rem;
