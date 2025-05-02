@@ -25,7 +25,7 @@
     box-shadow: 2px 0 16px rgba(0,0,0,0.15);
     border-radius: 0 18px 18px 0;
     z-index: 1050;
-    transition: left 0.35s cubic-bezier(.4,2,.3,1);
+    transition: left 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -62,8 +62,6 @@
 }
 #close-sidebar:hover {
     color: #fff;
-    background: #A6FF00;
-    border-radius: 50%;
 }
 
 .sidebar-menu {
@@ -124,7 +122,7 @@
     }
 }
 
-/* Optional: Hide sidebar on small screens when not active */
+/* Hide sidebar on small screens when not active */
 @media (max-width: 767.98px) {
     .sidebar {
         width: 90vw;

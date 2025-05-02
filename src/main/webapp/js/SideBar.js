@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const toggleSidebar = document.getElementById('toggle-sidebar');
     const closeSidebar = document.getElementById('close-sidebar');

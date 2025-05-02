@@ -23,10 +23,10 @@
                 <i class='bi bi-x-circle' id='close-sidebar' title='Close Dashboard'></i>
     </div>
             <ul class='sidebar-menu'>
-                <li><a href='./customer.php' title='Your Profile'><i class='bi bi-person-circle'></i> My Profile</a></li>
-                <li><a href='./products.php' title='Browse Products'><i class='bi bi-box'></i> Products</a></li>
-                <li><a href='./accSettings.php' title='Edit profile & Change password'><i class='bi bi-gear'></i> Settings</a></li>
-                <li><a href='./logout.php' title='Logout'><i class='bi bi-door-open'></i> Logout</a></li>
+                <li><a href='${pageContext.request.contextPath}/user_profile.jsp' title='Your Profile'><i class='bi bi-person-circle'></i> My Profile</a></li>
+                <li><a href='${pageContext.request.contextPath}/products.jsp' title='Browse Products'><i class='bi bi-box'></i> Products</a></li>
+                <li><a href='${pageContext.request.contextPath}/update_profile.jsp' title='Edit profile & Change password'><i class='bi bi-gear'></i> Settings</a></li>
+                <li><a href='${pageContext.request.contextPath}/' title='Logout'><i class='bi bi-door-open'></i> Logout</a></li>
             </ul>
     
 	<!-- Link bootstrap script file -->
