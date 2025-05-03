@@ -82,4 +82,10 @@ public class ProductModel {
 	public void setpImg(String pImg) {
 		this.pImg = pImg;
 	}
+	
+	@Override
+	public String toString() {
+		return "Product [Pid=" + pId + ", pName=" + pName + ", pCategory=" +
+				pCategory + ", pPrice=" + pPrice +", pQuantity=" + pQuantity + "]";
+	}
 }
