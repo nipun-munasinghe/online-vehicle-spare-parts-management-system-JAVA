@@ -154,16 +154,16 @@ INSERT INTO customer (u_id, address, phone) VALUES
 
 -- 6. Products
 INSERT INTO product (p_name, p_category, p_price, p_quantity, p_description, p_image) VALUES
-('Ceylon Tea Pack', 'Beverages', 1500.00, 100, 'Premium Ceylon black tea.', NULL),
-('Coconut Oil Bottle', 'Food', 500.00, 200, 'Pure coconut oil.', NULL),
-('Handloom Saree', 'Apparel', 3500.00, 50, 'Traditional handloom saree.', NULL),
-('Spice Mix Pack', 'Food', 800.00, 150, 'Assorted Sri Lankan spices.', NULL),
-('Wooden Mask', 'Crafts', 2500.00, 30, 'Handcrafted wooden mask.', NULL),
-('Gemstone Ring', 'Jewelry', 12000.00, 20, 'Blue sapphire ring.', NULL),
-('Ayurvedic Balm', 'Healthcare', 300.00, 500, 'Herbal pain relief balm.', NULL),
-('Leather Wallet', 'Accessories', 1000.00, 100, 'Genuine leather wallet.', NULL),
-('Ceramic Vase', 'Home Decor', 2000.00, 40, 'Decorative ceramic vase.', NULL),
-('Batik Shirt', 'Apparel', 1800.00, 60, 'Colorful batik shirt.', NULL);
+('McLaren 720S Carbon Fiber Hood', 'Body Parts', 1501647.00, 5, 'Genuine carbon fiber replacement hood for McLaren 720S, reduces weight and enhances aerodynamics', 'mclaren_hood.jpg'),
+('Lamborghini Aventador SVJ Brake Kit', 'Braking System', 1051152.00, 8, 'High-performance ceramic brake kit for Lamborghini Aventador SVJ with improved stopping power', 'lambo_brakes.jpg'),
+('Ferrari Performance ECU', 'Electronics', 840921.00, 3, 'Programmable engine control unit for Ferrari models with custom mapping capabilities', 'ferrari_ecu.jpg'),
+('Bugatti Chiron Oil Filter Set', 'Engine Components', 150162.00, 15, 'Premium oil filtration system specifically designed for Bugatti Chiron W16 engine', 'bugatti_filter.jpg'),
+('Porsche 911 GT2 RS Exhaust System', 'Exhaust', 1591746.00, 4, 'Titanium full exhaust system for Porsche 911 GT2 RS with valve control', 'porsche_exhaust.jpg'),
+('Koenigsegg Jesko Carbon Fiber Spoiler', 'Aerodynamics', 2402637.00, 2, 'Authentic carbon fiber rear spoiler for Koenigsegg Jesko with adjustable angle', 'koenigsegg_spoiler.jpg'),
+('Aston Martin DBS Superleggera Wheel Set', 'Wheels', 1952142.00, 6, 'Forged aluminum wheel set for Aston Martin DBS Superleggera, 20-inch front, 21-inch rear', 'aston_wheels.jpg'),
+('Ford GT Performance Suspension Kit', 'Suspension', 1171284.00, 7, 'Adjustable coilover suspension kit for Ford GT with track-focused setup options', 'fordgt_suspension.jpg'),
+('Pagani Huayra Interior Trim Kit', 'Interior', 2702967.00, 3, 'Handcrafted carbon fiber and leather interior trim kit for Pagani Huayra', 'pagani_interior.jpg'),
+('Rimac Nevera Battery Management System', 'Electric Components', 1381515.00, 4, 'Advanced battery management system for Rimac Nevera electric hypercar', 'rimac_bms.jpg');
 
 -- Insert Payments
 INSERT INTO payment (card_number, expiry_date, cvc_value, total_price, customer_id, o_id)
