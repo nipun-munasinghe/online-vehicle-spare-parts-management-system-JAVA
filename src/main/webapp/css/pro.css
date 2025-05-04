@@ -1,0 +1,199 @@
+/* Main Styles */
+@font-face {/* Poppins Regular */
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {/* Roboto Semi Bold */
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-SemiBold.woff2') format('woff2');
+    font-weight: 600; /* Semi Bold */
+    font-style: normal;
+}
+
+@font-face {/* Roboto Bold */
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: linear-gradient(#222831, #F7F7F7);
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* Bold */
+}
+
+h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600; /* Semi-bold */
+}
+
+/*Page's CSS Starts from here */
+
+
+.maincontainer{
+	width: 100%;
+	
+	display: flex;
+	flex-direction: row;
+	min-height: 100vh;
+	margin-top: 30px;
+	margin-bottom: 25px;
+}
+
+.leftsect{
+	width: 40%;
+}
+
+.rightsect{
+	width: 60%;
+	
+	
+	
+}
+
+.rightsect input{
+	height: 50px;
+	border-radius: 10px;
+	border: none;
+	padding-left: 10px;
+	
+}
+
+.rowscontainer{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
+.rows{
+	margin-top: 10px;
+}
+
+.doublerows{
+	display: flex;
+	flex-direction: row;
+}
+
+.lableinput{
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+}
+
+.lableinput input{
+	width: 320px;
+}
+
+.singlerow input{
+	width: 670px;
+}
+
+.lableinput label{
+	font-size: 16px;
+	margin-bottom: 3px;
+}
+
+/* Floating Section */
+
+.floatsect {
+	position: sticky;
+	height: 70vh;
+	width: 75%;
+	top: 10vh;
+	border-radius: 20px;
+	margin: 20px auto;
+	box-shadow: 0px 0px 4px 2px rgba(143,143,143,1);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.profileimg img{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	margin-top: 10px;
+}
+
+.profileimg{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.links {
+	margin-top: 40px;
+}
+
+.links p{
+	margin-top: 10px;
+}
+
+.links a{
+	text-decoration: none;
+	color: black;
+	font-size: 17px;
+	transition: 0.5s;
+}
+
+.links a:hover{
+	color: #F27B12;
+}
+
+.profileimg h2{
+	margin-top: 30px;
+	
+}
+
+/* Buttons */
+
+input#deleteacc{
+	background-color: rgb(0, 0, 0);
+font-size: 30px;
+	height: 45px;
+	margin-top: 60px;
+}
+
+input.submitbtn{
+	background-color: #A6FF00;
+	color: #000000;
+	border: none;
+	font-weight:bold;
+	width: 170px;
+	margin-top: 5px;
+}
+
+input.submitbtn:hover{
+	opacity: 85%;
+}
+
+#error {
+    color: red;
+    text-align: center;
+    margin-bottom: 3px;
+}
