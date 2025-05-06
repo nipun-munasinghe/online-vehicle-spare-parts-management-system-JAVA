@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -122,7 +124,9 @@
 	                        <p class="card__description">ID: ${product.pId}</p>
 	                        <p class="card__description">Quantity: ${product.pQuantity}</p>
 	                        <p class="card__description">Category: ${product.pCategory}</p>
-	                        <p class="card__price">Rs.${product.pPrice}</p>
+	                        <p class="card__price">
+							   Rs.<fmt:formatNumber value="${product.pPrice}" type="number" maxFractionDigits="2" minFractionDigits="2" />
+							</p>
 	      					<div class="column d-flex gap-2">
 	      						<a href="#" class="card__button_edit"><i class="bi bi-pencil-square"></i></a>
 	      						<a href="#" class="card__button_delete"><i class="bi bi-trash"></i></a>
