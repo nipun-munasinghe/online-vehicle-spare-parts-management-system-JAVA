@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import Model.ProductModel;
 import Service.ProductMngDB;
 
+@SuppressWarnings("serial")
 @WebServlet("/products")
 public class ProductMngServlet extends HttpServlet {
 	
