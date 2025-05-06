@@ -72,17 +72,30 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>Nimali</td>
-								<td>Fernando</td>
-								<td>nimali.fernando@gmail.com</td>
-								<td>+94 77 987 6543</td>
-								<td>Inactive</td>
-							</tr>
+							<c:choose>
+								<c:when test="${not empty managerList}">
+									<c:forEach items="${managerList}" var="manager">
+										<tr>
+											<td>${manager.firstName}</td>
+											<td>${manager.lastName}</td>
+											<td>${manager.email}</td>
+											<td>${manager.phoneNumber}</td>
+											<td><span
+												class="badge ${manager.status eq 'Active' ? 
+                                    'bg-success' : 'bg-danger'}">
+													${manager.status} </span></td>
+										</tr>
+									</c:forEach>
+								</c:when>
+								<c:otherwise>
+									<tr>
+										<td colspan="5" class="text-center">No managers found</td>
+									</tr>
+								</c:otherwise>
+							</c:choose>
 						</tbody>
 					</table>
 				</div>
-
 				<!-- Modal -->
 				<div class="modal fade" id="addManagerModal" tabindex="-1"
 					aria-labelledby="addManagerModalLabel" aria-hidden="true">
@@ -96,6 +109,7 @@
 									data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
+
 								<form action="managerServlet" method="post">
 									<div class="mb-3">
 										<input type="text" class="form-control" name="firstName"
