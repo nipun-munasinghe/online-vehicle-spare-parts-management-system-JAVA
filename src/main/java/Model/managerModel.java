@@ -4,20 +4,20 @@ public class managerModel {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String phoneNumber;
+	private String phone;
 	private String password;
 	private String status;
 
-	public managerModel(String firstName, String lastName, String email, String phoneNumber, String password,
-			String status) {
+	public managerModel(String firstName, String lastName, String email, String phone, String password, String status) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.phoneNumber = phoneNumber;
+		this.phone = phone;
 		this.password = password;
 		this.status = status;
 	}
 
+	// Getters
 	public String getFirstName() {
 		return firstName;
 	}
@@ -31,7 +31,7 @@ public class managerModel {
 	}
 
 	public String getPhoneNumber() {
-		return phoneNumber;
+		return phone;
 	}
 
 	public String getPassword() {
@@ -40,9 +40,5 @@ public class managerModel {
 
 	public String getStatus() {
 		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 }
