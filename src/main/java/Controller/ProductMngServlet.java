@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import Model.ProductModel;
 import Service.ProductMngDB;
 
-@WebServlet("/*")
+@WebServlet("/products")
 public class ProductMngServlet extends HttpServlet {
 	
 	@Override
