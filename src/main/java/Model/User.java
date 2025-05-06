@@ -23,6 +23,14 @@ public class User {
 		
 	}
 
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(String firstName, String lastName, String email, String phoneNumber, String password) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getU_id() {
 		return u_id;
 	}
