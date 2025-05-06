@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add Manager</title>
+<title>Manager Management</title>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -29,13 +30,12 @@
 			<div class="col-12">
 
 				<!-- Manager Action Section -->
-				<h2 class="text-white">Check, Activate, Deactivate, and Remove
-					Managers</h2>
+				<h2 class="text-white">Manager Actions</h2>
 				<div class="card p-4 mb-4">
-					<form action="${pageContext.request.contextPath}/AddManager"
+					<form action="${pageContext.request.contextPath}/managerActions"
 						method="post" class="d-flex flex-wrap gap-2">
 						<input type="email" class="form-control" name="managerEmail"
-							placeholder="Enter an email to check" required>
+							placeholder="Enter manager email" required>
 						<button type="submit" name="action" value="activate"
 							class="btn btn-success">
 							<i class="bi bi-check-circle-fill"></i> Activate
@@ -62,12 +62,12 @@
 
 				<div class="table-responsive">
 					<table class="table table-dark table-bordered">
-						<thead>
+						<thead class="table-light">
 							<tr>
 								<th>First Name</th>
 								<th>Last Name</th>
 								<th>Email</th>
-								<th>Phone Number</th>
+								<th>Phone</th>
 								<th>Status</th>
 							</tr>
 						</thead>
@@ -82,61 +82,70 @@
 											<td>${manager.phoneNumber}</td>
 											<td><span
 												class="badge ${manager.status eq 'Active' ? 
-                                    'bg-success' : 'bg-danger'}">
+                                                    'bg-success' : 'bg-danger'} text-uppercase">
 													${manager.status} </span></td>
 										</tr>
 									</c:forEach>
 								</c:when>
 								<c:otherwise>
 									<tr>
-										<td colspan="5" class="text-center">No managers found</td>
+										<td colspan="5" class="text-center text-warning">No
+											managers found in the system</td>
 									</tr>
 								</c:otherwise>
 							</c:choose>
 						</tbody>
 					</table>
 				</div>
-				<!-- Modal -->
+
+				<!-- Add Manager Modal -->
 				<div class="modal fade" id="addManagerModal" tabindex="-1"
 					aria-labelledby="addManagerModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content bg-dark text-white">
 							<div class="modal-header border-0">
 								<h5 class="modal-title" id="addManagerModalLabel">
-									<i class="bi bi-person-plus-fill"></i> Add Manager
+									<i class="bi bi-person-plus-fill"></i> Register New Manager
 								</h5>
 								<button type="button" class="btn-close btn-close-white"
 									data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-
-								<form action="managerServlet" method="post">
+								<form action="${pageContext.request.contextPath}/managerServlet"
+									method="post" id="managerForm">
 									<div class="mb-3">
+
 										<input type="text" class="form-control" name="firstName"
 											placeholder="First Name" required>
 									</div>
 									<div class="mb-3">
+
 										<input type="text" class="form-control" name="lastName"
 											placeholder="Last Name" required>
 									</div>
 									<div class="mb-3">
+
 										<input type="email" class="form-control" name="email"
 											placeholder="Email" required>
 									</div>
 									<div class="mb-3">
-										<input type="text" class="form-control" name="phone"
-											placeholder="Phone Number" required>
+
+										<input type="tel" class="form-control" name="phone"
+											placeholder="Phone Number" pattern="[0-9]{10}" required>
 									</div>
 									<div class="mb-3">
+
 										<input type="password" class="form-control" name="password"
-											placeholder="Password" required>
+											placeholder="Password" minlength="8" required>
 									</div>
 									<div class="mb-3">
-										<input type="text" class="form-control" name="status"
-											placeholder="Active/Inactive">
+										<select class="form-select" name="status" required>
+											<option value="Active">Active</option>
+											<option value="Inactive">Inactive</option>
+										</select>
 									</div>
 									<button type="submit" class="btn btn-success w-100">
-										<i class="bi bi-plus-circle-fill"></i> Add Manager
+										<i class="bi bi-plus-circle-fill"></i> Register Manager
 									</button>
 								</form>
 							</div>
@@ -148,7 +157,9 @@
 		</div>
 	</div>
 
+	<!-- Scripts -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

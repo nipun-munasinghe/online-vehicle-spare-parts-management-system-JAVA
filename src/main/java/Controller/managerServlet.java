@@ -28,6 +28,6 @@ public class ManagerServlet extends HttpServlet {
         } catch (Exception e) {
             request.setAttribute("message", "Error: " + e.getMessage());
         }
-        request.getRequestDispatcher("/addManager.jsp").forward(request, response);
+        request.getRequestDispatcher("/manageManager.jsp").forward(request, response);
     }
 }
