@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ page import="Model.User"%>
 
 <%
@@ -7,6 +8,15 @@ User usr = (User) request.getAttribute("user");
 if (usr == null) {
 	response.sendRedirect("index.jsp"); // Redirect if user is not found
 }
+=======
+	<%@ page import="Model.User"  %>
+	
+	<%
+    User usr = (User) request.getAttribute("user");
+    if (usr == null) {
+        response.sendRedirect("hero.jsp"); // Redirect if user is not found
+    }
+>>>>>>> 2859ece9f6b9ab705a6b94f9d4f1e888307b4b2b
 %>
 <!DOCTYPE html>
 <html>
