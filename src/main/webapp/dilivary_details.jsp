@@ -43,15 +43,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Customer Name">John Smith</td>
-                        <td data-label="Address">123 Main St, Anytown, USA</td>
-                        <td data-label="Phone No">555-123-4567</td>
-                        <td data-label="Product No">PRD-001</td>
+                        <td data-label="Customer Name"></td>
+                        <td data-label="Address"></td>
+                        <td data-label="Phone No"></td>
+                        <td data-label="Product No"></td>
                         <td data-label="Delivery Status">
                             <select class="status-dropdown form-select">
-                                <option value="placed" selected>Placed</option>
-                                <option value="shipped">Shipped</option>
-                                <option value="delivered">Delivered</option>
+                                <option value="placed" selected></option>
+                                <option value="shipped"></option>
+                                <option value="delivered"></option>
                             </select>
                         </td>
                         <td data-label="Comment">
@@ -61,44 +61,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td data-label="Customer Name">Jane Doe</td>
-                        <td data-label="Address">456 Oak Ave, Somewhere, USA</td>
-                        <td data-label="Phone No">555-987-6543</td>
-                        <td data-label="Product No">PRD-002</td>
-                        <td data-label="Delivery Status">
-                            <select class="status-dropdown form-select">
-                                <option value="placed" selected>Placed</option>
-                                <option value="shipped">Shipped</option>
-                                <option value="delivered">Delivered</option>
-                            </select>
-                        </td>
-                        <td data-label="Comment">
-                            <div class="comment-section">
-                                <input type="text" class="comment-input form-control" placeholder="Add a comment">
-                                <button class="comment-btn">Add</button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-label="Customer Name">Robert Johnson</td>
-                        <td data-label="Address">789 Pine Rd, Elsewhere, USA</td>
-                        <td data-label="Phone No">555-456-7890</td>
-                        <td data-label="Product No">PRD-003</td>
-                        <td data-label="Delivery Status">
-                            <select class="status-dropdown form-select">
-                                <option value="placed" selected>Placed</option>
-                                <option value="shipped">Shipped</option>
-                                <option value="delivered">Delivered</option>
-                            </select>
-                        </td>
-                        <td data-label="Comment">
-                            <div class="comment-section">
-                                <input type="text" class="comment-input form-control" placeholder="Add a comment">
-                                <button class="comment-btn">Add</button>
-                            </div>
-                        </td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
