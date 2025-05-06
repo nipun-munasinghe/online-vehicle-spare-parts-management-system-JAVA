@@ -10,9 +10,17 @@ public class DBConnection {
 	private static final String PASSWORD = "31415";
 	
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
-		
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		return DriverManager.getConnection(URL,USER,PASSWORD);
+		Connection connection = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(URL,USER,PASSWORD);
+			System.out.println("Connected to database successfully.");
+		}
+		catch(Exception e) {
+			System.out.println("Local Database Connection Failed!");
+			e.printStackTrace();
+		}
+		return connection;
 	}
 	
 	//close connection

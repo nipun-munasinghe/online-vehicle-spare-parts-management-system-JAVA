@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +26,6 @@
 <body>
 	<!-- include header -->
     <jsp:include page="Header.jsp"/>
-    
-    
     
     <!-- include top bar -->
     <jsp:include page="TopBar.jsp"/>
@@ -111,105 +112,29 @@
          <div class="card__container swiper">
             <div class="card__content">
                <div class="swiper-wrapper">
-                  <article class="card__article swiper-slide" data-product-id="001">
-                     <div class="card__image">
-                        <img src="${pageContext.request.contextPath}/images/products/garrett-turbo.png" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                     </div>
-      
-                     <div class="card__data">
-                        <h3 class="card__name">Garrett Turbocharger</h3>
-                        <p class="card__description">ID: 005</p>
-                        <p class="card__description">Quantity: 80</p>
-                        <p class="card__description">Category: Turbo</p>
-                        <p class="card__price">Rs.213,000.00</p>
-      					<div class="column d-flex gap-2">
-      						<a href="#" class="card__button_edit"><i class="bi bi-pencil-square"></i></a>
-      						<a href="#" class="card__button_delete"><i class="bi bi-trash"></i></a>
-      						<a href="#" class="card__button normalBtn">View More</a>
-      					</div>
-                     </div>
-                  </article>
-      
-                  <article class="card__article swiper-slide" data-product-id="002">
-                     <div class="card__image">
-                        <img src="${pageContext.request.contextPath}/images/products/ruff-rims.png" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                     </div>
-      
-                     <div class="card__data">
-                        <h3 class="card__name">Ruff Rim Set (4)</h3>
-                        <p class="card__description">ID: 004</p>
-                        <p class="card__description">Quantity: 96</p>
-                        <p class="card__description">Category: Wheels</p>
-                        <p class="card__price">Rs.152,000.00</p>
-      					<div class="column d-flex gap-2">
-      						<a href="#" class="card__button_edit"><i class="bi bi-pencil-square"></i></a>
-      						<a href="#" class="card__button_delete"><i class="bi bi-trash"></i></a>
-      						<a href="#" class="card__button normalBtn">View More</a>
-      					</div>
-                     </div>
-                  </article>
-                  
-                  <article class="card__article swiper-slide" data-product-id="003">
-                     <div class="card__image">
-                        <img src="${pageContext.request.contextPath}/images/products/nitrus.png" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                     </div>
-      
-                     <div class="card__data">
-                        <h3 class="card__name">NOS Cylinder</h3>
-                        <p class="card__description">ID: 003</p>
-                        <p class="card__description">Quantity: 28</p>
-                        <p class="card__description">Category: NOS</p>
-                        <p class="card__price">Rs.287,000.00</p>
-      					<div class="column d-flex gap-2">
-      						<a href="#" class="card__button_edit"><i class="bi bi-pencil-square"></i></a>
-      						<a href="#" class="card__button_delete"><i class="bi bi-trash"></i></a>
-      						<a href="#" class="card__button normalBtn">View More</a>
-      					</div>
-                     </div>
-                  </article>
-                  
-                  <article class="card__article swiper-slide" data-product-id="004">
-                     <div class="card__image">
-                        <img src="${pageContext.request.contextPath}/images/products/brembo.png" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                     </div>
-      
-                     <div class="card__data">
-                        <h3 class="card__name">Brembo Brake Pads</h3>
-                        <p class="card__description">ID: 002</p>
-                        <p class="card__description">Quantity: 108</p>
-                        <p class="card__description">Category: Brakes</p>
-                        <p class="card__price">Rs.78,000.00</p>
-      					<div class="column d-flex gap-2">
-      						<a href="#" class="card__button_edit"><i class="bi bi-pencil-square"></i></a>
-      						<a href="#" class="card__button_delete"><i class="bi bi-trash"></i></a>
-      						<a href="#" class="card__button normalBtn">View More</a>
-      					</div>
-                     </div>
-                  </article>
-                  
-                  <article class="card__article swiper-slide" data-product-id="005">
-                     <div class="card__image">
-                        <img src="${pageContext.request.contextPath}/images/products/spoiler.png" alt="image" class="card__img">
-                        <div class="card__shadow"></div>
-                     </div>
-      
-                     <div class="card__data">
-                        <h3 class="card__name">Carbon Fibre Spoiler</h3>
-                        <p class="card__description">ID: 001</p>
-                        <p class="card__description">Quantity: 12</p>
-                        <p class="card__description">Category: Spoilers</p>
-                        <p class="card__price">Rs.190,000.00</p>
-      					<div class="column d-flex gap-2">
-      						<a href="#" class="card__button_edit"><i class="bi bi-pencil-square"></i></a>
-      						<a href="#" class="card__button_delete"><i class="bi bi-trash"></i></a>
-      						<a href="#" class="card__button normalBtn">View More</a>
-      					</div>
-                     </div>
-                  </article>
+               		<c:forEach var="product" items="${products}">
+	                  <article class="card__article swiper-slide" data-product-id="${product.pId}">
+	                     <div class="card__image">
+	                        <img src="${pageContext.request.contextPath}/images/products/${product.pImg}" alt="${product.pName}image" class="card__img">
+	                        <div class="card__shadow"></div>
+	                     </div>
+	      
+	                     <div class="card__data">
+	                        <h3 class="card__name">${product.pName}</h3>
+	                        <p class="card__description">ID: ${product.pId}</p>
+	                        <p class="card__description">Quantity: ${product.pQuantity}</p>
+	                        <p class="card__description">Category: ${product.pCategory}</p>
+	                        <p class="card__price">
+							   Rs.<fmt:formatNumber value="${product.pPrice}" type="number" maxFractionDigits="2" minFractionDigits="2" />
+							</p>
+	      					<div class="column d-flex gap-2">
+	      						<a href="#" class="card__button_edit"><i class="bi bi-pencil-square"></i></a>
+	      						<a href="#" class="card__button_delete"><i class="bi bi-trash"></i></a>
+	      						<a href="#" class="card__button normalBtn">View More</a>
+	      					</div>
+	                     </div>
+	                  </article>
+      				</c:forEach>
                </div>
             </div>
 

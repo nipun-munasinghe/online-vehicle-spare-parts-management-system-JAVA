@@ -5,7 +5,7 @@
 	<%
     User usr = (User) request.getAttribute("user");
     if (usr == null) {
-        response.sendRedirect("index.jsp"); // Redirect if user is not found
+        response.sendRedirect("hero.jsp"); // Redirect if user is not found
     }
 %>
 <!DOCTYPE html>
