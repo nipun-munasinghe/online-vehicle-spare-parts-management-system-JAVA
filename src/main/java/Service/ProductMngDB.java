@@ -52,4 +52,45 @@ public class ProductMngDB {
 		}
 		return products;
 	}
+	
+	//get product by ID
+	public ProductModel getProductById(int pId) throws SQLException, ClassNotFoundException {
+		ProductModel product = null;
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBConnection.getConnection();
+			String sql = "SELECT * FROM product WHERE p_id = ?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, pId);
+			rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				product = new ProductModel();
+				
+				product.setpId(rs.getInt("p_id"));
+				product.setpName(rs.getString("p_name"));
+				product.setpCategory(rs.getString("p_category"));
+				product.setpPrice(rs.getDouble("p_price"));
+				product.setpQuantity(rs.getInt("p_quantity"));
+				product.setpDescription(rs.getString("p_description"));
+				product.setpImg(rs.getString("p_image"));
+			}
+		}
+		finally {
+			if(rs != null) {
+				rs.close();
+			}
+			if( stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				DBConnection.closeConnection(conn);
+			}
+		}
+		
+		return product;
+	}
 }

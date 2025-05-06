@@ -15,7 +15,7 @@ import Model.ProductModel;
 import Service.ProductMngDB;
 
 @SuppressWarnings("serial")
-@WebServlet("/products")
+@WebServlet("/productManagement")
 public class ProductMngServlet extends HttpServlet {
 	
 	@Override
