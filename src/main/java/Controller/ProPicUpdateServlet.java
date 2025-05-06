@@ -15,63 +15,58 @@ import javax.servlet.http.Part;
 
 import Service.UserDB;
 
-
 @WebServlet("/ProPicUpdateServlet")
 public class ProPicUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-boolean success = false;
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		boolean success = false;
+
 		// Get image part from the form
 		Part propic = request.getPart("profilepic");
 
 		// Save image name in variable and sanitize it
 		String u_image = propic.getSubmittedFileName().replaceAll(" ", "_");
 
-		
 		String uploadDir = "     ";
 		String propicPath = uploadDir + File.separator + u_image;
 
 		try {
-			    // Save the file
-			    try (FileOutputStream fos = new FileOutputStream(propicPath);
-			         InputStream is = propic.getInputStream()) {
-			        
-			        byte[] buffer = new byte[1024]; // Use a buffer for efficient reading
-			        int bytesRead;
-			        while ((bytesRead = is.read(buffer)) != -1) {
-			            fos.write(buffer, 0, bytesRead);
-			        }
-			    }
-			    
-			    success = true; //file saved
+			// Save the file
+			try (FileOutputStream fos = new FileOutputStream(propicPath); InputStream is = propic.getInputStream()) {
 
-		} 
-		catch (IOException e) {
-			    System.out.println("Error saving the file: " + e.getMessage());
-			    e.printStackTrace();
-			    success = false;
+				byte[] buffer = new byte[1024]; // Use a buffer for efficient reading
+				int bytesRead;
+				while ((bytesRead = is.read(buffer)) != -1) {
+					fos.write(buffer, 0, bytesRead);
+				}
+			}
+
+			success = true; // file saved
+
+		} catch (IOException e) {
+			System.out.println("Error saving the file: " + e.getMessage());
+			e.printStackTrace();
+			success = false;
 		}
-		
-		if(success == true) {
-			//get user id
+
+		if (success == true) {
+			// get user id
 			HttpSession session = request.getSession();
 			int userID = (int) session.getAttribute("u_id");
-			
-			//update database
-			boolean dbupdated = UserDB.updatePropic(userID,u_image);
-			
+
+			// update database
+			boolean dbupdated = UserDB.updatePropic(userID, u_image);
+
 			if (dbupdated) {
 				session.setAttribute("u_image", u_image);
 				response.sendRedirect("myProfileServlet");
-			}
-			else {
+			} else {
 				response.sendRedirect("myProfileServlet");
 			}
-			
+
 		}
 
 	}
