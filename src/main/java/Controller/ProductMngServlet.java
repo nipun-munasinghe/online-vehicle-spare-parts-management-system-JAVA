@@ -35,6 +35,34 @@ public class ProductMngServlet extends HttpServlet {
 		}
 	}
 	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getPathInfo();
+		
+		if(action == null) {
+			action = "/add";
+		}
+		
+		try {
+			switch(action) {
+			case "/add":
+				addProduct(request, response);
+				break;
+			default:
+				showProductList(request, response);
+				break;
+			}
+		}
+		catch(SQLException | ClassNotFoundException e) {
+			throw new ServletException(e);
+		}
+	}
+	
+	private void addProduct(HttpServletRequest request, HttpServletResponse response) {
+		
+		
+	}
+
 	private void showProductList(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, ServletException, IOException {
 		ProductMngDB db = new ProductMngDB();
 		List<ProductModel> products = db.getAllProducts();
