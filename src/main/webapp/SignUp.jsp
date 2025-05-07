@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,32 +35,39 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form>
+              <form  action="${pageContext.request.contextPath}/registerUserServelet" method="POST">
 
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg">First Name</label>
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <input type="text" name="u_firstname" id="form3Example1cg" class="form-control form-control-lg" />
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form3Example1cg">Last Name</label>
-                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                    <input type="text" name="u_lastname" id="form3Example1cg" class="form-control form-control-lg" />
                   </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form3Example3cg">Your Email</label>
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input type="email"  name="u_email" id="form3Example3cg" class="form-control form-control-lg" />
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cg">Password</label>
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <input type="password" name="u_password" id="form3Example4cg" class="form-control form-control-lg" />
                 </div>
 
-                <div data-mdb-input-init class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cdg">Confirm your password</label>
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                </div>
+               <div class="radiobtns">
+						<b>User Type :</b>
+						<input type="radio" name="u_type" value="admin" required> admin
+						<input type="radio" name="u_type" value="delivery_person">delivery_person
+						<input type="radio" name="u_type" value="customer">customer
+			            <input type="radio" name="u_type" value="manager">manager
+						
+				</div>
+				
+				
+				<br>
 
                 <div class="form-check d-flex justify-content-center mb-5">
                   <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
@@ -67,9 +75,13 @@
                     I agree all statements in <a href="#!" class="text-body">Terms of service</a>
                   </label>
                 </div>
+                
+                <c:if test="${not empty RegisterError}">
+                    <p id="error">${RegisterError}</p>
+                </c:if>
 
                 <div class="d-flex justify-content-center b-login">
-                  <button  type="button" class="btn btn-button">Register</button>
+                  <button  type="submit" class="btn btn-button">Register</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"

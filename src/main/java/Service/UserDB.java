@@ -113,4 +113,30 @@ public class UserDB {
 		}
 	}
 
+	//register user 
+	
+	public static boolean registerUser(String u_firstname, String u_lastname, String u_email, String u_password, String u_type, String u_image) {
+		try {
+			Connection con = DBConnection.getConnection();
+			Statement stmt = con.createStatement();
+			String query = "INSERT INTO User (u_firstname, u_lastname, u_email, u_password, u_type, u_image) VALUES ('" + u_firstname + "', '" + u_lastname + "', '" + u_email + "', '" + u_password + "', '" + u_type + "', '" + u_image + "')";
+			int success = stmt.executeUpdate(query); //executeUpdate used for CREATE,UPDATE,DELETE
+			
+			//close connection
+			con.close();
+
+			if(success > 0) {
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e);
+			return false;
+		}
+		
+	}
+	
 }
