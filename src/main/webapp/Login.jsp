@@ -55,10 +55,12 @@
                         </div>
       
                         <div class="pt-1 mb-4 b-login">
+                        <a href="${pageContext.request.contextPath}/user_profile.jsp">
                           <button class="btn btn-primary " type="button">Login</button>
+                          </a>
                         </div>
       
-                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="${pageContext.request.contextPath}/SignUp.jsp"
                             style="color: #393f81;">Register here</a></p>
                       </form>
       
