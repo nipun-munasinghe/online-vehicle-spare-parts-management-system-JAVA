@@ -5,29 +5,33 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/autoelite_db";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "0331"; 
-
-    // Establish and return a connection to the database
-    public static Connection getConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASSWORD);
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("MySQL JDBC Driver not found.", e);
-        }
-    }
-
-    // Close the given connection
-    public static void closeConnection(Connection conn) {
-        if (conn != null) {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace(); // Log the error
-            }
-        }
-    }
+	private static final String URL = "jdbc:mysql://localhost:3306/autoelite_db";
+	private static final String USER ="root";
+	private static final String PASSWORD = "31415";
+	
+	public static Connection getConnection() throws SQLException, ClassNotFoundException {
+		Connection connection = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(URL,USER,PASSWORD);
+			System.out.println("Connected to database successfully.");
+		}
+		catch(Exception e) {
+			System.out.println("Local Database Connection Failed!");
+			e.printStackTrace();
+		}
+		return connection;
+	}
+	
+	//close connection
+	public static void closeConnection(Connection conn) {
+		if(conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				System.out.println("Error closing connection: " + e.getMessage());
+			}
+		}
+	}
 }
