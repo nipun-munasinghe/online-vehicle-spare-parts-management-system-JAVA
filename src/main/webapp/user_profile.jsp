@@ -2,17 +2,11 @@
 
 	pageEncoding="UTF-8"%>
 	
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 
 <%@ page import="Model.User"%>
 
-<%
-    User usr = (User) request.getAttribute("user");
-    if (usr == null) {
-        response.sendRedirect("hero.jsp"); // Redirect if user is not found
-    }
 
-%>
 <!DOCTYPE html>
 <html>
 <head>
