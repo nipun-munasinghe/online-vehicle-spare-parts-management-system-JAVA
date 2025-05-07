@@ -93,4 +93,35 @@ public class ProductMngDB {
 		
 		return product;
 	}
+	
+	//add new product
+	public boolean addProduct(ProductModel product) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DBConnection.getConnection();
+			String sql =  "INSERT INTO product (p_name, p_category, p_price, p_quantity, p_description, p_image) VALUES (?,?,?,?,?,?)";
+			
+			stmt = conn.prepareStatement(sql);
+			
+			stmt.setString(1, product.getpName());
+			stmt.setString(2, product.getpCategory());
+			stmt.setDouble(3, product.getpPrice());
+			stmt.setInt(4, product.getpQuantity());
+			stmt.setString(5, product.getpDescription());
+			stmt.setString(6, product.getpImg());
+			
+			int rowsAffected = stmt.executeUpdate();
+			return rowsAffected > 0;
+		}
+		finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				DBConnection.closeConnection(conn);
+			}
+		}
+	}
 }
