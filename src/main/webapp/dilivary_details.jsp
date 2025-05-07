@@ -33,20 +33,21 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Customer Name</th>
+                    
+                        <th>Oder ID</th>
+                        <th>Customer ID</th>
                         <th>Address</th>
                         <th>Phone No</th>
-                        <th>Product No</th>
                         <th>Delivery Status</th>
-                        <th>Comment</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                    <td data-label="Oder ID"></td>
                         <td data-label="Customer Name"></td>
                         <td data-label="Address"></td>
                         <td data-label="Phone No"></td>
-                        <td data-label="Product No"></td>
                         <td data-label="Delivery Status">
                             <select class="status-dropdown form-select">
                                 <option value="placed" selected></option>
@@ -54,12 +55,7 @@
                                 <option value="delivered"></option>
                             </select>
                         </td>
-                        <td data-label="Comment">
-                            <div class="comment-section">
-                                <input type="text" class="comment-input form-control" placeholder="Add a comment">
-                                <button class="comment-btn">Add</button>
-                            </div>
-                        </td>
+                        
                     </tr>
                     
                 </tbody>
