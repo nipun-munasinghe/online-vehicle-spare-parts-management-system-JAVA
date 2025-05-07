@@ -59,7 +59,11 @@ public class ProductMngServlet extends HttpServlet {
 	}
 	
 	private void addProduct(HttpServletRequest request, HttpServletResponse response) {
-		
+		String pName = request.getParameter("productName");
+		String pCategory = request.getParameter("productCategory");
+		String pDescription = request.getParameter("productDescription");
+		int pQuantity = Integer.parseInt(request.getParameter("productQuantity"));
+		double pPrice = Double.parseDouble(request.getParameter("productPrice"));
 		
 	}
 
