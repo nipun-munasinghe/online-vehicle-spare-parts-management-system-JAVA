@@ -56,7 +56,7 @@
                         </div>
       
                         <div class="pt-1 mb-4 b-login">
-                        <a href="${pageContext.request.contextPath}/user_profile.jsp">
+                        <a href="${pageContext.request.contextPath}/myProfileServlet.jsp">
                           <button class="btn btn-primary " type="button">Login</button>
                           </a>
                         </div>
