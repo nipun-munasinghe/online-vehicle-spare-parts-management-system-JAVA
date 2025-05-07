@@ -26,6 +26,14 @@
 	<jsp:include page="TopBar.jsp" />
 
 	<div class="container mt-5">
+		<!-- Action Message Display -->
+		<c:if test="${not empty message}">
+			<div class="alert alert-info alert-dismissible fade show">
+				${message}
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			</div>
+		</c:if>
+
 		<div class="row">
 			<div class="col-12">
 
@@ -33,19 +41,19 @@
 				<h2 class="text-white">Manager Actions</h2>
 				<div class="card p-4 mb-4">
 					<form action="${pageContext.request.contextPath}/managerActions"
-						method="post" class="d-flex flex-wrap gap-2">
+						method="post" class="d-flex flex-wrap gap-2" id="actionForm">
 						<input type="email" class="form-control" name="managerEmail"
 							placeholder="Enter manager email" required>
 						<button type="submit" name="action" value="activate"
-							class="btn btn-success">
+							class="btn btn-success action-btn">
 							<i class="bi bi-check-circle-fill"></i> Activate
 						</button>
 						<button type="submit" name="action" value="deactivate"
-							class="btn btn-primary">
+							class="btn btn-primary action-btn">
 							<i class="bi bi-exclamation-circle-fill"></i> Deactivate
 						</button>
 						<button type="submit" name="action" value="remove"
-							class="btn btn-danger">
+							class="btn btn-danger action-btn">
 							<i class="bi bi-x-circle-fill"></i> Remove
 						</button>
 					</form>
@@ -114,27 +122,22 @@
 								<form action="${pageContext.request.contextPath}/managerServlet"
 									method="post" id="managerForm">
 									<div class="mb-3">
-
 										<input type="text" class="form-control" name="firstName"
 											placeholder="First Name" required>
 									</div>
 									<div class="mb-3">
-
 										<input type="text" class="form-control" name="lastName"
 											placeholder="Last Name" required>
 									</div>
 									<div class="mb-3">
-
 										<input type="email" class="form-control" name="email"
 											placeholder="Email" required>
 									</div>
 									<div class="mb-3">
-
 										<input type="tel" class="form-control" name="phone"
 											placeholder="Phone Number" pattern="[0-9]{10}" required>
 									</div>
 									<div class="mb-3">
-
 										<input type="password" class="form-control" name="password"
 											placeholder="Password" minlength="8" required>
 									</div>
@@ -160,6 +163,30 @@
 	<!-- Scripts -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+        // Action confirmation
+        document.querySelectorAll('.action-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const action = this.value;
+                const messages = {
+                    activate: "Are you sure you want to activate this manager?",
+                    deactivate: "Are you sure you want to deactivate this manager?",
+                    remove: "Are you sure you want to permanently delete this manager?"
+                };
+                if (!confirm(messages[action])) {
+                    e.preventDefault();
+                }
+            });
+        });
 
+        // Auto-close alert after 3 seconds
+        window.setTimeout(function() {
+            const alert = document.querySelector('.alert');
+            if (alert) {
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            }
+        }, 3000);
+    </script>
 </body>
 </html>

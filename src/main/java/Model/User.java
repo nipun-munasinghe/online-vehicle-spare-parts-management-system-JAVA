@@ -1,7 +1,7 @@
 package Model;
 
 public class User {
-	
+
 	private int u_id;
 	private String u_firstname;
 	private String u_lastname;
@@ -9,9 +9,10 @@ public class User {
 	private String u_password;
 	private String u_type;
 	private String u_image;
-	
-	public User ( int u_id ,  String  u_firstname ,  String u_lastname , String u_email , String u_password , String u_type ,  String u_image) {
-		
+
+	public User(int u_id, String u_firstname, String u_lastname, String u_email, String u_password, String u_type,
+			String u_image) {
+
 		this.u_id = u_id;
 		this.u_firstname = u_firstname;
 		this.u_lastname = u_lastname;
@@ -19,8 +20,7 @@ public class User {
 		this.u_password = u_password;
 		this.u_type = u_type;
 		this.u_image = u_image;
-		
-		
+
 	}
 
 	
@@ -48,6 +48,5 @@ public class User {
 	public String getU_image() {
 		return u_image;
 	}
-	
 
 }

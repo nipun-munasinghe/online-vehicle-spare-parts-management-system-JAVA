@@ -7,27 +7,28 @@ import javax.servlet.http.*;
 import Model.managerModel;
 import Service.ManagerService;
 
+@SuppressWarnings("serial")
 @WebServlet("/managerServlet")
 public class ManagerServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        managerModel manager = new managerModel(
-            request.getParameter("firstName"),
-            request.getParameter("lastName"),
-            request.getParameter("email"),
-            request.getParameter("phone"),
-            request.getParameter("password"),
-            request.getParameter("status")
-        );
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        try {
-            boolean success = new ManagerService().addManager(manager);
-            request.setAttribute("message", success ? 
-                "Manager added successfully!" : "Error adding manager");
-        } catch (Exception e) {
-            request.setAttribute("message", "Error: " + e.getMessage());
-        }
-        request.getRequestDispatcher("/manageManager.jsp").forward(request, response);
-    }
+		// Create manager object from form data
+		managerModel manager = new managerModel(request.getParameter("firstName"), request.getParameter("lastName"),
+				request.getParameter("email"), request.getParameter("phone"), request.getParameter("password"),
+				request.getParameter("status"));
+
+		try {
+			// Add manager using service layer
+			boolean success = new ManagerService().addManager(manager);
+			String message = success ? "Manager added successfully!" : "Error adding manager";
+			request.getSession().setAttribute("actionMessage", message);
+
+		} catch (Exception e) {
+			request.getSession().setAttribute("actionMessage", "Error: " + e.getMessage());
+		}
+
+		// Redirect to prevent duplicate form submissions
+		response.sendRedirect("managerList");
+	}
 }

@@ -1,6 +1,7 @@
 package Service;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -139,4 +140,32 @@ public class UserDB {
 		
 	}
 	
-}
+	//Login Part
+	
+	 public static User authenticate(String email, String password) {
+	        User user = null;
+	        String sql = "SELECT * FROM user WHERE u_email = ? AND u_password = ?";
+	        try (
+	            Connection con = DBConnection.getConnection();
+	            PreparedStatement stmt = con.prepareStatement(sql)
+	        ) {
+	            stmt.setString(1, email);
+	            stmt.setString(2, password);
+	            ResultSet rs = stmt.executeQuery();
+	            if (rs.next()) {
+	                int u_id = rs.getInt("u_id");
+	                String u_firstname = rs.getString("u_firstname");
+	                String u_lastname = rs.getString("u_lastname");
+	                String u_email = rs.getString("u_email");
+	                String u_password = rs.getString("u_password");
+	                String u_type = rs.getString("u_type");
+	                String u_image = rs.getString("u_image");
+	                user = new User(u_id, u_firstname, u_lastname, u_email, u_password, u_type, u_image);
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return user;
+	    }
+	}
+	
