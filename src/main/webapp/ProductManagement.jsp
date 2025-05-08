@@ -114,7 +114,10 @@
             <div class="card__content">
                <div class="swiper-wrapper">
                		<c:forEach var="product" items="${products}">
-	                  <article class="card__article swiper-slide" data-product-id="${product.pId}">
+	                  <article class="card__article swiper-slide" 
+	                  	data-product-id="${product.pId}" 
+	                  	data-category="${product.pCategory}"
+         				data-quantity="${product.pQuantity}">
 	                     <div class="card__image">
 	                        <img src="${pageContext.request.contextPath}/images/products/${product.pImg}" alt="${product.pName}image" class="card__img">
 	                        <div class="card__shadow"></div>
@@ -122,6 +125,7 @@
 	      
 	                     <div class="card__data">
 	                        <h3 class="card__name">${product.pName}</h3>
+	                        <p class="card__description" style="display:none">${product.pDescription}</p>
 	                        <p class="card__description">ID: ${product.pId}</p>
 	                        <p class="card__description">Quantity: ${product.pQuantity}</p>
 	                        <p class="card__description">Category: ${product.pCategory}</p>
@@ -183,49 +187,46 @@
 	                    <h5 class="modal-title">Edit Product Details</h5>
 	                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	                </div>
+	                
 	                <div class="modal-body">
-	                    <form id="editProductForm" action="" method="POST" enctype="multipart/form-data">
+	                    <form id="editProductForm" action="${pageContext.request.contextPath}/updateProduct" method="POST" enctype="multipart/form-data">
+	                        <input type="hidden" name="productId" id="editProductId" value="">
 	                        <div class="form-floating mb-3">
-	                            <input type="text" class="form-control" id="editProductName" name="editProductName" placeholder="Product Name" 
-	                            	value="Garrett Turbocharger" required>
+	                            <input type="text" class="form-control" id="editProductName" name="editProductName" required>
 	                            <label for="editProductName">Product Name</label>
 	                        </div>
 	                        <div class="form-floating mb-3">
-	                            <input type="text" class="form-control" id="editProductCategory" name="editProductCategory" placeholder="Product Category"
-	                            	value="Turbo">
+	                            <input type="text" class="form-control" id="editProductCategory" name="editProductCategory">
 	                            <label for="editProductCategory">Product Category</label>
 	                        </div>
 	                        <div class="form-floating mb-3">
-	                            <textarea class="form-control" id="editProductDescription" name="editProductDescription" placeholder="Description" 
-	                            	style="height: 100px" required>Garrett Turbochargers are highly advanced forced induction systems designed to enhance engine performance by compressing air and delivering it to the engine at higher pressure. 
-	                            	</textarea>
+                            	<textarea class="form-control" id="editProductDescription" name="editProductDescription" 
+                            	style="height: 100px" required></textarea>
 	                            <label for="editProductDescription">Description</label>
 	                        </div>
 	                        <div class="quantityNprice row mb-3">
 	                            <div class="col-md-6">
 	                                <div class="form-floating">
-	                                    <input type="number" class="form-control" id="editProductQuantity" name="editProductQuantity" min="0" placeholder="Quantity" 
-	                                    	value="80" required>
+	                                    <input type="number" class="form-control" id="editProductQuantity" name="editProductQuantity" min="0" required>
 	                                    <label for="editProductQuantity">Quantity</label>
 	                                </div>
 	                            </div>
 	                            <div class="col-md-6">
 	                                <div class="form-floating">
-	                                    <input type="number" class="form-control" id="editProductPrice" name="editProductPrice" min="0" step="0.01" placeholder="Price (Rs.)" 
-	                                    	value="213000.00" required>
+	                                    <input type="number" class="form-control" id="editProductPrice" name="editProductPrice" min="0" step="0.01" required>
 	                                    <label for="editProductPrice">Price (Rs.)</label>
 	                                </div>
 	                            </div>
 	                        </div>
 	                        <div class="mb-3">
 	                            <label for="editProductImage" class="form-label">Product Image</label>
-	                            <input type="file" class="form-control" id="editProductImage" name="editProductImage" accept="image/*" required>
+	                            <input type="file" class="form-control" id="editProductImage" name="editProductImage" accept="image/*">
 	                        </div>
 	                        <div class="mb-3">
 	                            <img id="editImagePreview" src="${pageContext.request.contextPath}/images/products/garrett-turbo.png" alt="Image Preview" class="img-fluid">
 	                        </div>
 	                        <div class="text-end">
-	                            <button type="submit" class="btn normalBtn">Save</button>
+	                            <input type="submit" class="btn normalBtn" value="Save">
 	                        </div>
 	                    </form>
 	                </div>
