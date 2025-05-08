@@ -16,6 +16,9 @@
     
     <!-- Link style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/products.css">
+    
+    <!-- Link js file -->
+    <script src="${pageContext.request.contextPath}/js/OrderForm.js"></script>
 </head>
 <body>
 	<!-- include header -->
@@ -37,8 +40,8 @@
                     <div class="card-body">
                       <h5 class="card-title text-center">Airline Alloy Wheel</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <h3 class="text-center">Rs.30 000</h3>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=30000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -48,8 +51,8 @@
                     <div class="card-body">
                       <h5 class="card-title text-center">Suspensions</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <h3 class="text-center">Rs.100 000</h3>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=100000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -59,8 +62,8 @@
                     <div class="card-body">
                       <h5 class="card-title text-center">Airline Brake Discks</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <h3 class="text-center">Rs.22 000</h3>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=22 000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -70,8 +73,8 @@
                     <div class="card-body">
                       <h5 class="card-title text-center">Rear Bumper</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <h3 class="text-center">Rs.10 000</h3>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=10 000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -82,7 +85,7 @@
                       <h5 class="card-title text-center">Side view Mirrors</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -101,7 +104,7 @@
                       <h5 class="card-title text-center">Front Bumper</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -112,7 +115,7 @@
                       <h5 class="card-title text-center">Bonnet</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -123,7 +126,7 @@
                       <h5 class="card-title text-center">Tail Light</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -134,7 +137,7 @@
                       <h5 class="card-title text-center">Head Light</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                     <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -145,7 +148,7 @@
                       <h5 class="card-title text-center">Brake pads</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -156,7 +159,7 @@
                       <h5 class="card-title text-center">Airline Alloy Wheel</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -167,7 +170,7 @@
                       <h5 class="card-title text-center">Suspension</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -178,7 +181,7 @@
                       <h5 class="card-title text-center">Clutches</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -189,7 +192,7 @@
                       <h5 class="card-title text-center">Cooling system</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -200,7 +203,7 @@
                       <h5 class="card-title text-center">Seats</h5>
                       <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       <h3 class="text-center">Rs.50 000</h3>
-                      <a href="#" class="btn btn-primary-card1 d-flex justify-content-center">Add to cart</a>
+                      <a href="${pageContext.request.contextPath}/OrderForm.jsp?product=Airline Alloy Wheel&price=50000" class="btn btn-primary-card1 d-flex justify-content-center">Buy Now</a>
                     </div>
                   </div>
             </div>
@@ -215,5 +218,7 @@
     
 	<!-- Link bootstrap script file -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
+    
+    
 </body>
 </html>

@@ -28,11 +28,11 @@ public class userLoginServlet extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect(request.getContextPath() + "myProfileServlet.jsp"); 
+            response.sendRedirect(request.getContextPath() + "/myProfileServlet.jsp");; 
         } else {
-            request.setAttribute("errorMessage", "Invalid email or password"); 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Login.jsp");
-            dispatcher.forward(request, response);
+        	request.setAttribute("loginError", "Invalid username or password");
+	        RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+	        dis.forward(request, response);
         }
     }
 }

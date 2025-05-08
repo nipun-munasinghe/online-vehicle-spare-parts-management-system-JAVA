@@ -19,7 +19,7 @@ public class UserDB {
 		try {
 			con = DBConnection.getConnection();
 			stmt = con.createStatement();
-			String sql = "SELECT * FROM users WHERE u_id='" + u_id + "' LIMIT 1";
+			String sql = "SELECT * FROM user WHERE u_id='" + u_id + "' LIMIT 1";
 			rs = stmt.executeQuery(sql);
 
 			if (rs.next()) {

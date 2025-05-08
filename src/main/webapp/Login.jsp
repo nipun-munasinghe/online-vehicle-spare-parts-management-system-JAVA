@@ -5,26 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Common JSP file</title>
-    
-    <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    
-    <!-- Link bootstrap icons -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
-    
-    <!-- Favicon -->
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
-    
-    <!-- Link style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
-	<!-- include header -->
     <jsp:include page="Header.jsp"/>
-    
-    <!-- include top bar -->
     <jsp:include page="TopBar.jsp"/>
-    
+
     <section>
         <div class="container p-3 h-100 ">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -36,35 +25,37 @@
                   </div>
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
-      
-                      <form action ="${pageContext.request.contextPath}/login"method="post">
-                      
+
+                      <% String errorMsg = (String)request.getAttribute("errorMessage"); %>
+                      <% if (errorMsg != null) { %>
+                        <div class="alert alert-danger" role="alert">
+                          <%= errorMsg %>
+                        </div>
+                      <% } %>
+
+                      <form action ="${pageContext.request.contextPath}/userLoginServlet" method="post">
                         <div class="d-flex align-items-center mb-3 pb-1 logo">
                           <span class="h1 fw-bold mb-0">AutoElite</span>
                         </div>
-      
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
-      
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                          <input type="email" name="email" id="form2Example17" class="form-control form-control-lg" required />
                           <label class="form-label" for="form2Example17">Email address</label>
                         </div>
-      
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                          <input type="password" name="password" id="form2Example27" class="form-control form-control-lg" required />
                           <label class="form-label" for="form2Example27">Password</label>
                         </div>
-      
                         <div class="pt-1 mb-4 b-login">
-                        <a href="${pageContext.request.contextPath}/myProfileServlet.jsp">
-                          <button class="btn btn-primary " type="button">Login</button>
-                          </a>
+                          <button class="btn btn-primary" type="submit">Login</button>
                         </div>
-      
+                        <c:if test="${not empty loginError}">
+                        	<p id="error">${loginError}</p>
+                        </c:if>
                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="${pageContext.request.contextPath}/SignUp.jsp"
                             style="color: #393f81;">Register here</a></p>
                       </form>
-      
+
                     </div>
                   </div>
                 </div>
@@ -73,14 +64,8 @@
           </div>
         </div>
       </section>
-    
 
-
-	
-	<!-- include footer -->
     <jsp:include page="Footer.jsp"/>
-    
-	<!-- Link bootstrap script file -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
