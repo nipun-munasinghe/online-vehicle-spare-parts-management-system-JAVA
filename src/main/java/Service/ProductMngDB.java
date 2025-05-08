@@ -157,4 +157,28 @@ public class ProductMngDB {
 			}
 		}
 	}
+	
+	//delete product
+	public boolean deleteProduct(int pId) throws ClassNotFoundException, SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DBConnection.getConnection();
+			String sql = "DELETE FROM product WHERE p_id = ?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, pId);
+			
+			int rows = stmt.executeUpdate();
+			return rows > 0;
+		}
+		finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				DBConnection.closeConnection(conn);
+			}
+		}
+	}
 }
