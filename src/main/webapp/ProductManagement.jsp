@@ -119,7 +119,7 @@
 	                  	data-category="${product.pCategory}"
          				data-quantity="${product.pQuantity}">
 	                     <div class="card__image">
-	                        <img src="${pageContext.request.contextPath}/images/products/${product.pImg}" alt="${product.pName}image" class="card__img">
+	                        <img src="${pageContext.request.contextPath}/images/products/${product.pImg}" alt="${product.pName} image" class="card__img">
 	                        <div class="card__shadow"></div>
 	                     </div>
 	      
