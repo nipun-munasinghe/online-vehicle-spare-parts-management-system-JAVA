@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import Model.ProductModel;
 import Service.ProductMngDB;
 
-@WebServlet("/AddProductServlet")
+@WebServlet("/addProduct")
 public class AddProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ProductMngDB productDB;

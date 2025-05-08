@@ -64,7 +64,7 @@
 	                </div>
 	                
 	                <div class="modal-body">
-	                    <form id="addProductForm" action="${pageContext.request.contextPath}/AddProductController" method="POST" enctype="multipart/form-data">
+	                    <form id="addProductForm" action="${pageContext.request.contextPath}/addProduct" method="POST" enctype="multipart/form-data">
 	                        <div class="form-floating mb-3">
 	                            <input type="text" class="form-control" id="productName" name="productName" placeholder="Product Name" required>
 	                            <label for="productName">Product Name</label>
@@ -99,7 +99,7 @@
 	                            <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid d-none">
 	                        </div>
 	                        <div class="text-end">
-	                            <input type="submit" class="btn normalBtn" value ="submit">
+	                            <input type="submit" class="btn normalBtn" value ="Submit">
 	                        </div>
 	                    </form>
 	                </div>
