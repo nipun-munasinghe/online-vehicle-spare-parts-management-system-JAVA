@@ -135,7 +135,7 @@
 	      					<div class="column d-flex gap-2">
 	      						<a href="#" class="card__button_edit"><i class="bi bi-pencil-square"></i></a>
 	      						<a href="#" class="card__button_delete"><i class="bi bi-trash"></i></a>
-	      						<a href="#" class="card__button normalBtn">View More</a>
+	      						<!-- <a href="#" class="card__button normalBtn">View More</a> -->
 	      					</div>
 	                     </div>
 	                  </article>
@@ -161,18 +161,21 @@
 		<div class="modal fade" id="deleteConfirmModal" tabindex="-1">
 		    <div class="modal-dialog modal-dialog-centered">
 		        <div class="modal-content">
-		            <div class="modal-header">
-		                <h5 class="modal-title">Confirm Delete</h5>
-		                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		            </div>
-		            <div class="modal-body">
-		                <p>Are you sure you want to delete this product?</p>
-		                <input type="hidden" id="deleteProductId">
-		            </div>
-		            <div class="d-flex justify-content-end gap-2 p-3">
-		                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-		                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
-		            </div>
+			        <form id="deleteProductForm" action="${pageContext.request.contextPath}/deleteProduct" method="POST">
+			        	<input type="hidden" id="deleteProductId" name="productId" value="">
+			            <div class="modal-header">
+			                <h5 class="modal-title">Confirm Delete</h5>
+			                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			            </div>
+			            <div class="modal-body">
+			                <p>Are you sure you want to delete this product?</p>
+			                <input type="hidden" id="deleteProductId">
+			            </div>
+			            <div class="d-flex justify-content-end gap-2 p-3">
+			                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+			                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+			            </div>
+		            </form>
 		        </div>
 		    </div>
 		</div>

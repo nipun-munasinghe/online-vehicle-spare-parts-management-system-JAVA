@@ -41,13 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
     const deleteProductIdInput = document.getElementById('deleteProductId');
     
-    // Add click event to all delete buttons
+    // Add click event to delete buttons
     deleteButtons.forEach(button => {
         button.addEventListener('click', function(event) {
             event.preventDefault();
+			
             // Get the product ID from the parent article's data attribute or from the button
             const productCard = this.closest('.card__article');
-            const productId = productCard.getAttribute('data-product-id') || this.getAttribute('data-product-id');
+            const productId = productCard.getAttribute('data-product-id');
+			document.getElementById('deleteProductId').value = productId;
             
             // Store the product ID in the hidden input
             deleteProductIdInput.value = productId;
