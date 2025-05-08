@@ -62,8 +62,9 @@
 	                    <h5 class="modal-title">Add New Product</h5>
 	                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 	                </div>
+	                
 	                <div class="modal-body">
-	                    <form id="addProductForm" action="" method="POST" enctype="multipart/form-data">
+	                    <form id="addProductForm" action="${pageContext.request.contextPath}/AddProductController" method="POST" enctype="multipart/form-data">
 	                        <div class="form-floating mb-3">
 	                            <input type="text" class="form-control" id="productName" name="productName" placeholder="Product Name" required>
 	                            <label for="productName">Product Name</label>
@@ -92,13 +93,13 @@
 	                        </div>
 	                        <div class="mb-3">
 	                            <label for="productImage" class="form-label">Product Image</label>
-	                            <input type="file" class="form-control" id="productImage" name="productImage" accept="image/*" required>
+	                            <input type="file" class="form-control" id="productImage" name="productImage" accept="image/*" >
 	                        </div>
 	                        <div class="mb-3">
 	                            <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid d-none">
 	                        </div>
 	                        <div class="text-end">
-	                            <button type="submit" class="btn normalBtn">Add Product</button>
+	                            <input type="submit" class="btn normalBtn" value ="submit">
 	                        </div>
 	                    </form>
 	                </div>

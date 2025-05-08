@@ -14,9 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 import Model.ProductModel;
 import Service.ProductMngDB;
 
-@SuppressWarnings("serial")
 @WebServlet("/productManagement")
 public class ProductMngServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private ProductMngDB productDB;
+	
+	public void init() {
+		productDB = new ProductMngDB();
+	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,6 +44,8 @@ public class ProductMngServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo();
 		
+		System.out.print("post method");
+		
 		if(action == null) {
 			action = "/add";
 		}
@@ -46,6 +53,7 @@ public class ProductMngServlet extends HttpServlet {
 		try {
 			switch(action) {
 			case "/add":
+				System.out.print("Add Method Calling");
 				addProduct(request, response);
 				break;
 			default:
@@ -58,18 +66,36 @@ public class ProductMngServlet extends HttpServlet {
 		}
 	}
 	
-	private void addProduct(HttpServletRequest request, HttpServletResponse response) {
+	private void addProduct(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, IOException {
 		String pName = request.getParameter("productName");
 		String pCategory = request.getParameter("productCategory");
 		String pDescription = request.getParameter("productDescription");
 		int pQuantity = Integer.parseInt(request.getParameter("productQuantity"));
 		double pPrice = Double.parseDouble(request.getParameter("productPrice"));
 		
+		System.out.print("Add Method running");
+		
+		String fileName = "default.png";
+		
+		//create product object
+		ProductModel product = new ProductModel();
+		
+		product.setpName(pName);
+		product.setpCategory(pCategory);
+		product.setpPrice(pPrice);
+		product.setpQuantity(pQuantity);
+		product.setpDescription(pDescription);
+		product.setpImg(fileName);
+		
+		//save to database
+		productDB.addProduct(product);
+		
+		response.sendRedirect(request.getContextPath() + "/productManagement/list");
 	}
 
 	private void showProductList(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, ServletException, IOException {
-		ProductMngDB db = new ProductMngDB();
-		List<ProductModel> products = db.getAllProducts();
+		
+		List<ProductModel> products = productDB.getAllProducts();
 		
 		request.setAttribute("products", products);
 		

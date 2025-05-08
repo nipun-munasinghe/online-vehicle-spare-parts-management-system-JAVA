@@ -90,7 +90,6 @@ public class ProductMngDB {
 				DBConnection.closeConnection(conn);
 			}
 		}
-		
 		return product;
 	}
 	
