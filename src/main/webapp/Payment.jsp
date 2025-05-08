@@ -1,157 +1,123 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Payment</title>
-    
-    <!-- Link bootstrap style sheet -->
+    <title>Secure Card Payment</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    
-    <!-- Link bootstrap icons -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
-    
-    <!-- Favicon -->
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
-    
-    <!-- Link style sheet -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Payment.css">
+    <style>
+        body {
+            background: #f5f7fa;
+        }
+        .payment-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(60,72,88,0.15);
+            padding: 0;
+            overflow: hidden;
+        }
+        .payment-header {
+            background: linear-gradient(to right, #000000, #A6FF00);
+            color: #fff;
+            padding: 32px 24px 16px 24px;
+        }
+        .payment-header h2 {
+            font-weight: 700;
+        }
+        .payment-form label {
+            font-weight: 500;
+        }
+        .secure-badge {
+            color: #28a745;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .summary-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+        .btn-pay {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+        @media (max-width: 767px) {
+            .payment-header { padding: 24px 12px 12px 12px; }
+            .summary-card { margin-top: 16px; }
+        }
+    </style>
 </head>
 <body>
-	<!-- include header -->
     <jsp:include page="Header.jsp"/>
-    
-    <!-- include top bar -->
     <jsp:include page="TopBar.jsp"/>
-    
-    <!-- Card details -->
-     
-    <div class="container1 d-flex justify-content-end p-5 ms-4 me-4">
-        <div class="container">
-            <div class="row">
-              <!-- Left Side - Text -->
-              <div class=" textarea col-md-5 d-flex flex-column justify-content-center p-3">
-                <h2 class="mb-3">"Secure Payments for Every Drive"</h2>
-                <p>
-                    This payment page ensures a seamless and secure checkout experience. With SSL encryption, users can confidently enter card details, review the bill summary, and confirm payments for their automobile spare parts effortlessly.
-                </p>
-              </div>
-          
-              <!-- Right Side - Payment Form -->
-              <div class="col-md-7">
-        <div class="row g-3">
-            <div class="col-md-6">     
-              <div class="card">
-                <div class="accordion" id="accordionExample"> 
-                  <div class="card">
-                    <div class="card-header p-1" >
-                        <button class="btn btn-light p-3" type="button">
-                          <div class=" paypal d-flex align-items-center justify-content-between">
-                            <span>Paypal</span>
-                            <img src="https://i.imgur.com/7kQEsHU.png" width="30">  
-                          </div>
-                        </button>
-                    </div>
-  
-                  </div>
-                  <div class="card">
-                    <div class="card-header p-0">
-                      <h2 class="mb-0">
-                        <button class="btn btn-light  p-3 " >
-                          <div class="d-flex align-items-center justify-content-between">
-  
-                            <span>Credit card</span>
-                            <div class="icons">
-                              <img src="https://i.imgur.com/2ISgYja.png" width="30">
-                              <img src="https://i.imgur.com/W1vtnOV.png" width="30">
-                              <img src="https://i.imgur.com/35tC99g.png" width="30">
-                              <img src="https://i.imgur.com/2ISgYja.png" width="30">
-                            </div>
-                            
-                          </div>
-                        </button>
-                      </h2>
-                    </div>
-  
-                    <div class="collapse show" >
-                      <div class="card-body payment-card-body">
-                        
-                        <span class="font-weight-normal card-text">Card Number</span>
-                        <div class="input">
-  
-                          <i class="fa fa-credit-card"></i>
-                          <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
-                          
-                        </div> 
-  
-                        <div class="row mt-3 mb-3">
-  
-                          <div class="col-md-6">
-                            <span class="font-weight-normal card-text">Expiry Date</span>
-                            <div class="input">
-                              <i class="fa fa-calendar"></i>
-                              <input type="text" class="form-control" placeholder="MM/YY">    
-                            </div>   
-                          </div>
-                          <div class="col-md-6">
-                            <span class="font-weight-normal card-text">CVC/CVV</span>
-                            <div class="input">
-                              <i class="fa fa-lock"></i>
-                              <input type="text" class="form-control" placeholder="000">    
-                            </div>                       
-                          </div>
+
+    <div class="payment-container shadow">
+        <div class="row g-0">
+            <!-- Left: Payment Form -->
+            <div class="col-md-7 p-4">
+                <div class="payment-header">
+                    <h2>Secure Card Payment</h2>
+                    <p class="mb-0">Pay safely for your automobile spare parts.</p>
+                </div>
+                <form class="payment-form p-4" autocomplete="off" method="post" action="ProcessPaymentServlet">
+                    <div class="mb-3">
+                        <label for="cardNumber" class="form-label">Card Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-credit-card-2-front"></i></span>
+                            <input type="text" class="form-control" id="cardNumber" name="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" required pattern="\d{4} \d{4} \d{4} \d{4}">
                         </div>
-                        <span class="text-muted certificate-text"><i class="fa fa-lock"></i> Your transaction is secured with ssl certificate</span> 
-                      </div>
                     </div>
-                  </div>
-      
-                </div>
-                
-              </div>
-              
-  
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="expiry" class="form-label">Expiry Date</label>
+                            <input type="text" class="form-control" id="expiry" name="expiry" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/\d{2}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="password" class="form-control" id="cvv" name="cvv" maxlength="4" placeholder="123" required pattern="\d{3,4}">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="cardName" class="form-label">Name on Card</label>
+                        <input type="text" class="form-control" id="cardName" name="cardName" required placeholder="Cardholder Name">
+                    </div>
+                    <div class="secure-badge">
+                        <i class="bi bi-shield-lock-fill"></i> Your payment is encrypted and secure
+                    </div>
+                    <button type="submit" class="btn btn-success btn-pay mt-4">Pay Rs. 68,000.00</button>
+                </form>
             </div>
-  <!-- Summary -->
-            <div class="col-md-6">
-                <div class="card">
-                  <div class=" summary p-3 d-flex justify-content-center">
-                      <span class="text-uppercase">Summery of the bill</span> 
-                  </div>
-                  <hr class="mt-0 line">
-                  <div class="p-3">
+            <!-- Right: Summary -->
+            <div class="col-md-5 d-flex align-items-center">
+                <div class="summary-card w-100">
+                    <h5 class="mb-3">Order Summary</h5>
                     <div class="d-flex justify-content-between mb-2">
-                      <span>Shipping</span>
-                      <span>Rs.200.00</span>        
+                        <span>Subtotal</span>
+                        <span>Rs. 67,950.00</span>
                     </div>
-                    <div class="d-flex justify-content-between">
-                      <span class="fa fa-clock-o">Discount</span>
-                      <span>Rs.150.00</span>        
-                    </div>          
-                  </div>
-                  <hr class="mt-0 line">
-                  <div class="p-3 d-flex justify-content-between">
-                    <div class="d-flex flex-column">
-                      <span>Total Payment</span>                 
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Shipping</span>
+                        <span>Rs. 200.00</span>
                     </div>
-                    <span>Rs.68 000.00</span>
-                  </div>
-                  <div class="p-5 d-flex justify-content-center">
-                  <button class="btn btn-primary">Confirm Payment</button>                 
-                  </div>  
+                    <hr>
+                    <div class="d-flex justify-content-between fw-bold fs-5">
+                        <span>Total</span>
+                        <span>Rs. 68,000.00</span>
+                    </div>
                 </div>
-            </div>  
-          </div>
-        </div>  
-              </div>
             </div>
-          </div>
-         
-	
-	<!-- include footer -->
+        </div>
+    </div>
+
     <jsp:include page="Footer.jsp"/>
-    
-	<!-- Link bootstrap script file -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
