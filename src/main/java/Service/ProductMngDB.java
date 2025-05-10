@@ -90,7 +90,6 @@ public class ProductMngDB {
 				DBConnection.closeConnection(conn);
 			}
 		}
-		
 		return product;
 	}
 	
@@ -114,6 +113,64 @@ public class ProductMngDB {
 			
 			int rowsAffected = stmt.executeUpdate();
 			return rowsAffected > 0;
+		}
+		finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				DBConnection.closeConnection(conn);
+			}
+		}
+	}
+	
+	//update product
+	public boolean updateProduct(ProductModel product) throws SQLException, ClassNotFoundException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DBConnection.getConnection();
+			String sql = "UPDATE product SET p_name=?, p_category=?, p_price=?, p_quantity=?, p_description=?, p_image=? WHERE p_id=?";
+			
+			 stmt = conn.prepareStatement(sql);
+			 
+			 stmt = conn.prepareStatement(sql);
+	            stmt.setString(1, product.getpName());
+	            stmt.setString(2, product.getpCategory());
+	            stmt.setDouble(3, product.getpPrice());
+	            stmt.setInt(4, product.getpQuantity());
+	            stmt.setString(5, product.getpDescription());
+	            stmt.setString(6, product.getpImg());
+	            stmt.setInt(7, product.getpId());
+	            
+	            int rows = stmt.executeUpdate();
+	            
+	            return rows > 0;
+		}
+		finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				DBConnection.closeConnection(conn);
+			}
+		}
+	}
+	
+	//delete product
+	public boolean deleteProduct(int pId) throws ClassNotFoundException, SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DBConnection.getConnection();
+			String sql = "DELETE FROM product WHERE p_id = ?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, pId);
+			
+			int rows = stmt.executeUpdate();
+			return rows > 0;
 		}
 		finally {
 			if(stmt != null) {

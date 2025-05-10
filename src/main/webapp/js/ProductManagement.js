@@ -41,13 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
     const deleteProductIdInput = document.getElementById('deleteProductId');
     
-    // Add click event to all delete buttons
+    // Add click event to delete buttons
     deleteButtons.forEach(button => {
         button.addEventListener('click', function(event) {
             event.preventDefault();
+			
             // Get the product ID from the parent article's data attribute or from the button
             const productCard = this.closest('.card__article');
-            const productId = productCard.getAttribute('data-product-id') || this.getAttribute('data-product-id');
+            const productId = productCard.getAttribute('data-product-id');
+			document.getElementById('deleteProductId').value = productId;
             
             // Store the product ID in the hidden input
             deleteProductIdInput.value = productId;
@@ -72,16 +74,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const editImagePreview = document.getElementById('editImagePreview');
     const editProductImage = document.getElementById('editProductImage');
     
-    // Add click event to all edit buttons
+    // Add click event to edit buttons
     editButtons.forEach(button => {
         button.addEventListener('click', function(event) {
             event.preventDefault();
-            // Get the product ID from the parent article
+			
             const productCard = this.closest('.card__article');
+			
+			// Get the product ID and data from the parent article
             const productId = productCard.getAttribute('data-product-id');
-            
-            // Here you would typically fetch the product data from your server
-            // For now, we'll just show the modal with the existing form data
+			const productName = productCard.querySelector('.card__name').textContent;
+			const productCategory = productCard.dataset.category;
+			const productDescription = productCard.querySelector('.card__description').textContent;
+			const productQuantity = productCard.dataset.quantity;
+			const productPrice = productCard.querySelector('.card__price').textContent
+								    .replace('Rs.', '')
+								    .replace(/,/g, '') // Remove commas
+								    .trim();
+			
+            // Fill form fields
+			document.getElementById('editProductId').value = productId;
+			document.getElementById('editProductName').value = productName;
+			document.getElementById('editProductCategory').value = productCategory;
+			document.getElementById('editProductDescription').value = productDescription;
+			document.getElementById('editProductQuantity').value = productQuantity;
+			document.getElementById('editProductPrice').value = productPrice;
+					
             editProductModal.show();
         });
     });
