@@ -53,27 +53,25 @@ public class UserDB {
 
 	    try {
 	        Connection con = DBConnection.getConnection();
-	        String sql = "UPDATE user SET u_firstname = '" + u_firstname + "', u_lastname = '" + u_lastname + "', u_email = '" + u_email + "' WHERE u_id = '" + u_id + "'";
-	        PreparedStatement ps = con.prepareStatement(sql);
-	        
-	        ps.setString(1,  u_firstname);
-	        ps.setString(2, u_lastname);
-	        ps.setString(3, u_email);
-	        ps.setInt(5, u_id);
+	        Statement stmt = con.createStatement();
+	        String query = "UPDATE user SET u_firstname = '" + u_firstname + "', u_lastname = '" + u_lastname + "', u_email = '" + u_email + "' WHERE u_id = '" + u_id + "'";
+	        int success = stmt.executeUpdate(query);
+			
+			//close connection
+			con.close();
 
-	        int rows = ps.executeUpdate();
-
-	        if (rows > 0) {
-	            isSuccess = true;
-	        }
-
-	        con.close();
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-
-	    return isSuccess;
+			if(success > 0) {
+				return true;
+			}
+			else{
+				return false;
+			}
 	}
+	catch(Exception e) {
+		System.out.println(e);
+		return false;
+	}
+}
 
 
 	// update profilepic function
