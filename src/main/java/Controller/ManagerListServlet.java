@@ -18,11 +18,11 @@ public class ManagerListServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			// Get all managers from service layer
+// Get all managers from service layer
 			List<managerModel> managers = new ManagerService().getAllManagers();
 			request.setAttribute("managerList", managers);
 
-			// Handle session messages
+// Handle session messages
 			HttpSession session = request.getSession();
 			String message = (String) session.getAttribute("actionMessage");
 			if (message != null) {
@@ -33,7 +33,7 @@ public class ManagerListServlet extends HttpServlet {
 		} catch (Exception e) {
 			request.setAttribute("error", "Error loading managers: " + e.getMessage());
 		}
-		// Forward to JSP
+// Forward to JSP
 		request.getRequestDispatcher("/manageManager.jsp").forward(request, response);
 	}
 }
