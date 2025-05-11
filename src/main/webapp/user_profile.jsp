@@ -70,30 +70,31 @@
 				<p id="error">${Error}</p>
 			</c:if>
 
-			<form id="profileForm" oninput="checkChanges()"
+			<form id="profileForm"  
 				action="${pageContext.request.contextPath}/updateUserServlet"
 				method="POST">
 				<div class="rowscontainer">
 					<div class="rows doublerows">
 						<div class="lableinput">
-							<label for="">First Name</label> <input type="text" name="fname"
+							<label for="">First Name</label> <input type="text" name="u_firstname"
 								value="${user.u_firstname}">
 						</div>
 						<div class="lableinput">
-							<label for="">Last Name</label> <input type="text" name="lname"
+							<label for="">Last Name</label> <input type="text" name="u_lastname"
 								value="${user. u_lastname}">
 						</div>
 					</div>
 					<div class="rows">
 						<div class="lableinput singlerow">
-							<label for="">Email</label> <input type="text" name="mail"
+							<label for="">Email</label> <input type="text" name="u_email"
 								value="${user.u_email}">
 						</div>
 					</div>
 					<div class="rows doublerows">
 						<div class="lableinput">
-							<label for="">password</label> <input type="tel" name="telno"
-								value="${user.u_password}">
+							<label for="">Password</label>
+                           <input type="password" name="u_password" value="${user.u_password}" readonly>
+
 						</div>
 
 					</div>
@@ -101,7 +102,7 @@
 
 					<div class="rows">
 						<input class="submitbtn" type="submit" placeholder="Save Changes"
-							value="Save Chages" id="submitBtn" disabled />
+							value="Save Chages" id="submitBtn"  >
 					</div>
 				</div>
 			</form>
