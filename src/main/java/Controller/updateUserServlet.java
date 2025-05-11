@@ -31,7 +31,7 @@ public class updateUserServlet extends HttpServlet {
 		boolean updated = UserDB.updateUser(userID, u_firstname, u_lastname, u_email);
 
 		if (updated == true) {
-			response.sendRedirect("user_profile.jsp");
+			response.sendRedirect("myProfileServlet");
 		} else {
 			// send error with url
 			String message = "Error when changing Details. try Again!";
