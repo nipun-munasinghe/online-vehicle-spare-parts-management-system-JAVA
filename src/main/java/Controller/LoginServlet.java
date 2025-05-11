@@ -20,7 +20,7 @@ import Service.UserDB;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
 		
 		
@@ -47,18 +47,22 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("password",user.getU_password());
 			
 			if(user.getU_type().equals("customer")) {
-				response.sendRedirect(request.getContextPath() + "/myProfileServelet");
+				request.getRequestDispatcher("/myProfileServelet").forward(request, response);
+
 
 ;
 			}
 			else if (user.getU_type().equals("admin")) {
-				response.sendRedirect(request.getContextPath() + "/myProfileServelet");
+				request.getRequestDispatcher("/myProfileServelet").forward(request, response);
+
 			}
 			else if (user.getU_type().equals("deliveryperson")) {
-				response.sendRedirect(request.getContextPath() + "/myProfileServelet");
+				request.getRequestDispatcher("/myProfileServelet").forward(request, response);
+
 			}
 			else if (user.getU_type().equals("manager")) {
-				response.sendRedirect(request.getContextPath() + "/myProfileServelet");
+				request.getRequestDispatcher("/myProfileServelet").forward(request, response);
+
 				}
 			}
 

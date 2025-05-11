@@ -32,7 +32,7 @@ public class updatePwdServlet extends HttpServlet {
                 boolean pwdchanged = UserDB.updatePassword(userid, newpwd);
                 if (pwdchanged) {
                     session.setAttribute("password", newpwd); 
-                    response.sendRedirect(request.getContextPath() + "/myProfileServelet");
+                    request.getRequestDispatcher("/myProfileServelet").forward(request, response);
                 } else {
                     String message = "Error when changing password. Try Again!";
                     response.sendRedirect("myProfileServlet?message=" + URLEncoder.encode(message, "UTF-8"));
