@@ -23,15 +23,18 @@ public class managerActionsServlet extends HttpServlet {
 			switch (action) {
 			case "activate":
 				success = service.updateStatus(email, "Active");
-				message = success ? "Activated successfully!" : "Activation failed";
+				message = success ? "Activated successfully!" 
+						: "Activation failed";
 				break;
 			case "deactivate":
 				success = service.updateStatus(email, "Inactive");
-				message = success ? "Deactivated successfully!" : "Deactivation failed";
+				message = success ? "Deactivated successfully!" 
+						: "Deactivation failed";
 				break;
 			case "remove":
 				success = service.deleteManager(email);
-				message = success ? "Deleted successfully!" : "Deletion failed";
+				message = success ? "Deleted successfully!" 
+						: "Deletion failed";
 				break;
 			}
 
