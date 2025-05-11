@@ -33,7 +33,7 @@
                         </div>
                       <% } %>
 
-                      <form action ="${pageContext.request.contextPath}/userLoginServlet" method="post">
+                      <form action ="${pageContext.request.contextPath}/LoginServlet" method="post">
                         <div class="d-flex align-items-center mb-3 pb-1 logo">
                           <span class="h1 fw-bold mb-0">AutoElite</span>
                         </div>
