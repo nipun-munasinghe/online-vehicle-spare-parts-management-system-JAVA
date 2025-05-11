@@ -20,7 +20,7 @@ public class myProfileServelet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		int userid = (int) session.getAttribute("u_id");
+		int userid = (int) session.getAttribute("userid");
 
 		User usr = UserDB.getUserdetails(userid);
 

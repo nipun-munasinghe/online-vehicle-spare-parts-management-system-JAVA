@@ -25,7 +25,7 @@ public class updateUserServlet extends HttpServlet {
 		String u_type = request.getParameter("u_type");
 
 		HttpSession session = request.getSession();
-		int userID = (int) session.getAttribute("u_id");
+		int userID = (int) session.getAttribute("userid");
 
 		boolean updated = UserDB.updateUser(userID, u_firstname, u_lastname, u_email, u_type);
 

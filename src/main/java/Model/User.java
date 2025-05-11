@@ -51,6 +51,9 @@ public class User {
 	public int getU_id() {
 		return u_id;
 	}
+
+
+
 	
 
 

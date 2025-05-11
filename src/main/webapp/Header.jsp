@@ -38,7 +38,7 @@
                 <li><a href="${pageContext.request.contextPath}/Cart.jsp">Cart</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="${pageContext.request.contextPath}/SignUp.jsp">Register</a></li>
             </ul>
         </div>
     </div>
@@ -58,7 +58,7 @@
             <li><a href="${pageContext.request.contextPath}/Cart.jsp">Cart</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="${pageContext.request.contextPath}/SignUp.jsp">Register</a></li>
         </ul>
     </div>
 </section>

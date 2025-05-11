@@ -77,23 +77,23 @@
 					<div class="rows doublerows">
 						<div class="lableinput">
 							<label for="">First Name</label> <input type="text" name="fname"
-								value="${usr.u_firstname}">
+								value="${user.u_firstname}">
 						</div>
 						<div class="lableinput">
 							<label for="">Last Name</label> <input type="text" name="lname"
-								value="${usr. u_lastname}">
+								value="${user. u_lastname}">
 						</div>
 					</div>
 					<div class="rows">
 						<div class="lableinput singlerow">
 							<label for="">Email</label> <input type="text" name="mail"
-								value="${usr.u_email}">
+								value="${user.u_email}">
 						</div>
 					</div>
 					<div class="rows doublerows">
 						<div class="lableinput">
 							<label for="">password</label> <input type="tel" name="telno"
-								value="${usr.u_password}">
+								value="${user.u_password}">
 						</div>
 
 					</div>

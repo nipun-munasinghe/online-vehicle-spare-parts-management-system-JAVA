@@ -19,7 +19,7 @@ import Service.UserDB;
 public class ProPicUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		boolean success = false;
@@ -55,7 +55,7 @@ public class ProPicUpdateServlet extends HttpServlet {
 		if (success == true) {
 			// get user id
 			HttpSession session = request.getSession();
-			int userID = (int) session.getAttribute("u_id");
+			int userID = (int) session.getAttribute("userid");
 
 			// update database
 			boolean dbupdated = UserDB.updatePropic(userID, u_image);

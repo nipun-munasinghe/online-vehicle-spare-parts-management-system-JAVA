@@ -41,18 +41,22 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("Lname",user.getU_lastname());
 			session.setAttribute("Uimage",user.getU_image());
 			session.setAttribute("UserType",user.getU_type());
+			session.setAttribute("password",user.getU_password());
 			
 			if(user.getU_type().equals("customer")) {
-				response.sendRedirect("myProfileServlet.java");
+				response.sendRedirect(request.getContextPath() + "/myProfileServelet");
+
+;
 			}
 			else if (user.getU_type().equals("admin")) {
-				response.sendRedirect("myProfileServlet.java");
+				response.sendRedirect(request.getContextPath() + "/myProfileServelet");
 			}
 			else if (user.getU_type().equals("deliveryperson")) {
-				response.sendRedirect("myProfileServlet.java");
+				response.sendRedirect(request.getContextPath() + "/myProfileServelet");
 			}
 			else if (user.getU_type().equals("manager")) {
-				response.sendRedirect("myProfileServlet.java");}
+				response.sendRedirect(request.getContextPath() + "/myProfileServelet");
+				}
 			}
 
 		else {
