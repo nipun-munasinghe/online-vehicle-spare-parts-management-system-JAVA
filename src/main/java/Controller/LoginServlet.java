@@ -36,14 +36,25 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if(user != null) {
+			session.setAttribute("userid",user.getU_id());
+			session.setAttribute("Fname",user.getU_firstname());
+			session.setAttribute("Lname",user.getU_lastname());
+			session.setAttribute("Uimage",user.getU_image());
+			session.setAttribute("UserType",user.getU_type());
 			
-			session.setAttribute("email",user.getU_email());
-			session.setAttribute("password",user.getU_password());
-			
-			if(user.getUsertype().equals("profile")) {
+			if(user.getU_type().equals("customer")) {
 				response.sendRedirect("myProfileServlet.java");
 			}
-		}
+			else if (user.getU_type().equals("admin")) {
+				response.sendRedirect("myProfileServlet.java");
+			}
+			else if (user.getU_type().equals("deliveryperson")) {
+				response.sendRedirect("myProfileServlet.java");
+			}
+			else if (user.getU_type().equals("manager")) {
+				response.sendRedirect("myProfileServlet.java");}
+			}
+
 		else {
 			request.setAttribute("loginError","Invalid username or password");
 			RequestDispatcher dis = request.getRequestDispatcher("Login.jsp");

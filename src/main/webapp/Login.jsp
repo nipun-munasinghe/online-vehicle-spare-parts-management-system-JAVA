@@ -33,25 +33,22 @@
                         </div>
                       <% } %>
 
-                      <form action ="${pageContext.request.contextPath}/LoginServlet" method="post">
+                      <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
                         <div class="d-flex align-items-center mb-3 pb-1 logo">
                           <span class="h1 fw-bold mb-0">AutoElite</span>
                         </div>
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="email" name="email" id="form2Example17" class="form-control form-control-lg" required />
+                          <input type="email" name="u_email" id="form2Example17" class="form-control form-control-lg" required />
                           <label class="form-label" for="form2Example17">Email address</label>
                         </div>
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="password" name="password" id="form2Example27" class="form-control form-control-lg" required />
+                          <input type="password" name="u_password" id="form2Example27" class="form-control form-control-lg" required />
                           <label class="form-label" for="form2Example27">Password</label>
                         </div>
                         <div class="pt-1 mb-4 b-login">
                           <button class="btn btn-primary" type="submit">Login</button>
                         </div>
-                        <c:if test="${not empty loginError}">
-                        	<p id="error">${loginError}</p>
-                        </c:if>
                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="${pageContext.request.contextPath}/SignUp.jsp"
                             style="color: #393f81;">Register here</a></p>
                       </form>

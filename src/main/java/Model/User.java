@@ -48,8 +48,10 @@ public class User {
 	public String getU_image() {
 		return u_image;
 	}
-
-
+	public int getU_id() {
+		return u_id;
+	}
+	
 
 
 }
