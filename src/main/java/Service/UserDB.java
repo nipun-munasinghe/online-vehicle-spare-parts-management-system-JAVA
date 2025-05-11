@@ -1,7 +1,7 @@
 package Service;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -49,7 +49,7 @@ public class UserDB {
 
 	// update user details method
 	public static boolean updateUser(int u_id, String  u_firstname, String u_lastname, String u_email) {
-	    boolean isSuccess = false;
+	 
 
 	    try {
 	        Connection con = DBConnection.getConnection();

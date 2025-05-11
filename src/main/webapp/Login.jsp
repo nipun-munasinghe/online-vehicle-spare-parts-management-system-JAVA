@@ -26,14 +26,14 @@
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
 
-                      <% String errorMsg = (String)request.getAttribute("errorMessage"); %>
+                      <% String errorMsg = (String)request.getAttribute("loginError"); %>
                       <% if (errorMsg != null) { %>
                         <div class="alert alert-danger" role="alert">
                           <%= errorMsg %>
                         </div>
                       <% } %>
 
-                      <form action="${pageContext.request.contextPath}/LoginServlet" method="POST">
+                      <form action="${pageContext.request.contextPath}/LoginServlet" method="GET">
                         <div class="d-flex align-items-center mb-3 pb-1 logo">
                           <span class="h1 fw-bold mb-0">AutoElite</span>
                         </div>
