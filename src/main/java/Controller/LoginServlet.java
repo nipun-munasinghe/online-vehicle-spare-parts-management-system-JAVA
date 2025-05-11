@@ -36,7 +36,6 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		if(user != null) {
-<<<<<<< Updated upstream
 			session.setAttribute("userid",user.getU_id());
 			session.setAttribute("Fname",user.getU_firstname());
 			session.setAttribute("Lname",user.getU_lastname());
@@ -44,13 +43,6 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("UserType",user.getU_type());
 			
 			if(user.getU_type().equals("customer")) {
-=======
-			session.setAttribute("userID",user.getU_id());
-			session.setAttribute("email",user.getU_email());
-			session.setAttribute("password",user.getU_password());
-			
-			if(user.getU_type().equals("profile")) {
->>>>>>> Stashed changes
 				response.sendRedirect("myProfileServlet.java");
 			}
 			else if (user.getU_type().equals("admin")) {
