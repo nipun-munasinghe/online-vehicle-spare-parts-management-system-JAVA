@@ -1,6 +1,7 @@
 package Service;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -47,27 +48,33 @@ public class UserDB {
 	}
 
 	// update user details method
-	public static boolean updateUser(int u_id, String u_firstname, String u_lastname, String u_email, String u_type) {
-		try {
-			Connection con = DBConnection.getConnection();
-			Statement stmt = con.createStatement();
-			String query = "UPDATE user SET u_id = '" + u_id + "', u_firstname = '" + u_firstname + "', u_lastname = '"
-					+ u_lastname + "', u_email = '" + u_email + "', u_type = '" + u_type + "'";
-			int success = stmt.executeUpdate(query);
+	public static boolean updateUser(int u_id, String  u_firstname, String u_lastname, String u_email) {
+	    boolean isSuccess = false;
 
-			// close connection
-			con.close();
+	    try {
+	        Connection con = DBConnection.getConnection();
+	        String sql = "UPDATE user SET u_firstname = '" + u_firstname + "', u_lastname = '" + u_lastname + "', u_email = '" + u_email + "' WHERE u_id = '" + u_id + "'";
+	        PreparedStatement ps = con.prepareStatement(sql);
+	        
+	        ps.setString(1,  u_firstname);
+	        ps.setString(2, u_lastname);
+	        ps.setString(3, u_email);
+	        ps.setInt(5, u_id);
 
-			if (success > 0) {
-				return true;
-			} else {
-				return false;
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-			return false;
-		}
+	        int rows = ps.executeUpdate();
+
+	        if (rows > 0) {
+	            isSuccess = true;
+	        }
+
+	        con.close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return isSuccess;
 	}
+
 
 	// update profilepic function
 	public static boolean updatePropic(int u_id, String u_image) {
