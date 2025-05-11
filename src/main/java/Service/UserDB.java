@@ -144,7 +144,7 @@ public class UserDB {
 	
 	public static User isValidUser(String u_email ,String u_password) {
 		try {
-			Connection con = DBconn.getConnection();
+			Connection con = DBConnection.getConnection();
 			Statement stmt = con.createStatement();
 			String query = "SELECT * FROM user WHERE u_email = '"+ u_email + "' AND u_password = '"+ u_password + "' LIMIT 1";
 			
