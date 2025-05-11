@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 	
 	addProductForm.addEventListener('submit', function(event) {
-	    event.preventDefault();
-	    // Send the form data to server
 	    console.log('Form submitted:', new FormData(addProductForm));
 	    addProductModal.hide();
 	    addProductForm.reset();
@@ -44,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event to delete buttons
     deleteButtons.forEach(button => {
         button.addEventListener('click', function(event) {
-            event.preventDefault();
 			
             // Get the product ID from the parent article's data attribute or from the button
             const productCard = this.closest('.card__article');
@@ -77,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event to edit buttons
     editButtons.forEach(button => {
         button.addEventListener('click', function(event) {
-            event.preventDefault();
 			
             const productCard = this.closest('.card__article');
 			
@@ -117,8 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     editProductForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        // Send the form data to server
         console.log('Form submitted:', new FormData(editProductForm));
         editProductModal.hide();
     });
