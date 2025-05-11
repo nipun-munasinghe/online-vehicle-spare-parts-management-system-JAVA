@@ -4,11 +4,11 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import Service.ManagerService;
+import Service.managerService;
 
 @SuppressWarnings("serial")
 @WebServlet("/managerActions")
-public class ManagerActionsServlet extends HttpServlet {
+public class managerActionsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -17,21 +17,24 @@ public class ManagerActionsServlet extends HttpServlet {
 		String message = "";
 
 		try {
-			ManagerService service = new ManagerService();
+			managerService service = new managerService();
 			boolean success = false;
 
 			switch (action) {
 			case "activate":
 				success = service.updateStatus(email, "Active");
-				message = success ? "Activated successfully!" : "Activation failed";
+				message = success ? "Activated successfully!" 
+						: "Activation failed";
 				break;
 			case "deactivate":
 				success = service.updateStatus(email, "Inactive");
-				message = success ? "Deactivated successfully!" : "Deactivation failed";
+				message = success ? "Deactivated successfully!" 
+						: "Deactivation failed";
 				break;
 			case "remove":
 				success = service.deleteManager(email);
-				message = success ? "Deleted successfully!" : "Deletion failed";
+				message = success ? "Deleted successfully!" 
+						: "Deletion failed";
 				break;
 			}
 

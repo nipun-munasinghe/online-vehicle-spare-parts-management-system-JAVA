@@ -6,26 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Manager Management</title>
-
-<!-- Link bootstrap style sheet -->
+<!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-
-<!-- Link bootstrap icons -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
-
-<!-- Favicon -->
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 <link rel="icon"
 	href="${pageContext.request.contextPath}/images/favicon.ico"
 	type="image/x-icon">
-
-<!-- Link style sheet -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/products.css">
-
-<!-- Link js file -->
-<script src="${pageContext.request.contextPath}/js/OrderForm.js"></script>
+	href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/addManager.css">
 </head>
 <body>
 
@@ -96,8 +88,7 @@
 											<td>${manager.email}</td>
 											<td>${manager.phoneNumber}</td>
 											<td><span
-												class="badge ${manager.status eq 'Active' ?
-'bg-success' : 'bg-danger'} text-uppercase">
+												class="badge ${manager.status eq 'Active' ?'bg-success' : 'bg-danger'} text-uppercase">
 													${manager.status} </span></td>
 										</tr>
 									</c:forEach>
@@ -171,31 +162,32 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	<script>
-	
-// Action confirmation
-		document.querySelectorAll('.action-btn').forEach(button => {
-           button.addEventListener('click', function(e) {
-                   const action = this.value;
-                      const messages = {
-                           activate: "Are you sure you want to activate this manager?",
-                           deactivate: "Are you sure you want to deactivate this manager?",
-                           remove: "Are you sure you want to permanently delete this manager?"
-                        };
-                      
-                  if (!confirm(messages[action])) {
-                     e.preventDefault();
-                         }
-                     });
-               });
+	// Action confirmation
+	document.querySelectorAll('.action-btn').forEach(button => {
+	  button.addEventListener('click', function(e) {
+	    const action = this.value;
+	    const messages = {
+	      activate: "Are you sure you want to activate this manager?",
+	      deactivate: "Are you sure you want to deactivate this manager?",
+	      remove: "Are you sure you want to permanently delete this manager?"
+	    };
+
+	    if (!confirm(messages[action])) {
+	      e.preventDefault();
+	    }
+	  });
+	});
+
 
 // Auto-close alert after 3 seconds
-              window.setTimeout(function() {
-                   const alert = document.querySelector('.alert');
-                   if (alert) {
-                      alert.style.opacity = '0';
-                      setTimeout(() => alert.remove(), 500);
-                              }
-                          }, 3000);
-     </script>
+<script>
+  window.setTimeout(function() {
+    const alert = document.querySelector('.alert');
+    if (alert) {
+      alert.style.opacity = '0';
+      setTimeout(() => alert.remove(), 500);
+    }
+  }, 3000);
+</script>
 </body>
 </html>
