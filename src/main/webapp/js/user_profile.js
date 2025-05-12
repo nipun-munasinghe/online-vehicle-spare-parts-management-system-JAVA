@@ -11,6 +11,7 @@ function initializeOriginalData() {
     };
 }
 
+
 // Compare current values with original ones
 function checkChanges() {
     var form = document.getElementById("profileForm");
@@ -26,3 +27,27 @@ function checkChanges() {
 
 // Run when page loads
 window.onload = initializeOriginalData;
+
+
+
+  // trigger and display a Bootstrap modal window
+  document.addEventListener("DOMContentLoaded", () => {
+      const openBtn = document.getElementById("openDeleteModal");
+      const modal = new bootstrap.Modal(document.getElementById("deleteAccountModal"));
+	  
+	  //Enable/Disable Delete Button
+      const userInput = document.getElementById("confirmUserId");
+      const deleteBtn = document.getElementById("deleteBtn");
+      const expectedId = document.querySelector("input[name='usrid']").value;
+
+      openBtn.addEventListener("click", () => {
+          userInput.value = "";
+          deleteBtn.disabled = true;
+          modal.show();
+      });
+
+      userInput.addEventListener("input", () => {
+          deleteBtn.disabled = userInput.value.trim() !== expectedId;
+      });
+  });
+
