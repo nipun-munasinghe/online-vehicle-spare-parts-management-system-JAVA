@@ -37,6 +37,8 @@
 <!-- Link style sheet -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/pro.css">
+	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/user_profile.js"></script>
 </head>
 <body>
 	<!-- include header -->
@@ -70,7 +72,7 @@
 				<p id="error">${Error}</p>
 			</c:if>
 
-			<form id="profileForm"  
+			<form id="profileForm" oninput="checkChanges()"  
 				action="${pageContext.request.contextPath}/updateUserServlet"
 				method="POST">
 				<div class="rowscontainer">
@@ -102,7 +104,7 @@
 
 					<div class="rows">
 						<input class="submitbtn" type="submit" placeholder="Save Changes"
-							value="Save Chages" id="submitBtn"  >
+							value="Save Chages" id="submitBtn" disabled / onclick="return confirm('Do you want to Update details?')">
 					</div>
 				</div>
 			</form>
@@ -128,7 +130,7 @@
 					</div>
 					<div class="rows">
 						<input class="submitbtn" type="submit"
-							placeholder="Change Password" value="Change Password">
+							placeholder="Change Password" value="Change Password" onclick="return confirm('Do you want to Update Password?')">
 					</div>
 				</div>
 			</form>

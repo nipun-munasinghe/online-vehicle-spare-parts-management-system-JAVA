@@ -17,6 +17,10 @@
     
     <!-- Link style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/SignUp.css">
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/register.js"></script>
+
+    
 </head>
 <body>
 	<!-- include header -->
@@ -35,7 +39,7 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form  action="${pageContext.request.contextPath}/registerUserServelet" method="POST">
+              <form   id="regform" oninput="comparepwd()" action="${pageContext.request.contextPath}/registerUserServelet" method="POST">
 
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg">First Name</label>
@@ -56,6 +60,13 @@
                   <label class="form-label" for="form3Example4cg">Password</label>
                   <input type="password" name="u_password" id="form3Example4cg" class="form-control form-control-lg" />
                 </div>
+                
+                 <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4cg">Comfirm Password</label>
+                  <input type="password" name="confirmpassword" id="form3Example4cg" class="form-control form-control-lg" />
+                </div>
+                
+                <p class="error" id="jserror"></p>
 
                <div class="radiobtns">
 						<b>User Type :</b>
@@ -81,7 +92,7 @@
                 </c:if>
 
                 <div class="d-flex justify-content-center b-login">
-                  <button  type="submit" class="btn btn-button">Register</button>
+                  <button  type="submit" id="submitbtn" class="btn btn-button">Register</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
