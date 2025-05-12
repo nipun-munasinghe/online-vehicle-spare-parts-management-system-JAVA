@@ -31,11 +31,11 @@ public class updateUserServlet extends HttpServlet {
 		boolean updated = UserDB.updateUser(userID, u_firstname, u_lastname, u_email);
 
 		if (updated == true) {
-			response.sendRedirect("myProfileServlet");
+			response.sendRedirect("user_profile.jsp");
 		} else {
 			// send error with url
 			String message = "Error when changing Details. try Again!";
-			response.sendRedirect("myProfileServlet?message=" + URLEncoder.encode(message, "UTF-8"));
+			response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
 		}
 	}
 

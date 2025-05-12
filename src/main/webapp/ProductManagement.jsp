@@ -169,11 +169,10 @@
 			            </div>
 			            <div class="modal-body">
 			                <p>Are you sure you want to delete this product?</p>
-			                <input type="hidden" id="deleteProductId">
 			            </div>
 			            <div class="d-flex justify-content-end gap-2 p-3">
 			                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-			                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+			                <button type="submit" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
 			            </div>
 		            </form>
 		        </div>

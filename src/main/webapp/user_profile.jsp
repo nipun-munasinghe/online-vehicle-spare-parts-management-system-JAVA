@@ -79,23 +79,24 @@
 					<div class="rows doublerows">
 						<div class="lableinput">
 							<label for="">First Name</label> <input type="text" name="u_firstname"
-								value="${user.u_firstname}">
+								value="${user.u_firstname != null ? user.u_firstname : '' }">
 						</div>
 						<div class="lableinput">
 							<label for="">Last Name</label> <input type="text" name="u_lastname"
-								value="${user. u_lastname}">
+								value="${user.u_lastname != null ? user.u_lastname : '' }">
 						</div>
 					</div>
 					<div class="rows">
 						<div class="lableinput singlerow">
 							<label for="">Email</label> <input type="text" name="u_email"
-								value="${user.u_email}">
+								value="${user.u_email != null ? user.u_email : '' }">
 						</div>
 					</div>
 					<div class="rows doublerows">
 						<div class="lableinput">
 							<label for="">Password</label>
-                           <input type="password" name="u_password" value="${user.u_password}" readonly>
+                           <input type="password" name="u_password" value="${user.u_email != null ? user.u_email : '' }" readonly>
+
 
 						</div>
 
