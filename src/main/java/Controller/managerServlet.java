@@ -56,7 +56,7 @@ public class managerServlet extends HttpServlet {
             if (success) {
                 session.setAttribute("actionMessage", "Manager added successfully!");
             } else {
-                session.setAttribute("actionMessage", "Failed to add manager.");
+                session.setAttribute("actionMessage", "Failed to add manager!.");
             }
         } catch (Exception e) {
             session.setAttribute("actionMessage", "Error: " + e.getMessage());

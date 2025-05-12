@@ -1,25 +1,26 @@
-/* Main Styles */
-@font-face {/* Poppins Regular */
+/* Fonts */
+@font-face {
     font-family: 'Poppins';
     src: url('../fonts/Poppins-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face {/* Roboto Semi Bold */
+@font-face {
     font-family: 'Roboto';
     src: url('../fonts/Roboto-SemiBold.woff2') format('woff2');
-    font-weight: 600; /* Semi Bold */
+    font-weight: 600;
     font-style: normal;
 }
 
-@font-face {/* Roboto Bold */
+@font-face {
     font-family: 'Roboto';
     src: url('../fonts/Roboto-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
 }
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -42,31 +43,124 @@ body {
 
 h1 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 700; /* Bold */
+    font-weight: 700;
 }
 
 h2, h3 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 600; /* Semi-bold */
+    font-weight: 600;
 }
 
-/*Page's CSS Starts from here */
-.b-login button{
+/* Register Button Colors */
+.btn-register {
+    background: linear-gradient(90deg, #A6FF00 0%, #70E000 100%);
+    color: #242323; /* Dark text */
+    font-weight: 700;
+    font-size: 1.25rem;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(166, 255, 0, 0.6);
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    user-select: none;
+}
+
+.btn-register:hover,
+.btn-register:focus {
+    background: linear-gradient(90deg, #8ddb00 0%, #5bb800 100%);
+    box-shadow: 0 8px 20px rgba(139, 255, 0, 0.8);
+    outline: none;
+}
+
+/* Social Buttons - consistent size, rounded, clear colors */
+.btn-social {
+    min-width: 180px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: none;
+    border: none;
+    color: #fff;
+    user-select: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+/* Facebook - official blue */
+.btn-facebook {
+    background-color: #1877F2;
+    box-shadow: 0 4px 8px rgba(24, 119, 242, 0.4);
+}
+.btn-facebook:hover,
+.btn-facebook:focus {
+    background-color: #145db2;
+    box-shadow: 0 6px 15px rgba(20, 93, 178, 0.6);
+    outline: none;
+}
+
+/* Google - official blue */
+.btn-google {
+    background-color: #4285F4;
+    box-shadow: 0 4px 8px rgba(66, 133, 244, 0.4);
+}
+.btn-google:hover,
+.btn-google:focus {
+    background-color: #357ae8;
+    box-shadow: 0 6px 15px rgba(53, 122, 232, 0.6);
+    outline: none;
+}
+
+/* GitHub - black with subtle shadow */
+.btn-github {
+    background-color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.btn-github:hover,
+.btn-github:focus {
+    background-color: #333333;
+    box-shadow: 0 6px 15px rgba(51, 51, 51, 0.6);
+    outline: none;
+}
+
+/* Icon spacing */
+.btn-social i {
+    font-size: 1.3em;
+    margin-right: 0.7em;
+}
+
+/* Accessibility: focus outline for keyboard users */
+.btn-register:focus-visible,
+.btn-social:focus-visible {
+    outline: 3px solid #A6FF00;
+    outline-offset: 3px;
+}
+
+/* Fix padding typo in .b-login button from your original CSS */
+.b-login button {
     background-color: #A6FF00;
     color: #242323;
     font-weight: 600;
     font-size: 20px;
-    padding: 80px, 0px 80px 0px;
+    padding: 12px 80px; /* corrected padding */
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
-.b-login button:hover{
-    background-color: #ffffff;
+.b-login button:hover {
+    background-color: rgb(0, 255, 255);
     color: #242323;
     font-weight: 600;
     font-size: 20px;
-    padding: 80px, 0px 80px 0px;
+    padding: 12px 80px; /* corrected padding */
     border: solid 1px #A6FF00;
     border-radius: 5px;
     cursor: pointer;
