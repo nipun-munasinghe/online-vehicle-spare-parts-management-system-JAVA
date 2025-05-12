@@ -30,6 +30,7 @@ window.onload = initializeOriginalData;
 
 
 
+
   // trigger and display a Bootstrap modal window
   document.addEventListener("DOMContentLoaded", () => {
       const openBtn = document.getElementById("openDeleteModal");

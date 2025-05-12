@@ -17,8 +17,8 @@
                     <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/Cart.jsp">Cart</a></li>
                     <li class="ae-nav-item"><a href="#">Contact</a></li>
                     <li class="ae-separator">|</li>
-                    <li class="ae-nav-item ae-signin-btn"><a href="#">Login</a></li>
-                    <li class="ae-nav-item ae-signup-btn"><a href="#">Register</a></li>
+                    <li class="ae-nav-item ae-signin-btn"><a href="${pageContext.request.contextPath}/Login.jsp">Login</a></li>
+                    <li class="ae-nav-item ae-signup-btn"><a href="${pageContext.request.contextPath}/SignUp.jsp">Register</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,7 +37,7 @@
                 <li><a href="${pageContext.request.contextPath}/products.jsp">Shop</a></li>
                 <li><a href="${pageContext.request.contextPath}/Cart.jsp">Cart</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="${pageContext.request.contextPath}/Login.jsp">Login</a></li>
                 <li><a href="${pageContext.request.contextPath}/SignUp.jsp">Register</a></li>
             </ul>
         </div>
@@ -57,7 +57,7 @@
             <li><a href="${pageContext.request.contextPath}/products.jsp">Shop</a></li>
             <li><a href="${pageContext.request.contextPath}/Cart.jsp">Cart</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="${pageContext.request.contextPath}/Login.jsp">Login</a></li>
             <li><a href="${pageContext.request.contextPath}/SignUp.jsp">Register</a></li>
         </ul>
     </div>
