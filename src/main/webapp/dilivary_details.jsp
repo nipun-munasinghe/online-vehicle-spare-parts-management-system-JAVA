@@ -36,10 +36,11 @@
                     <tr>
                     
                         <th>Oder ID</th>
+                        <th>order date </th>
                         <th>Customer ID</th>
                         <th>Address</th>
                         <th>Phone No</th>
-                        <th>Delivery Status</th>
+                        
                         <th></th>
                     </tr>
                 </thead>
@@ -49,12 +50,7 @@
                         <td data-label="Customer Name"></td>
                         <td data-label="Address"></td>
                         <td data-label="Phone No"></td>
-                        <td data-label="Delivery Status">
-                            <select class="status-dropdown form-select">
-                                <option value="placed" selected></option>
-                                <option value="shipped"></option>
-                                <option value="delivered"></option>
-                            </select>
+
                         </td>
                         
                     </tr>

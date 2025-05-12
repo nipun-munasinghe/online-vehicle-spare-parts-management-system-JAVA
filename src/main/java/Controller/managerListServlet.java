@@ -42,3 +42,6 @@ public class managerListServlet extends HttpServlet {
         request.getRequestDispatcher("/manageManager.jsp").forward(request, response);
     }
 }
+
+
+

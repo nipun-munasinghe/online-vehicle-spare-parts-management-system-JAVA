@@ -1,3 +1,4 @@
+
 package Controller;
 
 import Model.managerModel;
@@ -26,19 +27,29 @@ public class managerServlet extends HttpServlet {
         String status = request.getParameter("status");
 
         // Server-side validation
-		StringBuilder errorMsg = new StringBuilder();
-		if (firstName == null || firstName.trim().length() < 2)
-			errorMsg.append("First name must be at least 2 characters. ");
-		if (lastName == null || lastName.trim().length() < 2)
-			errorMsg.append("Last name must be at least 2 characters. ");
-		if (email == null || !email.matches("^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,}$"))
-			errorMsg.append("Invalid email format. ");
-		if (phone == null || !phone.matches("\\d{10}"))
-			errorMsg.append("Phone must be 10 digits. ");
-		if (password == null || !password.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"))
-			errorMsg.append("Password must be at least 8 characters and include a letter and a number. ");
-		if (status == null || (!status.equals("Active") && !status.equals("Inactive")))
-			errorMsg.append("Status must be Active or Inactive. ");
+        StringBuilder errorMsg = new StringBuilder();
+
+        if (firstName == null || firstName.trim().length() < 2)
+            errorMsg.append("First name must be at least 2 characters. ");
+        else if (!firstName.matches("^[A-Za-z ]+$"))
+            errorMsg.append("First name must contain only letters and spaces. ");
+
+        if (lastName == null || lastName.trim().length() < 2)
+            errorMsg.append("Last name must be at least 2 characters. ");
+        else if (!lastName.matches("^[A-Za-z ]+$"))
+            errorMsg.append("Last name must contain only letters and spaces. ");
+
+        if (email == null || !email.matches("^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,}$"))
+            errorMsg.append("Invalid email format. ");
+
+        if (phone == null || !phone.matches("\\d{10}"))
+            errorMsg.append("Phone must be 10 digits. ");
+
+        if (password == null || !password.matches("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"))
+            errorMsg.append("Password must be at least 8 characters and include a letter and a number. ");
+
+        if (status == null || (!status.equals("Active") && !status.equals("Inactive")))
+            errorMsg.append("Status must be Active or Inactive. ");
 
         // Handle validation errors
         if (errorMsg.length() > 0) {
