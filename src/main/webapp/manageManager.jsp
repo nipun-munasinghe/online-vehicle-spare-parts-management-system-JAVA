@@ -162,6 +162,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	<script>
+	
 	// Action confirmation
 	document.querySelectorAll('.action-btn').forEach(button => {
 	  button.addEventListener('click', function(e) {
@@ -171,12 +172,11 @@
 	      deactivate: "Are you sure you want to deactivate this manager?",
 	      remove: "Are you sure you want to permanently delete this manager?"
 	    };
-
 	    if (!confirm(messages[action])) {
 	      e.preventDefault();
 	    }
 	  });
-	});
+});
 
 
 // Auto-close alert after 3 seconds

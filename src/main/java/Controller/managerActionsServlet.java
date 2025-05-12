@@ -1,3 +1,4 @@
+
 package Controller;
 
 import java.io.IOException;
@@ -47,3 +48,4 @@ public class managerActionsServlet extends HttpServlet {
 		response.sendRedirect("managerList");
 	}
 }
+
