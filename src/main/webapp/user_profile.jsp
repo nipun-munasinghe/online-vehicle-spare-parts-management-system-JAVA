@@ -37,6 +37,8 @@
 <!-- Link style sheet -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/pro.css">
+	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/user_profile.js"></script>
 </head>
 <body>
 	<!-- include header -->
@@ -70,7 +72,7 @@
 				<p id="error">${Error}</p>
 			</c:if>
 
-			<form id="profileForm"  
+			<form id="profileForm" oninput="checkChanges()"  
 				action="${pageContext.request.contextPath}/updateUserServlet"
 				method="POST">
 				<div class="rowscontainer">
@@ -102,7 +104,7 @@
 
 					<div class="rows">
 						<input class="submitbtn" type="submit" placeholder="Save Changes"
-							value="Save Chages" id="submitBtn"  >
+							value="Save Chages" id="submitBtn" disabled / >
 					</div>
 				</div>
 			</form>
@@ -128,13 +130,44 @@
 					</div>
 					<div class="rows">
 						<input class="submitbtn" type="submit"
-							placeholder="Change Password" value="Change Password">
+							placeholder="Change Password" value="Change Password" >
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 
+<!-- Delete Account Button -->
+<button type="button" class="btn btn-danger position-fixed" id="openDeleteModal"
+        style="bottom: 20px; right: 20px; z-index: 1050;">
+    Delete Account
+</button>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteAccountModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="${pageContext.request.contextPath}/deleteUserServlet" method="POST">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">Delete Account</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Type your User ID (<strong>${userid}</strong>) to confirm:</p>
+          <input type="text" id="confirmUserId" class="form-control" placeholder="Enter User ID">
+          <input type="hidden" name="usrid" value="${userid}">
+          <input type="hidden" name="from" value="myprofile">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-danger" id="deleteBtn" value="Delete Account" disabled>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+   
 
 
 

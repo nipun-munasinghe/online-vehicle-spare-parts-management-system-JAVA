@@ -16,7 +16,14 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/SignUp.css">
 
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/register.js"></script>
+
+    
+
+
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
 
@@ -30,78 +37,72 @@
                     <div class="card shadow" style="border-radius: 15px;">
                         <div class="card-body p-5">
 
+
+              <form   id="regform" oninput="comparepwd()" action="${pageContext.request.contextPath}/registerUserServelet" method="POST">
+
                             <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+                            
+                            
+                             <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">First Name</label>
+                    <input type="text" name="u_firstname" id="form3Example1cg" class="form-control form-control-lg" />
+                  </div>
 
-                            <form action="${pageContext.request.contextPath}/registerUserServelet" method="POST" novalidate>
 
-                                <div class="mb-3">
-                                    <label for="u_firstname" class="form-label">First Name</label>
-                                    <input type="text" class="form-control form-control-lg" id="u_firstname" name="u_firstname"
-                                        value="${fn:escapeXml(u_firstname)}" required>
-                                </div>
 
-                                <div class="mb-3">
-                                    <label for="u_lastname" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control form-control-lg" id="u_lastname" name="u_lastname"
-                                        value="${fn:escapeXml(u_lastname)}" required>
-                                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Last Name</label>
+                    <input type="text" name="u_lastname" id="form3Example1cg" class="form-control form-control-lg" />
+                  </div>
 
-                                <div class="mb-3">
-                                    <label for="u_email" class="form-label">Your Email</label>
-                                    <input type="email" class="form-control form-control-lg" id="u_email" name="u_email"
-                                        value="${fn:escapeXml(u_email)}" required>
-                                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <input type="email"  name="u_email" id="form3Example3cg" class="form-control form-control-lg" />
+                </div>
 
-                                <div class="mb-3">
-                                    <label for="u_password" class="form-label">Password</label>
-                                    <input type="password" class="form-control form-control-lg" id="u_password" name="u_password" required>
-                                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                  <input type="password" name="u_password" id="form3Example4cg" class="form-control form-control-lg" />
+                </div>
+                
+                 <div data-mdb-input-init class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4cg">Comfirm Password</label>
+                  <input type="password" name="confirmpassword" id="form3Example4cg" class="form-control form-control-lg" />
+                </div>
+                
+                <p class="error" id="jserror"></p>
 
-                                <!-- User Type radios inline -->
-                                <fieldset class="mb-3">
-                                    <legend class="col-form-label fw-bold mb-2">User Type</legend>
-                                    <div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="u_type" id="admin" value="admin"
-                                                <c:if test="${u_type == 'admin'}">checked</c:if> required>
-                                            <label class="form-check-label" for="admin">Admin</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="u_type" id="delivery_person" value="delivery_person"
-                                                <c:if test="${u_type == 'delivery_person'}">checked</c:if>>
-                                            <label class="form-check-label" for="delivery_person">Delivery Person</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="u_type" id="customer" value="customer"
-                                                <c:if test="${u_type == 'customer'}">checked</c:if>>
-                                            <label class="form-check-label" for="customer">Customer</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="u_type" id="manager" value="manager"
-                                                <c:if test="${u_type == 'manager'}">checked</c:if>>
-                                            <label class="form-check-label" for="manager">Manager</label>
-                                        </div>
-                                    </div>
-                                </fieldset>
+               <div class="radiobtns">
+						<b>User Type :</b>
+						<input type="radio" name="u_type" value="admin" required> admin
+						<input type="radio" name="u_type" value="delivery_person">delivery_person
+						<input type="radio" name="u_type" value="customer">customer
+			            <input type="radio" name="u_type" value="manager">manager
+						
+				</div>
+				
+				
+				<br>
 
-                                <div class="form-check mb-4 d-flex justify-content-center">
-                                    <input class="form-check-input me-2" type="checkbox" id="terms" required>
-                                    <label class="form-check-label" for="terms">
-                                        I agree to all statements in <a href="#!" class="text-body">Terms of service</a>
-                                    </label>
-                                </div>
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body">Terms of service</a>
+                  </label>
+                </div>
+                
+                <c:if test="${not empty RegisterError}">
+                    <p id="error">${RegisterError}</p>
+                </c:if>
 
-                                <c:if test="${not empty RegisterError}">
-                                    <div class="alert alert-danger" role="alert" id="error">
-                                        <c:out value="${RegisterError}" escapeXml="false"/>
-                                    </div>
-                                </c:if>
+                <div class="d-flex justify-content-center b-login">
+                  <button  type="submit" id="submitbtn" class="btn btn-button">Register</button>
+                </div>
 
-                                <div class="d-flex justify-content-center mb-3">
-                                    <button type="submit" class="btn-register btn btn-lg">Register</button>
-                                </div>
-
-                                <!-- Social Sign Up Buttons -->
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                    class="fw-bold text-body">Login here</a></p>
+                    
+                    <!-- Social Sign Up Buttons -->
                                 <div class="text-center mb-4">
                                     <p>Or sign up with</p>
                                     <div class="d-flex justify-content-center flex-wrap gap-3">
@@ -117,18 +118,14 @@
                                     </div>
                                 </div>
 
-                                <p class="text-center text-muted mt-4 mb-0">
-                                    Already have an account?
-                                    <a href="Login.jsp" class="fw-bold text-body">Login here</a>
-                                </p>
+              </form>
 
-                            </form>
 
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
+        
+        
     </section>
 
     <jsp:include page="Footer.jsp"/>
