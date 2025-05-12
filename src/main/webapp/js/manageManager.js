@@ -11,16 +11,13 @@ function validateManagerForm() {
 	// Validation rules
 	if (firstName.length < 2) {
 		errors.push("First name must be at least 2 characters.");
-	} else if (!/^[A-Za-z ]+$/.test(firstName)) {
-		errors.push("First name must contain only letters and spaces.");
-	}
+		} else if (!/^[A-Za-z ]+$/.test(firstName)) {errors.push("First name must contain only letters and spaces.");}	
 	if (lastName.length < 2) {
 		errors.push("Last name must be at least 2 characters.");
-	} else if (!/^[A-Za-z ]+$/.test(lastName)) {
-		errors.push("Last name must contain only letters and spaces.");
-		if (!/^[\w.-]+@[\w.-]+\.[\w]{2,}$/.test(email)) errors.push("Invalid email format.");
-		if (!/^(\+94|0)\d{9}$/.test(phone)) errors.push("Phone must start with +94 or 0 and have 9 digits after.");
-		if (!/(?=.*[A-Za-z])(?=.*\d).{8,}/.test(password)) {
+			} else if (!/^[A-Za-z ]+$/.test(lastName)) {errors.push("Last name must contain only letters and spaces.");}
+	if (!/^[\w.-]+@[\w.-]+\.[\w]{2,}$/.test(email)) errors.push("Invalid email format.");
+	if (!/^(\+94|0)\d{9}$/.test(phone)) errors.push("Phone must start with +94 or 0 and have 9 digits after.");
+	if (!/(?=.*[A-Za-z])(?=.*\d).{8,}/.test(password)) {
 			errors.push("Password must be at least 8 characters and include both letters and numbers.");
 		}
 

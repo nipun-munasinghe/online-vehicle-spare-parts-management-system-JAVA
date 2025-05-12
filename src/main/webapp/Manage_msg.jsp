@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,39 +32,48 @@
             <table class="table table-dark table-bordered text-center">
                 <thead>
                     <tr>
-                        <th> Message ID </th>
-                        <th> Name </th>
-                        <th> Email </th>
-                        <th> Message </th>
-                        <th> Status </th>
+                        <th>Message ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td> Kasun Perera</td>
-                        <td> kasun.pere43ra@email.lk </td>
-                        <td> Need help with my account.</td>
-                        <td><span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Pending </span></td>
-                    </tr>
-                    
-                    <tr>
-                        <td>02</td>
-                        <td> Thilini Silva </td>
-                        <td> thilini.silva23@email.lk </td>
-                        <td> Requesting transaction details.</td>
-                        <td><span class="badge bg-success"><i class="bi bi-check-circle"></i> Read </span></td>
-                    </tr>
-                    
-                    <tr>
-                        <td>03</td>
-                        <td> Amal Fernando </td>
-                        <td> amal.fernando78@email.lk </td>
-                        <td> Issue with login credentials.</td>
-                        <td><span class="badge bg-danger"><i class="bi bi-envelope"></i> Unread </span></td>
-                    </tr>
+                    <c:choose>
+                        <c:when test="${not empty messageList}">
+                            <c:forEach var="msg" items="${messageList}">
+                                <tr>
+                                    <td>${msg.m_id}</td>
+                                    <td>${msg.m_name}</td>
+                                    <td>${msg.m_email}</td>
+                                    <td>${msg.message}</td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${msg.m_status eq 'Pending'}">
+                                                <span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Pending</span>
+                                            </c:when>
+                                            <c:when test="${msg.m_status eq 'Read'}">
+                                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Read</span>
+                                            </c:when>
+                                            <c:when test="${msg.m_status eq 'Unread'}">
+                                                <span class="badge bg-danger"><i class="bi bi-envelope"></i> Unread</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="badge bg-secondary">${msg.m_status}</span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td colspan="5" class="text-warning">No messages found.</td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
                 </tbody>
-                
             </table>
         </div>
     </div>
