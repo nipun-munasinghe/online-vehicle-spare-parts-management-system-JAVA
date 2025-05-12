@@ -33,30 +33,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*=============== Delete confirmation functionality ===============*/
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all delete buttons
+    //get delete button
     const deleteButtons = document.querySelectorAll('.card__button_delete');
     const deleteConfirmModal = new bootstrap.Modal(document.getElementById('deleteConfirmModal'));
     const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
     const deleteProductIdInput = document.getElementById('deleteProductId');
     
-    // Add click event to delete buttons
+    //add click event to delete buttons
     deleteButtons.forEach(button => {
         button.addEventListener('click', function(event) {
 			
-            // Get the product ID from the parent article's data attribute or from the button
+            //get the product ID
             const productCard = this.closest('.card__article');
             const productId = productCard.getAttribute('data-product-id');
 			document.getElementById('deleteProductId').value = productId;
             
-            // Store the product ID in the hidden input
+            //store the product ID in the hidden input
             deleteProductIdInput.value = productId;
             
-            // Show the confirmation modal
+            //Show the confirmation modal
             deleteConfirmModal.show();
         });
     });
     
-	// Close the modal
+	//close the modal
     confirmDeleteBtn.addEventListener('click', function() {
         deleteConfirmModal.hide();
     });
@@ -64,20 +64,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*=============== Edit Product functionality ===============*/
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all edit buttons
+    //get all edit buttons
     const editButtons = document.querySelectorAll('.card__button_edit');
     const editProductModal = new bootstrap.Modal(document.getElementById('editProductModal'));
     const editProductForm = document.getElementById('editProductForm');
     const editImagePreview = document.getElementById('editImagePreview');
     const editProductImage = document.getElementById('editProductImage');
     
-    // Add click event to edit buttons
+    //add click event to edit buttons
     editButtons.forEach(button => {
         button.addEventListener('click', function(event) {
 			
             const productCard = this.closest('.card__article');
 			
-			// Get the product ID and data from the parent article
+			//get the product ID and data from the parent article
             const productId = productCard.getAttribute('data-product-id');
 			const productName = productCard.querySelector('.card__name').textContent;
 			const productCategory = productCard.dataset.category;
@@ -85,10 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			const productQuantity = productCard.dataset.quantity;
 			const productPrice = productCard.querySelector('.card__price').textContent
 								    .replace('Rs.', '')
-								    .replace(/,/g, '') // Remove commas
+								    .replace(/,/g, '') //remove commas
 								    .trim();
 			
-            // Fill form fields
+            //fill form fields
 			document.getElementById('editProductId').value = productId;
 			document.getElementById('editProductName').value = productName;
 			document.getElementById('editProductCategory').value = productCategory;

@@ -33,5 +33,4 @@ public class DeleteProductServlet extends HttpServlet {
 			throw new ServletException(e);
 		}
 	}
-
 }
