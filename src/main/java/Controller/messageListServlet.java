@@ -9,26 +9,36 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/manageMessages")
+@WebServlet("/messageList")
 public class messageListServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private messageService messageService = new messageService();
 
+    // Handles GET requests to list all messages
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+
         try {
-            // Fetch all messages from the database
-            List<messageModel> messages = messageService.getAllMessages();
-            // Set as request attribute for JSP
+            // Get all messages from the service layer
+            List<messageModel> messages = new messageService().getAllMessages();
             request.setAttribute("messageList", messages);
+
+            // Handle session messages (for feedback after actions)
+            String actionMessage = (String) session.getAttribute("actionMessage");
+            if (actionMessage != null) {
+                request.setAttribute("message", actionMessage);
+                session.removeAttribute("actionMessage");
+            }
+
         } catch (Exception e) {
-            // On error, set error message for JSP
             request.setAttribute("error", "Error loading messages: " + e.getMessage());
-            e.printStackTrace(); // For debugging in server logs
+            e.printStackTrace();
         }
-        // Forward to JSP page
+
+        // Forward to JSP page for rendering
         request.getRequestDispatcher("/Manage_msg.jsp").forward(request, response);
     }
 }

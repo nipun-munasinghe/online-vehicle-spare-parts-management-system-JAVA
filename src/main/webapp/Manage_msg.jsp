@@ -26,65 +26,74 @@
     <div class="container mt-5 d-flex flex-column align-items-center">
         <h2 class="text-white mb-4">Manage Messages</h2>
 
-        <!-- Show error if exists -->
+        <!-- Show messages/errors -->
+        <c:if test="${not empty message}">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </c:if>
         <c:if test="${not empty error}">
-            <div class="alert alert-danger">${error}</div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                ${error}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </c:if>
 
         <!-- Messages Table -->
         <div class="table-responsive w-100">
-            <table class="table table-dark table-bordered text-center">
-                <thead>
+            <table class="table table-dark table-bordered align-middle">
+                <thead class="table-light">
                     <tr>
-                        <th>Message ID</th>
+                        <th>ID</th>
+                        <th>Date</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Message</th>
                         <th>Status</th>
                     </tr>
                 </thead>
-<tbody>
-    <c:choose>
-        <c:when test="${not empty messageList}">
-            <c:forEach var="msg" items="${messageList}">
-                <tr>
-                    <td>${msg.mId}</td>
-                    <td>${msg.mName}</td>
-                    <td>${msg.mEmail}</td>
-                    <td>${msg.message}</td>
-                    <td>
-                        <c:choose>
-                            <c:when test="${msg.mStatus eq 'Pending'}">
-                                <span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Pending</span>
-                            </c:when>
-                            <c:when test="${msg.mStatus eq 'Read'}">
-                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Read</span>
-                            </c:when>
-                            <c:when test="${msg.mStatus eq 'Unread'}">
-                                <span class="badge bg-danger"><i class="bi bi-envelope"></i> Unread</span>
-                            </c:when>
-                            <c:otherwise>
-                                <span class="badge bg-secondary">${msg.mStatus}</span>
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                </tr>
-            </c:forEach>
-        </c:when>
-        <c:otherwise>
-            <tr>
-                <td colspan="5" class="text-warning">No messages found.</td>
-            </tr>
-        </c:otherwise>
-    </c:choose>
-</tbody>
-
+                <tbody>
+                    <c:choose>
+                        <c:when test="${not empty messageList}">
+                            <c:forEach var="msg" items="${messageList}">
+                                <tr>
+                                    <td>${msg.m_Id}</td>
+                                    <td>${msg.m_Date}</td>
+                                    <td>${msg.m_Name}</td>
+                                    <td>${msg.m_Email}</td>
+                                    <td class="text-start">${msg.message}</td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${msg.m_Status eq 'Pending'}">
+                                                <span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Pending</span>
+                                            </c:when>
+                                            <c:when test="${msg.m_Status eq 'Read'}">
+                                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Read</span>
+                                            </c:when>
+                                            <c:when test="${msg.m_Status eq 'Unread'}">
+                                                <span class="badge bg-danger"><i class="bi bi-envelope"></i> Unread</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="badge bg-secondary">${msg.m_Status}</span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td colspan="7" class="text-warning">No messages found.</td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
+                </tbody>
             </table>
         </div>
     </div>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
