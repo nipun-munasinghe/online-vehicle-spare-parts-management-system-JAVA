@@ -112,14 +112,4 @@ function populateEditForm(data) {
 
 
 
-// Form submission validation
-document.addEventListener("DOMContentLoaded", function() {
-	const form = document.getElementById("managerForm");
-	if (form) {
-		form.onsubmit = function(e) {
-			if (!validateManagerForm()) {
-				e.preventDefault();
-			}
-		};;
-
 
