@@ -27,7 +27,7 @@
     <nav class="custom-navbar custom-navbar-expand-md topbar my-4 mx-2">
         <div class="container-fluid navbar-div">
             <i class="bi bi-list" id="toggle-sidebar" title="Open Dashboard"></i>
-            <h1 class="custom-navbar-brand mb-0">Welcome UserName!</h1>
+            <h1 class="custom-navbar-brand mb-0">Welcome ${user.u_firstname}!</h1>
         </div>
     </nav>
 	

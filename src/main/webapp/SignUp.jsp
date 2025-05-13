@@ -28,7 +28,7 @@
 <body>
 
     <jsp:include page="Header.jsp"/>
-    <jsp:include page="TopBar.jsp"/>
+  
 
     <section class="p-5">
         <div class="container h-100">
@@ -38,46 +38,46 @@
                         <div class="card-body p-5">
 
 
-              <form   id="regform" oninput="comparepwd()" action="${pageContext.request.contextPath}/registerUserServelet" method="POST">
+              <form   id="regform"  oninput="comparepwd()" action="${pageContext.request.contextPath}/registerUserServelet" method="POST">
 
                             <h2 class="text-uppercase text-center mb-5">Create an account</h2>
                             
                             
                              <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form3Example1cg">First Name</label>
-                    <input type="text" name="u_firstname" id="form3Example1cg" class="form-control form-control-lg" />
+                    <input type="text" name="u_firstname" id="first" class="form-control form-control-lg" />
                   </div>
 
 
 
                 <div data-mdb-input-init class="form-outline mb-4">
                     <label class="form-label" for="form3Example1cg">Last Name</label>
-                    <input type="text" name="u_lastname" id="form3Example1cg" class="form-control form-control-lg" />
+                    <input type="text" name="u_lastname" id="last" class="form-control form-control-lg" />
                   </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form3Example3cg">Your Email</label>
-                  <input type="email"  name="u_email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input type="email"  name="u_email" id="email" class="form-control form-control-lg" />
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cg">Password</label>
-                  <input type="password" name="u_password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <input type="password" name="u_password" id="password" class="form-control form-control-lg" />
                 </div>
                 
                  <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cg">Comfirm Password</label>
-                  <input type="password" name="confirmpassword" id="form3Example4cg" class="form-control form-control-lg" />
+                  <input type="password" name="confirmpassword" id="confirmpassword" class="form-control form-control-lg" />
                 </div>
                 
                 <p class="error" id="jserror"></p>
 
                <div class="radiobtns">
 						<b>User Type :</b>
-						<input type="radio" name="u_type" value="admin" required> admin
+						
 						<input type="radio" name="u_type" value="delivery_person">delivery_person
 						<input type="radio" name="u_type" value="customer">customer
-			            <input type="radio" name="u_type" value="manager">manager
+			            
 						
 				</div>
 				

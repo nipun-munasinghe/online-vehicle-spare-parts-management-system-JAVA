@@ -90,7 +90,7 @@
 						title="Delete my account">
 						<i class="bi bi-trash3"></i>
 					</button>
-					<form id="profileForm"
+					<form id="profileForm" oninput="checkChanges()"
 						action="${pageContext.request.contextPath}/updateUserServlet"
 						method="POST">
 						<div class="mb-3">
@@ -111,16 +111,16 @@
 						<div class="mb-3">
 							<label class="form-label"><i
 								class="bi bi-shield-lock me-2"></i>Password</label> <input
-<<<<<<< HEAD
+
 								type="password" class="form-control" value="${user.u_password}" readonly>
-=======
-								type="password" class="form-control" value="${user.u_password}"
-								readonly>
->>>>>>> 54ba7167e770b3eef6891f083c6007686195c702
+
+								
+								
 						</div>
-						<button type="submit" class="btn btn-success w-100">
-							<i class="bi bi-save me-2"></i>Save Changes
-						</button>
+						<button type="submit" class="btn btn-success w-100" id="submitBtn" >
+                         <i class="bi bi-save me-2"></i>Save Changes
+                         </button>
+
 					</form>
 				</div>
 

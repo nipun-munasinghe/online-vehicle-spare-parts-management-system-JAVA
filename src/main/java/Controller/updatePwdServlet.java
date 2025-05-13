@@ -57,9 +57,9 @@ public class updatePwdServlet extends HttpServlet {
             session.setAttribute("user", updatedUser);
             
             // Redirect with success message
-            response.sendRedirect("user_profile.jsp?success=" + URLEncoder.encode("Password changed successfully!", "UTF-8"));
+            response.sendRedirect("myProfileServelet");
         } else {
-            response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode("Error when changing password. Try Again!", "UTF-8"));
+        	response.sendRedirect("myProfileServelet");
         }
     }
     
