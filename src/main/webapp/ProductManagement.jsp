@@ -64,7 +64,7 @@
 	                </div>
 	                
 	                <div class="modal-body">
-	                    <form id="123addProductForm" action="${pageContext.request.contextPath}/addProduct" method="POST" enctype="multipart/form-data">
+	                    <form id="addProductForm" action="${pageContext.request.contextPath}/addProduct" method="POST" enctype="multipart/form-data">
 	                        <div class="form-floating mb-3">
 	                            <input type="text" class="form-control" id="productName" name="productName" placeholder="Product Name" required>
 	                            <label for="productName">Product Name</label>
