@@ -34,6 +34,15 @@
 	<jsp:include page="TopBar.jsp" />
 
 	<div class="container py-5">
+
+		<!-- Success/Error Messages -->
+		<c:if test="${not empty param.message}">
+			<div class="alert alert-danger">${param.message}</div>
+		</c:if>
+		<c:if test="${not empty param.success}">
+			<div class="alert alert-success">${param.success}</div>
+		</c:if>
+
 		<div class="profile-main-container">
 			<!-- Left: Profile Photo Card -->
 			<div class="profile-card shadow-sm">
@@ -57,8 +66,9 @@
 					action="${pageContext.request.contextPath}/ProPicUpdateServlet"
 					method="POST" enctype="multipart/form-data">
 					<div class="mb-3">
-						<label class="form-label"><i class="bi bi-camera me-2"></i>Change
-							Photo</label> <input type="file" name="profilepic" class="form-control"
+						<label class="form-label" for="profilepic"><i
+							class="bi bi-camera me-2"></i>Change Photo</label> <input type="file"
+							id="profilepic" name="profilepic" class="form-control"
 							accept="image/*" required>
 					</div>
 					<button type="submit" class="btn btn-outline-light w-100">
@@ -101,7 +111,12 @@
 						<div class="mb-3">
 							<label class="form-label"><i
 								class="bi bi-shield-lock me-2"></i>Password</label> <input
+<<<<<<< HEAD
 								type="password" class="form-control" value="${user.u_password}" readonly>
+=======
+								type="password" class="form-control" value="${user.u_password}"
+								readonly>
+>>>>>>> 54ba7167e770b3eef6891f083c6007686195c702
 						</div>
 						<button type="submit" class="btn btn-success w-100">
 							<i class="bi bi-save me-2"></i>Save Changes
