@@ -1,180 +1,100 @@
-/* === Font Faces (ensure these files exist in your fonts directory) === */
-@font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
+/* === 3D Table Styles === */
+.table-3d {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: #23272b;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 }
 
-/* === Reset and Base Styles === */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-body {
-    background: linear-gradient(#222831, #F7F7F7);
-    color: #FFFFFF;
-    font-family: 'Poppins', Arial, sans-serif;
-    font-weight: 400;
-    min-height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
+.table-3d th, .table-3d td {
+	padding: 16px 18px;
+	text-align: left;
+	font-size: 1rem;
+	border-bottom: 1px solid #393E46;
+	background: #23272b;
+	color: #fff;
 }
 
-/* === Headings === */
-h1, h2, h3 {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-weight: 600;
-}
-h1 {
-    font-weight: 700;
-}
-h2 {
-    font-size: 24px;
-    color: #A6FF00; /* Accent Green for headings */
-    margin-bottom: 20px;
-    text-align: center;
+.table-3d th {
+	font-weight: 700;
+	font-size: 1.05rem;
+	background: #23272b;
+	border-bottom: 2px solid #393E46;
+	letter-spacing: 0.02em;
 }
 
-/* === Table Styles === */
-.table-responsive {
-    overflow-x: auto;
-}
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #393E46;
-}
-.table th, .table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #222831;
-}
-.table th {
-    background-color: #222831;
-    color: #A6FF00;
-    font-weight: 600;
-    font-size: 18px;
-}
-.table td {
-    color: #FFFFFF;
-    background-color: #393E46;
-}
-.table tr:hover {
-    background-color: #2ebd22;
-    color: #222831;
+.table-3d tbody tr {
+	transition: transform 0.18s, box-shadow 0.18s;
 }
 
-/* === Alerts and Text Colors === */
-.alert-danger {
-    background-color: #FF4500;
-    color: #fff;
-    border: none;
+.table-3d tbody tr:hover {
+	background: #262a2f;
+	transform: translateY(-2px) scale(1.01);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.16);
+	z-index: 2;
+	position: relative;
 }
-.text-warning {
-    color: #A6FF00 !important;
-}
-
-/* === Accent and Neutral Colors === */
-.accent-green { color: #A6FF00; }
-.accent-orange { color: #FF4500; }
-.neutral-gray  { color: #6B7280; }
-
-/* === Comment and Dropdown Styles === */
-.status-dropdown {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #fff;
-    font-size: 14px;
-}
-.comment-section {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 5px;
-}
-.comment-input {
-    flex-grow: 1;
-    min-width: 60px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-.comment-btn {
-    background-color: #A6FF00;
-    border: none;
-    color: #222831;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: background 0.2s;
-}
-.comment-btn:hover {
-    background-color: #FF4500;
-    color: #fff;
-}
-
-/* === Responsive Styles === */
+/* Responsive Table */
 @media screen and (max-width: 768px) {
-    .table {
-        border: 0;
-    }
-    .table thead {
-        display: none;
-    }
-    .table tr {
-        margin-bottom: 20px;
-        display: block;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .table td {
-        display: block;
-        text-align: right;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        padding-left: 50%;
-        min-height: 30px;
-        background-color: #393E46;
-    }
-    .table td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        width: 45%;
-        padding-right: 10px;
-        text-align: left;
-        font-weight: bold;
-        color: #A6FF00;
-    }
-    .comment-section {
-        flex-direction: column;
-    }
-    .comment-btn {
-        margin-left: 0;
-        margin-top: 5px;
-        width: 100%;
-    }
+	.table-3d thead {
+		display: none;
+	}
+	.table-3d tr {
+		display: block;
+		margin-bottom: 20px;
+		border: 1px solid #393E46;
+		border-radius: 8px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+	.table-3d td {
+		display: block;
+		text-align: right;
+		border-bottom: 1px solid #393E46;
+		position: relative;
+		padding-left: 50%;
+		min-height: 30px;
+	}
+	.table-3d td:before {
+		content: attr(data-label);
+		position: absolute;
+		left: 15px;
+		width: 45%;
+		padding-right: 10px;
+		text-align: left;
+		font-weight: bold;
+		color: #A6FF00;
+	}
+}
+/* Alerts */
+.alert-danger {
+	background-color: #FF4500;
+	color: #fff;
+	border: none;
+}
+/* Headings */
+h2 {
+	font-family: 'Roboto', Arial, sans-serif;
+	font-size: 24px;
+	color: #A6FF00;
+	margin-bottom: 20px;
+	text-align: center;
+	font-weight: 700;
+}
+
+body {
+	background: linear-gradient(#222831, #F7F7F7);
+	color: #FFFFFF;
+	font-family: 'Poppins', Arial, sans-serif;
+	font-weight: 400;
+	min-height: 100vh;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.container {
+	margin-top: 40px;
+	margin-bottom: 40px;
 }

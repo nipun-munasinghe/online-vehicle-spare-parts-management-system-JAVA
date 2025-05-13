@@ -12,62 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/addManager.css">
 <script src="${pageContext.request.contextPath}/js/manageManager.js"></script>
-<style>
-/* Gradient Buttons: user-friendly, small, blended */
-.btn-gradient-activate {
-    background: linear-gradient(90deg, #7ED957 0%, #FFE066 100%);
-    color: #23272b !important;
-    border: none;
-    font-weight: 600;
-    box-shadow: 0 1px 4px rgba(182,226,161,0.10);
-    transition: background 0.2s;
-}
-.btn-gradient-activate:hover {
-    background: linear-gradient(90deg, #FFE066 0%, #7ED957 100%);
-    color: #23272b !important;
-}
-.btn-gradient-deactivate {
-    background: linear-gradient(90deg, #7ED957 0%, #5BC0F8 100%);
-    color: #23272b !important;
-    border: none;
-    font-weight: 600;
-    box-shadow: 0 1px 4px rgba(91,192,248,0.10);
-    transition: background 0.2s;
-}
-.btn-gradient-deactivate:hover {
-    background: linear-gradient(90deg, #5BC0F8 0%, #7ED957 100%);
-    color: #23272b !important;
-}
-.btn-gradient-delete {
-    background: linear-gradient(90deg, #7ED957 0%, #FF6B6B 100%);
-    color: #23272b !important;
-    border: none;
-    font-weight: 600;
-    box-shadow: 0 1px 4px rgba(255,107,107,0.10);
-    transition: background 0.2s;
-}
-.btn-gradient-delete:hover {
-    background: linear-gradient(90deg, #FF6B6B 0%, #7ED957 100%);
-    color: #23272b !important;
-}
-.btn-highlight-greenyellow {
-    background: linear-gradient(90deg, #b6e2a1 0%, #ffe066 100%);
-    color: #23272b !important;
-    font-weight: 700;
-    border: none;
-    box-shadow: 0 2px 12px rgba(182, 226, 161, 0.25);
-    transition: background 0.2s;
-}
-.btn-highlight-greenyellow:hover {
-    background: linear-gradient(90deg, #ffe066 0%, #b6e2a1 100%);
-    color: #23272b !important;
-}
-/* White placeholder text for Bootstrap forms */
-.form-control::placeholder, .form-select::placeholder {
-    color: #fff !important;
-    opacity: 1;
-}
-</style>
+
 </head>
 <body class="bg-black text-white min-vh-100 d-flex flex-column">
 
