@@ -18,6 +18,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/user_profile.css">
 </head>
+<!-- add redirect loginpage  when user id incorrect-->
 <body>
 	<jsp:include page="Header.jsp" />
 	<jsp:include page="TopBar.jsp" />
