@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Order Summary - AutoElite</title>
+    <title>My Orders</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
@@ -59,25 +61,15 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Qty</th>
-                    <th>Price</th>
-                    <th>Subtotal</th>
+                    <th>Product ID</th>
+                    <th>Total Price</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Car Engine Oil</td>
-                    <td>2</td>
-                    <td>$25.00</td>
-                    <td>$50.00</td>
-                </tr>
-                <tr>
-                    <td>Brake Pads</td>
-                    <td>1</td>
-                    <td>$40.00</td>
-                    <td>$40.00</td>
-                </tr>
+	                <tr>
+	                    <td>${order.oId}</td>
+	                    <td>${order.orderTotal}</td>
+	                </tr>
             </tbody>
         </table>
 
@@ -85,9 +77,9 @@
             <div class="order-total">Total: $90.00</div>
         </div>
 
-        <form action="${pageContext.request.contextPath}/OrderActionServlet" method="POST" class="d-flex justify-content-between">
+        <form action="${pageContext.request.contextPath}/OrderActionServlet" method="get" class="d-flex justify-content-between">
             <%-- Pass order ID as hidden input --%>
-            <input type="hidden" name="orderId" value="${orderId}" />
+            <input type="hidden" name="orderId" value="${order.oId}" />
 
             <button type="submit" name="action" value="cancel" class="btn btn-success px-4">Cancel Order</button>
             <button type="submit" name="action" value="confirm" class="btn btn-primary px-4">Confirm Order</button>

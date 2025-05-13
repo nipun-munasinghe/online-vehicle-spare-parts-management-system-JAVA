@@ -53,7 +53,7 @@ public class OrderFormServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect("/");
+		response.sendRedirect("OrderDetailsServlet");
 
 	}
 

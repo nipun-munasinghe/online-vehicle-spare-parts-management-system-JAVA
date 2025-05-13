@@ -2,9 +2,9 @@ package Service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import Model.OrderProduct;
 
 
@@ -39,5 +39,47 @@ public class OrderDB {
             e.printStackTrace();
             return false; // Error occurred
         }
+        
     }
+    
+    
+    public static OrderProduct getOrderByUid(int uid) throws SQLException, ClassNotFoundException {
+    	OrderProduct order = new OrderProduct();
+
+        String sql = "SELECT * FROM orders WHERE customer_id = ? ORDER BY o_id DESC LIMIT 1";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             
+            stmt.setInt(1, uid);
+            
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    
+                    order.setoId(rs.getInt("o_id"));
+                    order.setOrderTotal(rs.getString("order_total"));
+                }
+            }
+        }
+
+        return order;
+    }
+    
+    public static void deleteOrder(int orderId) throws SQLException, ClassNotFoundException {
+        String sql = "DELETE FROM orders WHERE o_id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, orderId);
+            int rowsAffected = stmt.executeUpdate();
+
+            if (rowsAffected == 0) {
+                System.out.println("No order found with ID: " + orderId);
+            } else {
+                System.out.println("Order deleted successfully. Order ID: " + orderId);
+            }
+        }
+    }
+
+
 }

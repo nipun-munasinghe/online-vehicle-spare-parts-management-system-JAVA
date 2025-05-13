@@ -16,6 +16,10 @@ public class OrderModel {
         this.o_phone = o_phone;
         this.customer_id = customer_id;
     }
+    
+    public OrderModel() {
+      
+    }
 
 	// Getters
 	public int getO_id() {
