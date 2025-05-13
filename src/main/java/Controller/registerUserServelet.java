@@ -1,3 +1,5 @@
+package Controller;
+
 import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -52,3 +54,4 @@ public class registerUserServelet extends HttpServlet {
         request.getRequestDispatcher("/SignUp.jsp").forward(request, response);
     }
 }
+
