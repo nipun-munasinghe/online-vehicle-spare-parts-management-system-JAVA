@@ -27,7 +27,7 @@
                     <c:if test="${not empty userid}">
                     	<li class="ae-nav-item"><a href="${pageContext.request.contextPath}/Terms.jsp">Terms</a></li>
                     	<li class="ae-separator">|</li>
-                    	<li class="ae-nav-item ae-signup-btn"><a href="${pageContext.request.contextPath}/LogoutServlet">Logout</a></li>
+                    	<li class="ae-nav-item ae-signup-btn"><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                     </c:if>
                 </ul>
             </div>

@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hero</title>
+    <title>Home - AutoElite</title>
     
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
@@ -21,9 +21,6 @@
 	<!-- include header -->
     <jsp:include page="Header.jsp"/>
     
-    <!-- include top bar -->
-    <jsp:include page="TopBar.jsp"/>
-    
     <!-- Home Product page -->
      <section id="hero" class="min-vh-100 d-flex align-items-center text-center">
         <div class="d-flex justify-content-center align-items-center z-n1 position-absolute p-5  rounded-3 opacity-50">
@@ -35,7 +32,7 @@
                     <h1 class="text-uppercase fw-semibold display-1 text-white">Welcome to AutoElite</h1>
                     <p class="text-white">Find the best products for your car</p>
                     <div class="button">
-                        <a href="${pageContext.request.contextPath}/products.jsp">
+                        <a href="${pageContext.request.contextPath}/displayProducts">
                             <button id="shop" type="button" class="btn btn-primary">Shop Now</button>
                         </a>
                     </div>
