@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
 		
-		
+		System.out.println("login called");
 		String email =request.getParameter("u_email");
 		String password = request.getParameter("u_password");
 		User user = null;
@@ -47,21 +47,21 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("password",user.getU_password());
 			
 			if(user.getU_type().equals("customer")) {
-				request.getRequestDispatcher("/myProfileServelet").forward(request, response);
+				response.sendRedirect("myProfileServelet");
 
 
 ;
 			}
 			else if (user.getU_type().equals("admin")) {
-				request.getRequestDispatcher("/myProfileServelet").forward(request, response);
+				response.sendRedirect("myProfileServelet");
 
 			}
 			else if (user.getU_type().equals("deliveryperson")) {
-				request.getRequestDispatcher("/myProfileServelet").forward(request, response);
+				response.sendRedirect("myProfileServelet");
 
 			}
 			else if (user.getU_type().equals("manager")) {
-				request.getRequestDispatcher("/myProfileServelet").forward(request, response);
+				response.sendRedirect("myProfileServelet");
 
 				}
 			}
