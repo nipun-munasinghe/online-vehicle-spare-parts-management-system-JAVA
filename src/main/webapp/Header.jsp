@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!-- Link bootstrap style sheet -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
@@ -13,12 +15,20 @@
         <nav class="ae-nav-class">
             <div class="ae-navbar-widget">
                 <ul class="ae-navbar">
-                    <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/products.jsp">Shop</a></li>
-                    <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/Cart.jsp">Cart</a></li>
-                    <li class="ae-nav-item"><a href="#">Contact</a></li>
-                    <li class="ae-separator">|</li>
-                    <li class="ae-nav-item ae-signin-btn"><a href="${pageContext.request.contextPath}/Login.jsp">Login</a></li>
-                    <li class="ae-nav-item ae-signup-btn"><a href="${pageContext.request.contextPath}/SignUp.jsp">Register</a></li>
+                    <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/displayProducts">Shop</a></li>
+                    <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/AboutUs.jsp">About</a></li>
+                    <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/Contact.jsp">Contact</a></li>
+                    
+                    <c:if test="${empty userid}">
+                    	<li class="ae-separator">|</li>
+	                    <li class="ae-nav-item ae-signin-btn"><a href="${pageContext.request.contextPath}/Login.jsp">Login</a></li>
+	                    <li class="ae-nav-item ae-signup-btn"><a href="${pageContext.request.contextPath}/SignUp.jsp">Register</a></li>
+                    </c:if>
+                    <c:if test="${not empty userid}">
+                    	<li class="ae-nav-item"><a href="${pageContext.request.contextPath}/Terms.jsp">Terms</a></li>
+                    	<li class="ae-separator">|</li>
+                    	<li class="ae-nav-item ae-signup-btn"><a href="${pageContext.request.contextPath}/LogoutServlet">Logout</a></li>
+                    </c:if>
                 </ul>
             </div>
         </nav>

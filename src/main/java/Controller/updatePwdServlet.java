@@ -17,7 +17,7 @@ public class updatePwdServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         Integer userid = (Integer) session.getAttribute("userid");
-        
+
         // Redirect if user is not logged in
         if (userid == null) {
             response.sendRedirect("login.jsp?message=" + URLEncoder.encode("Please log in.", "UTF-8"));
@@ -47,15 +47,21 @@ public class updatePwdServlet extends HttpServlet {
             return;
         }
 
-        // 4. Update password in the database
+        // 4. Check if new password is same as old password
+        if (oldPwd.equals(newpwd)) {
+            response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode("New password cannot be the same as the old password.", "UTF-8"));
+            return;
+        }
+
+        // 5. Update password in the database
         boolean pwdchanged = UserDB.updatePassword(userid, newpwd);
         if (pwdchanged) {
             // Fetch updated user data from DB
             User updatedUser = UserDB.getUserdetails(userid);
-            
+
             // Update session with latest user data
             session.setAttribute("user", updatedUser);
-            
+
             // Redirect with success message
             response.sendRedirect("myProfileServelet");
         } else {

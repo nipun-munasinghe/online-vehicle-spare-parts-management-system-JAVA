@@ -33,5 +33,5 @@ replay_pid*
 
 
 # Stop tracking DBconn file
-/src/main/java/com/user/DBconn.java
-/src/main/webapp/Images/Profilepics
+
+src/main/java/Service/DBConnection.java

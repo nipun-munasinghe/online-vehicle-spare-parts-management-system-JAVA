@@ -6,9 +6,15 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	private static final String URL = "jdbc:mysql://localhost:3306/autoelite_db";
+<<<<<<< HEAD
     private static final String USER ="root";
 	private static final String PASSWORD = "31415";
 
+=======
+
+	private static final String USER = "root";
+	private static final String PASSWORD = "31415";
+>>>>>>> 60e63cce1856abdddfcfa47d1d9c5d76f9659c29
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 
 		Connection connection = null;

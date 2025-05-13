@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-  String product = request.getParameter("product");
-  String price = request.getParameter("price");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,30 +8,52 @@
 <body>
     <jsp:include page="Header.jsp"/>
     <jsp:include page="TopBar.jsp"/>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const unitPriceInput = document.querySelector('input[name="unitprice"]');
+        const quantityInput = document.querySelector('input[name="quantity"]');
+        const totalPriceInput = document.querySelector('input[name="totalPrice"]');
+
+        function updateTotal() {
+            const unitPrice = parseFloat(unitPriceInput.value) || 0;
+            const quantity = parseInt(quantityInput.value) || 0;
+            const total = unitPrice * quantity;
+            totalPriceInput.value = total.toFixed(2);
+        }
+
+        // Initial calculation
+        updateTotal();
+
+        // Event listeners for changes
+        quantityInput.addEventListener('input', updateTotal);
+    });
+</script>
+    
 
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card shadow">
                     <!-- Modified Form -->
-                    <form action="OrderServlet" method="POST" class="card-body p-5">
+                    <form action="${pageContext.request.contextPath}/OrderFormServlet" method="POST" class="card-body p-5">
                         <h2 class="card-title text-center mb-4">Order Form</h2>
 
                         <!-- Hidden product details -->
-                        <input type="hidden" name="product" value="<%= product %>">
-                        <input type="hidden" name="unitPrice" value="<%= price %>">
+                        <input type="hidden" name="productid" value="${productId}">
+                        <input type="hidden" name="userid" value="${userid}">
 
                         <!-- Customer Details -->
                         <div class="mb-4">
                             <label class="form-label">Full Name</label>
-                            <input type="text" class="form-control" name="customerName" required>
+                            <input type="text" class="form-control" name="customerName" value="${Fname} ${Lname}" required>
                         </div>
                         
-                        <input type="hidden" name="p_id" value="<%= product %>">
+                        <input type="hidden" name="p_id" value="${productId}">
                         
                         <div class="mb-4">
                             <label class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" name="customerName" required>
+                            <input type="text" class="form-control" name="phoneno" required>
                         </div>
 
 		                    
@@ -47,14 +66,14 @@
                         <div class="mb-4">
                             <label class="form-label">Selected Product</label>
                             <input type="text" class="form-control" 
-                                   value="<%= product != null ? product : "" %>" readonly>
+                                   value="${productId}" name="prodid" readonly>
                         </div>
 
                         <div class="row mb-4">
                             <div class="col-md-6">
                                 <label class="form-label">Unit Price (Rs.)</label>
                                 <input type="number" class="form-control" 
-                                       value="<%= price != null ? price : "0" %>" readonly>
+                                       value="${unitPrice}" name="unitprice" readonly>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Quantity</label>
