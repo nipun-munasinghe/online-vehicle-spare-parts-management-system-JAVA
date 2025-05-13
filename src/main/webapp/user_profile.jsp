@@ -73,46 +73,9 @@
             </form>
         </div>
 
-<<<<<<< HEAD
-        <!-- Right: Manage Side (Change Details and Password) -->
-        <div class="manage-side">
-            <!-- Change Details Card -->
-            <div class="details-card shadow-sm mb-4">
-                <h4>
-                    <i class="bi bi-pencil-square"></i> Change Details
-                </h4>
-                <!-- Delete Account Button (top-right corner of details card) -->
-                <button type="button" class="delete-btn-details"
-                        data-bs-toggle="modal" data-bs-target="#deleteModal"
-                        title="Delete my account">
-                    <i class="bi bi-trash3"></i>
-                </button>
-                <form id="profileForm" action="${pageContext.request.contextPath}/updateUserServlet" method="POST" class="needs-validation" novalidate>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-person me-2"></i>First Name</label>
-                        <input type="text" name="u_firstname" class="form-control" value="${user.u_firstname}" required pattern="[A-Za-z ]{2,50}">
-                        <div class="invalid-feedback">Please enter a valid first name (letters only, 2-50 characters).</div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-person me-2"></i>Last Name</label>
-                        <input type="text" name="u_lastname" class="form-control" value="${user.u_lastname}" required pattern="[A-Za-z ]{2,50}">
-                        <div class="invalid-feedback">Please enter a valid last name (letters only, 2-50 characters).</div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-envelope me-2"></i>Email</label>
-                        <input type="email" name="u_email" class="form-control" value="${user.u_email}" required>
-                        <div class="invalid-feedback">Please enter a valid email address.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label"><i class="bi bi-shield-lock me-2"></i>Password</label>
-                        <input type="password" class="form-control" value="********" readonly>
-                    </div>
-                    <button type="submit" class="btn btn-success w-100">
-                        <i class="bi bi-save me-2"></i>Save Changes
-                    </button>
-                </form>
-            </div>
-=======
+
+       
+
 			<!-- Right: Manage Side (Change Details and Password) -->
 			<div class="manage-side">
 				<!-- Change Details Card -->
@@ -126,7 +89,7 @@
 						title="Delete my account">
 						<i class="bi bi-trash3"></i>
 					</button>
-					<form id="profileForm" oninput="checkChanges()"
+					<form id="profileForm"
 						action="${pageContext.request.contextPath}/updateUserServlet"
 						method="POST">
 						<div class="mb-3">
@@ -150,16 +113,14 @@
 
 								type="password" class="form-control" value="${user.u_password}" readonly>
 
-								
-								
-						</div>
-						<button type="submit" class="btn btn-success w-100" id="submitBtn" >
-                         <i class="bi bi-save me-2"></i>Save Changes
-                         </button>
+							
 
+						</div>
+						<button type="submit" class="btn btn-success w-100">
+							<i class="bi bi-save me-2"></i>Save Changes
+						</button>
 					</form>
 				</div>
->>>>>>> 03708caa5239d1ef0f34ac84c2deb8ebd25467f6
 
             <!-- Change Password Card -->
             <div class="password-card shadow-sm">
@@ -169,24 +130,18 @@
                 <form id="passwordForm" action="${pageContext.request.contextPath}/updatePwdServlet" method="POST" class="needs-validation" novalidate>
                     <div class="mb-3">
                         <label class="form-label"><i class="bi bi-key me-2"></i>Old Password</label>
-                        <input type="password" name="oldpwd" class="form-control" minlength="8" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
-                        <div class="invalid-feedback">
-                            Please enter your old password (at least 8 characters, numbers and letters).
-                        </div>
+                        <input type="password" name="oldpwd" class="form-control" >
+                       
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><i class="bi bi-key-fill me-2"></i>New Password</label>
-                        <input type="password" name="newpwd" id="newPassword" class="form-control" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
-                        <div class="invalid-feedback">
-                            Password must be at least 8 characters and contain both numbers and letters.
-                        </div>
+                        <input type="password" name="newpwd" id="newPassword" class="form-control" >
+                       
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><i class="bi bi-key-fill me-2"></i>Confirm Password</label>
                         <input type="password" name="confirmpwd" id="confirmPassword" class="form-control" required>
-                        <div class="invalid-feedback">
-                            Passwords must match.
-                        </div>
+                       
                     </div>
                     <button type="submit" class="btn btn-warning w-100">
                         <i class="bi bi-arrow-repeat me-2"></i>Update Password

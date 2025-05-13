@@ -28,31 +28,8 @@ public class updatePwdServlet extends HttpServlet {
         String newpwd = request.getParameter("newpwd");
         String confirmpwd = request.getParameter("confirmpwd");
 
-        // 1. Check if new passwords match
-        if (!newpwd.equals(confirmpwd)) {
-            response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode("New passwords do not match!", "UTF-8"));
-            return;
-        }
-
-        // 2. Get the current user from database
-        User user = UserDB.getUserdetails(userid);
-        if (user == null) {
-            response.sendRedirect("login.jsp?message=" + URLEncoder.encode("User not found!", "UTF-8"));
-            return;
-        }
-
-        // 3. Validate old password against database
-        if (!user.getU_password().equals(oldPwd)) {
-            response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode("Wrong Old Password. Try Again!", "UTF-8"));
-            return;
-        }
-
-        // 4. Check if new password is same as old password
-        if (oldPwd.equals(newpwd)) {
-            response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode("New password cannot be the same as the old password.", "UTF-8"));
-            return;
-        }
-
+    
+       
         // 5. Update password in the database
         boolean pwdchanged = UserDB.updatePassword(userid, newpwd);
         if (pwdchanged) {
