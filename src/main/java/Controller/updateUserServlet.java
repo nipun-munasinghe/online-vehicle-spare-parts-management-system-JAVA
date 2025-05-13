@@ -31,7 +31,7 @@ public class updateUserServlet extends HttpServlet {
 		boolean updated = UserDB.updateUser(userID, u_firstname, u_lastname, u_email);
 
 		if (updated == true) {
-			request.getRequestDispatcher("user_profile.jsp").forward(request, response);
+			response.sendRedirect("myProfileServelet");
 			
 
 		} else {
