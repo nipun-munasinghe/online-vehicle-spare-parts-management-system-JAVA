@@ -38,7 +38,6 @@ public class UpdateProductServlet extends HttpServlet {
             int pQuantity = Integer.parseInt(request.getParameter("editProductQuantity"));
             double pPrice = Double.parseDouble(request.getParameter("editProductPrice"));
 		
-            String fileName = "default.png";
             
             ProductModel product = new ProductModel();
             
@@ -48,7 +47,6 @@ public class UpdateProductServlet extends HttpServlet {
             product.setpPrice(pPrice);
             product.setpQuantity(pQuantity);
             product.setpDescription(pDescription);
-            product.setpImg(fileName);
             
             productDB.updateProduct(product);
             

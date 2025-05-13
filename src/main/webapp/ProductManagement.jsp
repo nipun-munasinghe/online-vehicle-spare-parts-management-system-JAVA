@@ -220,13 +220,6 @@
 	                                </div>
 	                            </div>
 	                        </div>
-	                        <div class="mb-3">
-	                            <label for="editProductImage" class="form-label">Product Image</label>
-	                            <input type="file" class="form-control" id="editProductImage" name="editProductImage" accept="image/*">
-	                        </div>
-	                        <div class="mb-3">
-	                            <img id="editImagePreview" src="${pageContext.request.contextPath}/images/products/garrett-turbo.png" alt="Image Preview" class="img-fluid">
-	                        </div>
 	                        <div class="text-end">
 	                            <input type="submit" class="btn normalBtn" value="Save">
 	                        </div>
