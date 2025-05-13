@@ -10,7 +10,9 @@
 <%
     User usr = (User) request.getAttribute("user");
     if (usr == null) {
-        response.sendRedirect("hero.jsp"); // Redirect if user is not found
+        response.sendRedirect("hero.jsp"); 
+       // Redirect if user is not found
+        return;
     }
 
 %>
@@ -51,10 +53,9 @@
 		<div class="leftsect">
 			<div class="floatsect">
 				<div class="profileimg">
-					<h2 class="usrname">Hello ${u_firstname}</h2>
-					<img
-						src="${pageContext.request.contextPath}/images/profilepics/${u_image}"
-						alt="Profile Picture">
+					<h2 class="usrname">Hello ${user.u_firstname}</h2>
+<img src="${pageContext.request.contextPath}/images/profilepics/${user.u_image}" alt="Profile Picture">
+
 					<form
 						action="${pageContext.request.contextPath}/ProPicUpdateServlet"
 						method="POST" enctype="multipart/form-data">
@@ -95,7 +96,7 @@
 					<div class="rows doublerows">
 						<div class="lableinput">
 							<label for="">Password</label>
-                           <input type="password" name="u_password" value="${user.u_email != null ? user.u_email : '' }" readonly>
+                              <input type="password" name="u_password" value="${user.u_password != null ? user.u_password : '' }" readonly>
 
 
 						</div>
@@ -105,7 +106,7 @@
 
 					<div class="rows">
 						<input class="submitbtn" type="submit" placeholder="Save Changes"
-							value="Save Chages" id="submitBtn" disabled / >
+							value="Save Changes" id="submitBtn" disabled / >
 					</div>
 				</div>
 			</form>
