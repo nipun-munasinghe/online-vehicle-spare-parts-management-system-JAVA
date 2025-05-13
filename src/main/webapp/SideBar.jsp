@@ -30,7 +30,7 @@
 		<li><a href='${pageContext.request.contextPath}/Manage_msg.jsp'><i class='bi bi-chat-text'></i> Messages</a></li>
 		<li><a href='${pageContext.request.contextPath}/OrderManagement.jsp'><i class='bi bi-grid-3x2-gap'></i> Manage Orders</a></li>
 		<li><a href='${pageContext.request.contextPath}/products'><i class='bi bi-collection'></i> Manage Products</a></li>
-		<li><a href='${pageContext.request.contextPath}/DisplayProducts'><i class='bi bi-box'></i> Products</a></li>
+		<li><a href='${pageContext.request.contextPath}/displayProducts'><i class='bi bi-box'></i> Products</a></li>
 		<li><a href='${pageContext.request.contextPath}/update_profile.jsp'><i class='bi bi-gear'></i> Settings</a></li>
 		<li><a href='${pageContext.request.contextPath}/'><i class='bi bi-door-open'></i> Logout</a></li>
 	</ul>

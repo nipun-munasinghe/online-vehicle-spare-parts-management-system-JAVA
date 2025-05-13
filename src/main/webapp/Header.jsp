@@ -15,7 +15,7 @@
         <nav class="ae-nav-class">
             <div class="ae-navbar-widget">
                 <ul class="ae-navbar">
-                    <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/DisplayProducts">Shop</a></li>
+                    <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/displayProducts">Shop</a></li>
                     <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/AboutUs.jsp">About</a></li>
                     <li class="ae-nav-item"><a href="${pageContext.request.contextPath}/Contact.jsp">Contact</a></li>
                     
