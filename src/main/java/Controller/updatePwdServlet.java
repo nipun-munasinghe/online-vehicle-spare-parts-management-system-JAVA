@@ -46,4 +46,6 @@ public class updatePwdServlet extends HttpServlet {
             response.sendRedirect("myProfileServlet?message=" + URLEncoder.encode(message, "UTF-8"));
         }
     }
+    
+    
 }

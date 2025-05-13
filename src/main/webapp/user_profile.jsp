@@ -2,6 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="Model.User"%>
+<%
+    User usr = (User) request.getAttribute("user");
+    if (usr == null) {
+        response.sendRedirect("hero.jsp"); 
+       // Redirect if user is not found
+        return;
+    }
+
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,7 +101,7 @@
 						<div class="mb-3">
 							<label class="form-label"><i
 								class="bi bi-shield-lock me-2"></i>Password</label> <input
-								type="password" class="form-control" value="********" readonly>
+								type="password" class="form-control" value="${user.u_password}" readonly>
 						</div>
 						<button type="submit" class="btn btn-success w-100">
 							<i class="bi bi-save me-2"></i>Save Changes
