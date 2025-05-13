@@ -46,7 +46,7 @@
                       <h3 class="text-center">Rs.
                       	<fmt:formatNumber value="${product.pPrice}" type="number" maxFractionDigits="2" minFractionDigits="2" />
                       </h3>
-                      <a href="${pageContext.request.contextPath}/OrderFormServlet?p_id=${product.pId}" class="btn btn-primary">Buy Now</a>
+                      <a href="${pageContext.request.contextPath}/OrderFormServlet?p_id=${product.pId}&u_price=${product.pPrice}" class="btn btn-primary">Buy Now</a>
 
                     </div>
                   </div>
