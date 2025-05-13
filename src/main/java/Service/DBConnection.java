@@ -10,8 +10,6 @@ public class DBConnection {
 	private static final String PASSWORD = "Thimira@2003";
 
 	
-
-	
 	public static Connection getConnection() throws SQLException, ClassNotFoundException {
 		Connection connection = null;
 		try {
