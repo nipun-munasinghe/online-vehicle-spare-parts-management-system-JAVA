@@ -1,13 +1,14 @@
-// Auto-calculate total price
 document.addEventListener('DOMContentLoaded', function() {
-  const unitPrice = document.getElementById('unitPrice');
-  const quantity = document.getElementById('quantity');
-  const totalPrice = document.getElementById('totalPrice');
+    const priceInput = document.querySelector('input[name="unitPrice"]');
+    const qtyInput = document.querySelector('input[name="quantity"]');
+    const totalInput = document.querySelector('input[name="totalPrice"]');
 
-  function calculateTotal() {
-    totalPrice.value = unitPrice.value * quantity.value;
-  }
+    function updateTotal() {
+        let price = parseFloat(priceInput.value.replace(/,/g, '')) || 0;
+        let qty = parseInt(qtyInput.value) || 1;
+        totalInput.value = price * qty;
+    }
 
-  quantity.addEventListener('input', calculateTotal);
-  calculateTotal(); // Initial calculation
+    qtyInput.addEventListener('input', updateTotal);
+    updateTotal(); // initialize on load
 });
