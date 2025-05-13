@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="Model.User"%>
+<%
+    User usr = (User) request.getAttribute("user");
+    if (usr == null) {
+        response.sendRedirect("hero.jsp"); 
+       // Redirect if user is not found
+        return;
+    }
+
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,6 +73,7 @@
             </form>
         </div>
 
+<<<<<<< HEAD
         <!-- Right: Manage Side (Change Details and Password) -->
         <div class="manage-side">
             <!-- Change Details Card -->
@@ -100,6 +112,54 @@
                     </button>
                 </form>
             </div>
+=======
+			<!-- Right: Manage Side (Change Details and Password) -->
+			<div class="manage-side">
+				<!-- Change Details Card -->
+				<div class="details-card shadow-sm mb-4">
+					<h4>
+						<i class="bi bi-pencil-square"></i> Change Details
+					</h4>
+					<!-- Delete Account Button (top-right corner of details card) -->
+					<button type="button" class="delete-btn-details"
+						data-bs-toggle="modal" data-bs-target="#deleteModal"
+						title="Delete my account">
+						<i class="bi bi-trash3"></i>
+					</button>
+					<form id="profileForm"
+						action="${pageContext.request.contextPath}/updateUserServlet"
+						method="POST">
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-person me-2"></i>First
+								Name</label> <input type="text" name="u_firstname" class="form-control"
+								value="${user.u_firstname}" required>
+						</div>
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-person me-2"></i>Last
+								Name</label> <input type="text" name="u_lastname" class="form-control"
+								value="${user.u_lastname}" required>
+						</div>
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-envelope me-2"></i>Email</label>
+							<input type="email" name="u_email" class="form-control"
+								value="${user.u_email}" required>
+						</div>
+						<div class="mb-3">
+							<label class="form-label"><i
+								class="bi bi-shield-lock me-2"></i>Password</label> <input
+<<<<<<< HEAD
+								type="password" class="form-control" value="${user.u_password}" readonly>
+=======
+								type="password" class="form-control" value="${user.u_password}"
+								readonly>
+>>>>>>> 54ba7167e770b3eef6891f083c6007686195c702
+						</div>
+						<button type="submit" class="btn btn-success w-100">
+							<i class="bi bi-save me-2"></i>Save Changes
+						</button>
+					</form>
+				</div>
+>>>>>>> 03708caa5239d1ef0f34ac84c2deb8ebd25467f6
 
             <!-- Change Password Card -->
             <div class="password-card shadow-sm">

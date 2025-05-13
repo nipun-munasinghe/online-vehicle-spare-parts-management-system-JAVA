@@ -68,4 +68,6 @@ public class updatePwdServlet extends HttpServlet {
             response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode("Error when changing password. Try Again!", "UTF-8"));
         }
     }
+    
+    
 }
