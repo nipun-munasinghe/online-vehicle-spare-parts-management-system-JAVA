@@ -1,116 +1,101 @@
-/* General Styles */
-body {
-    background-color: #1E1E1E; /* Dark background */
-    color: white;
+
+.table-3d-container {
+  background: #23272b;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.32), 0 1.5px 6px rgba(0,0,0,0.08);
+  padding: 32px;
+  margin: 40px 0;
 }
 
-/* Flex Container */
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+.table-3d {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #23272b;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.22);
 }
 
-/* Sections */
-.manage-manager-section, .add-manager-section {
-    flex: 1;
-    min-width: 350px; /* Prevents collapsing on small screens */
+.table-3d th, .table-3d td {
+  padding: 16px 18px;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: 1px solid #393E46;
+  background: #23272b;
+  color: #fff;
 }
 
-/* Cards */
-.card {
-    background-color: #393E46; /* Dark grey background */
-    border: none;
-    border-radius: 8px;
+.table-3d th {
+  font-weight: 700;
+  font-size: 1.08rem;
+  background: #393E46;
+  border-bottom: 2px solid #393E46;
+  letter-spacing: 0.02em;
+  color: #A6FF00;
 }
 
-/* Input Fields */
-.form-control {
-    background-color: #A6FF00;
-    color: white;
-    border: 2px solid transparent;
-    padding: 10px;
-    border-radius: 5px;
+.table-3d tbody tr {
+  transition: transform 0.18s, box-shadow 0.18s;
 }
 
-.form-control::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+.table-3d tbody tr:hover {
+  background: #262a2f;
+  transform: translateY(-3px) scale(1.012);
+  box-shadow: 0 8px 32px rgba(166,255,0,0.08), 0 1.5px 6px rgba(255,69,0,0.04);
+  z-index: 2;
+  position: relative;
+  color: #A6FF00;
 }
 
-.form-control:focus {
-    border-color: #A6FF00; /* Neon Green */
-    box-shadow: 0 0 5px #A6FF00;
-    outline: none;
+/* Status badge colors */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.98em;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  text-transform: capitalize;
+  border: none;
 }
 
-/* Add Manager Modal Specific Styles */
-.add-manager-modal {
-    background-color: #1E1E1E;
+.status-read {
+  background: #e6ffed;
+  color: #22c55e; /* green */
 }
 
-.add-manager-modal .modal-content {
-    background-color: #393E46;
+.status-unread {
+  background: #fffbe6;
+  color: #ff9800; /* orange/yellow */
 }
 
-.add-manager-modal .modal-header {
-    border-bottom-color: #A6FF00;
+.status-other {
+  background: #2d3136;
+  color: #b0b0b0;
 }
 
-.add-manager-modal .form-control {
-    background-color: #A6FF00;
-    color: black;
+/* Reply button */
+.reply-btn {
+  background: #23272b;
+  color: #b0b0b0;
+  border: 1px solid #393E46;
+  border-radius: 18px;
+  padding: 6px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  text-decoration: none;
 }
-
-.add-manager-modal .form-control::placeholder {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.add-manager-modal .btn-success {
-    background-color: #A6FF00 !important;
-    color: black !important;
-}
-
-/* Buttons */
-.btn-success {
-    background-color: #A6FF00 !important; /* Neon Green */
-    color: black !important;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-.btn-success:hover {
-    background-color: #8FE600 !important; /* Darker Neon Green */
-}
-
-.btn-primary {
-    background-color: #007BFF !important;
-    border: none;
-}
-
-.btn-danger {
-    background-color: #FF4C4C !important;
-    border: none;
-}
-
-/* Table */
-.table-dark {
-    background-color: white !important; /* Change table background to white */
-    color: black !important; /* Ensure text is readable */
-    border-color: #dee2e6; /* Light grey borders */
-}
-
-.table-dark th {
-    background-color: #f8f9fa !important; /* Light grey background for headers */
-    color: black !important; /* Black text for headers */
-}
-
-.table-dark td {
-    color: white !important; /* Black text for table data */
-}
-
-/* Table Borders */
-.table-bordered th, 
-.table-bordered td {
-    border-color: #000040!important; /* Light grey border */
+.reply-btn:hover {
+  background: #393E46;
+  color: #fff;
+  border-color: #23272b;
 }

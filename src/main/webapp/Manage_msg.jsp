@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/manage_msg.css">
-    
 </head>
 <body>
     <!-- Include Header and Top Bar -->
@@ -24,7 +23,9 @@
     <jsp:include page="TopBar.jsp" />
 
     <div class="container mt-5 d-flex flex-column align-items-center">
-        <h2 class="text-white mb-4">Manage Messages</h2>
+        <div class="w-100 d-flex justify-content-start">
+            <h2 class="text-white mb-4">Manage Messages</h2>
+        </div>
 
         <!-- Show messages/errors -->
         <c:if test="${not empty message}">
@@ -40,10 +41,10 @@
             </div>
         </c:if>
 
-        <!-- Messages Table -->
-        <div class="table-responsive w-100">
-            <table class="table table-dark table-bordered align-middle">
-                <thead class="table-light">
+        <!-- Modern 3D Table -->
+        <div class="table-3d-container w-100">
+            <table class="table-3d">
+                <thead>
                     <tr>
                         <th>ID</th>
                         <th>Date</th>
@@ -51,6 +52,7 @@
                         <th>Email</th>
                         <th>Message</th>
                         <th>Status</th>
+                        <th>Reply</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,20 +66,28 @@
                                     <td>${msg.m_Email}</td>
                                     <td class="text-start">${msg.message}</td>
                                     <td>
-                                        <c:choose>
-                                            <c:when test="${msg.m_Status eq 'Pending'}">
-                                                <span class="badge bg-warning"><i class="bi bi-hourglass-split"></i> Pending</span>
-                                            </c:when>
-                                            <c:when test="${msg.m_Status eq 'Read'}">
-                                                <span class="badge bg-success"><i class="bi bi-check-circle"></i> Read</span>
-                                            </c:when>
-                                            <c:when test="${msg.m_Status eq 'Unread'}">
-                                                <span class="badge bg-danger"><i class="bi bi-envelope"></i> Unread</span>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <span class="badge bg-secondary">${msg.m_Status}</span>
-                                            </c:otherwise>
-                                        </c:choose>
+                                        <span class="status-badge">
+                                            <c:choose>
+                                                <c:when test="${msg.m_Status eq 'Pending'}">
+                                                    <i class="bi bi-hourglass-split" title="Pending"></i> Pending
+                                                </c:when>
+                                                <c:when test="${msg.m_Status eq 'Read'}">
+                                                    <i class="bi bi-check-circle" title="Read"></i> Read
+                                                </c:when>
+                                                <c:when test="${msg.m_Status eq 'Unread'}">
+                                                    <i class="bi bi-envelope" title="Unread"></i> Unread
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <i class="bi bi-question-circle" title="${msg.m_Status}"></i> ${msg.m_Status}
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="mailto:${msg.m_Email}?subject=Reply to your message&body=Hi ${msg.m_Name},%0D%0A%0D%0A"
+                                           class="reply-btn" title="Reply by Email">
+                                            <i class="bi bi-reply"></i>Reply
+                                        </a>
                                     </td>
                                 </tr>
                             </c:forEach>
