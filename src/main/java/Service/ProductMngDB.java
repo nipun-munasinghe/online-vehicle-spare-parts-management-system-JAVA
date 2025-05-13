@@ -131,7 +131,7 @@ public class ProductMngDB {
 		
 		try {
 			conn = DBConnection.getConnection();
-			String sql = "UPDATE product SET p_name=?, p_category=?, p_price=?, p_quantity=?, p_description=?, p_image=? WHERE p_id=?";
+			String sql = "UPDATE product SET p_name=?, p_category=?, p_price=?, p_quantity=?, p_description=? WHERE p_id=?";
 			
 			 stmt = conn.prepareStatement(sql);
 			 
@@ -141,8 +141,7 @@ public class ProductMngDB {
 	            stmt.setDouble(3, product.getpPrice());
 	            stmt.setInt(4, product.getpQuantity());
 	            stmt.setString(5, product.getpDescription());
-	            stmt.setString(6, product.getpImg());
-	            stmt.setInt(7, product.getpId());
+	            stmt.setInt(6, product.getpId());
 	            
 	            int rows = stmt.executeUpdate();
 	            

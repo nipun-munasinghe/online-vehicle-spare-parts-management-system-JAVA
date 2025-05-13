@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +29,16 @@
     <nav class="custom-navbar custom-navbar-expand-md topbar my-4 mx-2">
         <div class="container-fluid navbar-div">
             <i class="bi bi-list" id="toggle-sidebar" title="Open Dashboard"></i>
-            <h1 class="custom-navbar-brand mb-0">Welcome UserName!</h1>
+<<<<<<< HEAD
+            <h1 class="custom-navbar-brand mb-0">Welcome ${user.u_firstname}!</h1>
+=======
+            <c:if test="${empty userid}">
+            	<h1 class="custom-navbar-brand mb-0">Welcome !</h1>
+            </c:if>
+            <c:if test="${not empty userid}">
+            	<h1 class="custom-navbar-brand mb-0">Welcome ${Fname} !</h1>
+            </c:if>
+>>>>>>> 4208530fbabee2f3fd955326067e894c645ff515
         </div>
     </nav>
 	

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import javax.servlet.http.Part;
 import Service.UserDB;
 
 @WebServlet("/ProPicUpdateServlet")
+@MultipartConfig
 public class ProPicUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,10 +30,10 @@ public class ProPicUpdateServlet extends HttpServlet {
 		Part propic = request.getPart("profilepic");
 
 		// Save image name in variable and sanitize it
-		String u_image = propic.getSubmittedFileName().replaceAll(" ", "_");
-
-		String uploadDir = "     ";
-		String propicPath = uploadDir + File.separator + u_image;
+		String imgName = propic.getSubmittedFileName().replaceAll(" ", "_");
+		
+		String uploadDir = "";
+		String propicPath = uploadDir + File.separator + imgName;
 
 		try {
 			// Save the file
@@ -58,10 +60,10 @@ public class ProPicUpdateServlet extends HttpServlet {
 			int userID = (int) session.getAttribute("userid");
 
 			// update database
-			boolean dbupdated = UserDB.updatePropic(userID, u_image);
+			boolean dbupdated = UserDB.updatePropic(userID, imgName);
 
 			if (dbupdated) {
-				session.setAttribute("u_image", u_image);
+				session.setAttribute("u_image", imgName);
 				response.sendRedirect("myProfileServlet");
 			} else {
 				response.sendRedirect("myProfileServlet");
