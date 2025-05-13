@@ -17,6 +17,8 @@ public class updatePwdServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         Integer userid = (Integer) session.getAttribute("userid");
+        
+        // Redirect if user is not logged in
         if (userid == null) {
             response.sendRedirect("login.jsp?message=" + URLEncoder.encode("Please log in.", "UTF-8"));
             return;
@@ -32,23 +34,29 @@ public class updatePwdServlet extends HttpServlet {
             return;
         }
 
-        // 2. Get the current password from database
+        // 2. Get the current user from database
         User user = UserDB.getUserdetails(userid);
         if (user == null) {
             response.sendRedirect("login.jsp?message=" + URLEncoder.encode("User not found!", "UTF-8"));
             return;
         }
 
-        // 3. Check if old password matches
+        // 3. Validate old password against database
         if (!user.getU_password().equals(oldPwd)) {
             response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode("Wrong Old Password. Try Again!", "UTF-8"));
             return;
         }
 
-        // 4. Update the password in the database
+        // 4. Update password in the database
         boolean pwdchanged = UserDB.updatePassword(userid, newpwd);
         if (pwdchanged) {
-            session.setAttribute("password", newpwd); // Not recommended, but keeps your logic
+            // Fetch updated user data from DB
+            User updatedUser = UserDB.getUserdetails(userid);
+            
+            // Update session with latest user data
+            session.setAttribute("user", updatedUser);
+            
+            // Redirect with success message
             response.sendRedirect("user_profile.jsp?success=" + URLEncoder.encode("Password changed successfully!", "UTF-8"));
         } else {
             response.sendRedirect("user_profile.jsp?message=" + URLEncoder.encode("Error when changing password. Try Again!", "UTF-8"));
