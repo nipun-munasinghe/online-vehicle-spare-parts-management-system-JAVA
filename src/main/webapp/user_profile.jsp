@@ -1,184 +1,184 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-
 	pageEncoding="UTF-8"%>
-	
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="Model.User"%>
-
-<%
-    User usr = (User) request.getAttribute("user");
-    if (usr == null) {
-        response.sendRedirect("hero.jsp"); 
-       // Redirect if user is not found
-        return;
-    }
-
-%>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>My Profile</title>
-
-<!-- Link bootstrap style sheet -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-
-<!-- Link bootstrap icons -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
-
-<!-- Favicon -->
 <link rel="icon"
 	href="${pageContext.request.contextPath}/images/favicon.ico"
 	type="image/x-icon">
-
-<!-- Link style sheet -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/pro.css">
-	
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/user_profile.js"></script>
+	href="${pageContext.request.contextPath}/css/user_profile.css">
 </head>
 <body>
-	<!-- include header -->
 	<jsp:include page="Header.jsp" />
-
-	<!-- include top bar -->
 	<jsp:include page="TopBar.jsp" />
 
-	<div class="maincontainer">
-		<div class="leftsect">
-			<div class="floatsect">
-				<div class="profileimg">
-					<h2 class="usrname">Hello ${user.u_firstname}</h2>
-<img src="${pageContext.request.contextPath}/images/profilepics/${user.u_image}" alt="Profile Picture">
-
-					<form
-						action="${pageContext.request.contextPath}/ProPicUpdateServlet"
-						method="POST" enctype="multipart/form-data">
-						<input type="file" name="profilepic" id="profilepic"
-							accept="image/*" required> <input type="submit">
-					</form>
-
-
-				</div>
-
+	<div class="container py-5">
+		<div class="profile-main-container">
+			<!-- Left: Profile Photo Card -->
+			<div class="profile-card shadow-sm">
+				<c:choose>
+					<c:when test="${not empty user.u_image}">
+						<img
+							src="${pageContext.request.contextPath}/images/profilepics/${user.u_image}"
+							class="profile-img" alt="Profile Picture">
+					</c:when>
+					<c:otherwise>
+						<div class="profile-img-placeholder">
+							<i class="bi bi-person"></i>
+						</div>
+					</c:otherwise>
+				</c:choose>
+				<h2>
+					<i class="bi bi-person-circle me-2"></i> ${user.u_firstname}
+					${user.u_lastname}
+				</h2>
+				<form
+					action="${pageContext.request.contextPath}/ProPicUpdateServlet"
+					method="POST" enctype="multipart/form-data">
+					<div class="mb-3">
+						<label class="form-label"><i class="bi bi-camera me-2"></i>Change
+							Photo</label> <input type="file" name="profilepic" class="form-control"
+							accept="image/*" required>
+					</div>
+					<button type="submit" class="btn btn-outline-light w-100">
+						<i class="bi bi-upload me-2"></i>Update Photo
+					</button>
+				</form>
 			</div>
-		</div>
-		<div class="rightsect">
-			<c:if test="${not empty Error}">
-				<p id="error">${Error}</p>
-			</c:if>
 
-			<form id="profileForm" oninput="checkChanges()"  
-				action="${pageContext.request.contextPath}/updateUserServlet"
-				method="POST">
-				<div class="rowscontainer">
-					<div class="rows doublerows">
-						<div class="lableinput">
-							<label for="">First Name</label> <input type="text" name="u_firstname"
-								value="${user.u_firstname != null ? user.u_firstname : '' }">
+			<!-- Right: Manage Side (Change Details and Password) -->
+			<div class="manage-side">
+				<!-- Change Details Card -->
+				<div class="details-card shadow-sm mb-4">
+					<h4>
+						<i class="bi bi-pencil-square"></i> Change Details
+					</h4>
+					<!-- Delete Account Button (top-right corner of details card) -->
+					<button type="button" class="delete-btn-details"
+						data-bs-toggle="modal" data-bs-target="#deleteModal"
+						title="Delete my account">
+						<i class="bi bi-trash3"></i>
+					</button>
+					<form id="profileForm"
+						action="${pageContext.request.contextPath}/updateUserServlet"
+						method="POST">
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-person me-2"></i>First
+								Name</label> <input type="text" name="u_firstname" class="form-control"
+								value="${user.u_firstname}" required>
 						</div>
-						<div class="lableinput">
-							<label for="">Last Name</label> <input type="text" name="u_lastname"
-								value="${user.u_lastname != null ? user.u_lastname : '' }">
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-person me-2"></i>Last
+								Name</label> <input type="text" name="u_lastname" class="form-control"
+								value="${user.u_lastname}" required>
 						</div>
-					</div>
-					<div class="rows">
-						<div class="lableinput singlerow">
-							<label for="">Email</label> <input type="text" name="u_email"
-								value="${user.u_email != null ? user.u_email : '' }">
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-envelope me-2"></i>Email</label>
+							<input type="email" name="u_email" class="form-control"
+								value="${user.u_email}" required>
 						</div>
-					</div>
-					<div class="rows doublerows">
-						<div class="lableinput">
-							<label for="">Password</label>
-                              <input type="password" name="u_password" value="${user.u_password != null ? user.u_password : '' }" readonly>
-
-
+						<div class="mb-3">
+							<label class="form-label"><i
+								class="bi bi-shield-lock me-2"></i>Password</label> <input
+								type="password" class="form-control" value="********" readonly>
 						</div>
-
-					</div>
-					<hr>
-
-					<div class="rows">
-						<input class="submitbtn" type="submit" placeholder="Save Changes"
-							value="Save Changes" id="submitBtn" disabled / >
-					</div>
+						<button type="submit" class="btn btn-success w-100">
+							<i class="bi bi-save me-2"></i>Save Changes
+						</button>
+					</form>
 				</div>
-			</form>
-			<form action="${pageContext.request.contextPath}/updatePwdServlet"
-				method="POST">
-				<div class="rowscontainer">
-					<div class="rows singlerow">
-						<div class="lableinput">
-							<label for="">Old Password</label> <input type="password"
-								name="oldpwd">
+
+				<!-- Change Password Card -->
+				<div class="password-card shadow-sm">
+					<h4>
+						<i class="bi bi-shield-lock"></i> Change Password
+					</h4>
+					<form action="${pageContext.request.contextPath}/updatePwdServlet"
+						method="POST">
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-key me-2"></i>Old
+								Password</label> <input type="password" name="oldpwd"
+								class="form-control" required>
 						</div>
-					</div>
-					<div class="rows singlerow">
-						<div class="lableinput">
-							<label for="">New Password</label> <input type="password"
-								name="newpwd">
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-key-fill me-2"></i>New
+								Password</label> <input type="password" name="newpwd"
+								class="form-control" required>
 						</div>
-					</div>
-					<div class="rows singlerow">
-						<div class="lableinput">
-							<label for="">Confirm Password</label> <input type="password">
+						<div class="mb-3">
+							<label class="form-label"><i class="bi bi-key-fill me-2"></i>Confirm
+								Password</label> <input type="password" name="confirmpwd"
+								class="form-control" required>
 						</div>
-					</div>
-					<div class="rows">
-						<input class="submitbtn" type="submit"
-							placeholder="Change Password" value="Change Password" >
-					</div>
+						<button type="submit" class="btn btn-warning w-100">
+							<i class="bi bi-arrow-repeat me-2"></i>Update Password
+						</button>
+					</form>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 
-<!-- Delete Account Button -->
-<button type="button" class="btn btn-danger position-fixed" id="openDeleteModal"
-        style="bottom: 20px; right: 20px; z-index: 1050;">
-    Delete Account
-</button>
+	<!-- Delete Confirmation Modal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1"
+		aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content bg-white text-dark">
+				<form action="${pageContext.request.contextPath}/deleteUserServlet"
+					method="POST">
+					<div class="modal-header bg-danger text-white">
+						<h5 class="modal-title" id="deleteModalLabel">
+							<i class="bi bi-trash3 me-2"></i>Delete Account
+						</h5>
+						<button type="button" class="btn-close btn-close-white"
+							data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p>
+							Are you sure you want to <span class="fw-bold text-danger">delete
+								your account</span>?<br> This action is <span class="fw-bold">permanent</span>
+							and cannot be undone.<br> Please type your User ID (<strong>${userid}</strong>)
+							to confirm.
+						</p>
+						<input type="text" id="confirmUserId" class="form-control"
+							placeholder="Enter User ID" required> <input
+							type="hidden" name="usrid" value="${userid}"> <input
+							type="hidden" name="from" value="myprofile">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-outline-secondary"
+							data-bs-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-danger" id="deleteBtn"
+							disabled>
+							<i class="bi bi-trash3 me-2"></i>Yes, Delete My Account
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-<!-- Delete Confirmation Modal -->
-<div class="modal fade" id="deleteAccountModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form action="${pageContext.request.contextPath}/deleteUserServlet" method="POST">
-        <div class="modal-header bg-danger text-white">
-          <h5 class="modal-title">Delete Account</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <p>Type your User ID (<strong>${userid}</strong>) to confirm:</p>
-          <input type="text" id="confirmUserId" class="form-control" placeholder="Enter User ID">
-          <input type="hidden" name="usrid" value="${userid}">
-          <input type="hidden" name="from" value="myprofile">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
-          <input type="submit" class="btn btn-danger" id="deleteBtn" value="Delete Account" disabled>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-   
-
-
-
-	<!-- include footer -->
 	<jsp:include page="Footer.jsp" />
-
-	<!-- Link bootstrap script file -->
 	<script
-		src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"
-		defer></script>
+		src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
+	<script>
+		// Enable delete button only if User ID matches
+		document.getElementById('confirmUserId').addEventListener(
+				'input',
+				function() {
+					document.getElementById('deleteBtn').disabled = (this.value
+							.trim() !== "${userid}");
+				});
+	</script>
 </body>
 </html>
