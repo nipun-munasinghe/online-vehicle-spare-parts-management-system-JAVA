@@ -9,7 +9,11 @@ public class DBConnection {
 	private static final String USER ="root";
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	private static final String PASSWORD = "0331";
+=======
+	private static final String PASSWORD = "Thimira@2003";
+>>>>>>> Stashed changes
 =======
 	private static final String PASSWORD = "Thimira@2003";
 >>>>>>> Stashed changes
