@@ -62,19 +62,21 @@
             <thead>
                 <tr>
                     <th>Product ID</th>
+                    <th>Status</th>
                     <th>Total Price</th>
                 </tr>
             </thead>
             <tbody>
 	                <tr>
 	                    <td>${order.oId}</td>
+	                    <td>${order.oStatus}</td>
 	                    <td>${order.orderTotal}</td>
 	                </tr>
             </tbody>
         </table>
 
         <div class="d-flex justify-content-end mb-4">
-            <div class="order-total">Total: $90.00</div>
+            <div class="order-total">Total: ${order.orderTotal}</div>
         </div>
 
         <form action="${pageContext.request.contextPath}/OrderActionServlet" method="get" class="d-flex justify-content-between">

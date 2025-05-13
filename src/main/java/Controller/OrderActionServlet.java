@@ -27,8 +27,8 @@ public class OrderActionServlet extends HttpServlet {
 	            int orderId = Integer.parseInt(orderIdStr);
 
 	            if (action.equals("confirm")) {
-	                // On confirm → redirect to shop page
-	            	response.sendRedirect("displayProducts");
+	            	OrderDB.updateOrderStatusToSubmitted(orderId);
+	            	response.sendRedirect("OrderDetailsServlet");
 
 	            } else if (action.equals("cancel")) {
 	               

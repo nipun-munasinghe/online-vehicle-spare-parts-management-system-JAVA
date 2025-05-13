@@ -57,6 +57,7 @@ public class OrderDB {
                 if (rs.next()) {
                     
                     order.setoId(rs.getInt("o_id"));
+                    order.setoStatus(rs.getString("o_status"));
                     order.setOrderTotal(rs.getString("order_total"));
                 }
             }
@@ -80,6 +81,25 @@ public class OrderDB {
             }
         }
     }
+    
+    public static void updateOrderStatusToSubmitted(int orderId) throws SQLException, ClassNotFoundException {
+        String sql = "UPDATE orders SET o_status = ? WHERE o_id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, "Submitted");
+            stmt.setInt(2, orderId);
+
+            int rowsAffected = stmt.executeUpdate();
+
+            if (rowsAffected == 0) {
+                System.out.println("No order found to update with ID: " + orderId);
+            } else {
+                System.out.println("Order status updated to 'Submitted'. Order ID: " + orderId);
+            }
+        }
+    }
+
 
 
 }
