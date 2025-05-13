@@ -61,7 +61,7 @@
                             <input type="number" name="totalPrice" class="form-control" readonly>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 py-2">Confirm Order</button>
+                        <button type="submit" class="btn btn-success w-100 py-2">Order</button>
                     </form>
                 </div>
             </div>
