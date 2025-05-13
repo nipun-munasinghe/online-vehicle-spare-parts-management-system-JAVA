@@ -30,6 +30,14 @@
                             <input type="text" class="form-control" name="customerName" required>
                         </div>
                         
+                        <input type="hidden" name="p_id" value="<%= product %>">
+                        
+                        <div class="mb-4">
+                            <label class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" name="customerName" required>
+                        </div>
+
+		                    
                         <div class="mb-4">
                             <label class="form-label">Delivery Address</label>
                             <textarea class="form-control" name="shippingAddress" rows="3" required></textarea>
@@ -61,7 +69,7 @@
                             <input type="number" name="totalPrice" class="form-control" readonly>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 py-2">Confirm Order</button>
+                        <button type="submit" class="btn btn-success w-100 py-2">Order</button>
                     </form>
                 </div>
             </div>
