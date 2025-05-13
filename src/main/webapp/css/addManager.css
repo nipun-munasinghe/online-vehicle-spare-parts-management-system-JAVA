@@ -1,116 +1,156 @@
-/* General Styles */
-body {
-    background-color: #1E1E1E; /* Dark background */
-    color: white;
+
+.table-3d-container {
+  background: #23272b;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.32), 0 1.5px 6px rgba(0,0,0,0.08);
+  padding: 32px;
+  margin: 40px 0;
 }
 
-/* Flex Container */
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+.table-3d {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #23272b;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.22);
 }
 
-/* Sections */
-.manage-manager-section, .add-manager-section {
-    flex: 1;
-    min-width: 350px; /* Prevents collapsing on small screens */
+.table-3d th, .table-3d td {
+  padding: 16px 18px;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: 1px solid #393E46;
+  background: #23272b;
+  color: #fff;
 }
 
-/* Cards */
-.card {
-    background-color: #393E46; /* Dark grey background */
+.table-3d th {
+  font-weight: 700;
+  font-size: 1.08rem;
+  background: #393E46;
+  border-bottom: 2px solid #393E46;
+  letter-spacing: 0.02em;
+  color: #A6FF00;
+}
+
+.table-3d tbody tr {
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.table-3d tbody tr:hover {
+  background: #262a2f;
+  transform: translateY(-3px) scale(1.012);
+  box-shadow: 0 8px 32px rgba(166,255,0,0.08), 0 1.5px 6px rgba(255,69,0,0.04);
+  z-index: 2;
+  position: relative;
+  color: #A6FF00;
+}
+
+/* Status badge colors */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.98em;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  text-transform: capitalize;
+  border: none;
+}
+
+.status-read {
+  background: #e6ffed;
+  color: #22c55e; /* green */
+}
+
+.status-unread {
+  background: #fffbe6;
+  color: #ff9800; /* orange/yellow */
+}
+
+.status-other {
+  background: #2d3136;
+  color: #b0b0b0;
+}
+
+/* Reply button */
+.reply-btn {
+  background: #23272b;
+  color: #b0b0b0;
+  border: 1px solid #393E46;
+  border-radius: 18px;
+  padding: 6px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  text-decoration: none;
+}
+.reply-btn:hover {
+  background: #393E46;
+  color: #fff;
+  border-color: #23272b;
+}
+
+/* Gradient Buttons: user-friendly, small, blended */
+.btn-gradient-activate {
+    background: linear-gradient(90deg, #7ED957 0%, #FFE066 100%);
+    color: #23272b !important;
     border: none;
-    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(182,226,161,0.10);
+    transition: background 0.2s;
 }
-
-/* Input Fields */
-.form-control {
-    background-color: #A6FF00;
-    color: white;
-    border: 2px solid transparent;
-    padding: 10px;
-    border-radius: 5px;
+.btn-gradient-activate:hover {
+    background: linear-gradient(90deg, #FFE066 0%, #7ED957 100%);
+    color: #23272b !important;
 }
-
-.form-control::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.form-control:focus {
-    border-color: #A6FF00; /* Neon Green */
-    box-shadow: 0 0 5px #A6FF00;
-    outline: none;
-}
-
-/* Add Manager Modal Specific Styles */
-.add-manager-modal {
-    background-color: #1E1E1E;
-}
-
-.add-manager-modal .modal-content {
-    background-color: #393E46;
-}
-
-.add-manager-modal .modal-header {
-    border-bottom-color: #A6FF00;
-}
-
-.add-manager-modal .form-control {
-    background-color: #A6FF00;
-    color: black;
-}
-
-.add-manager-modal .form-control::placeholder {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.add-manager-modal .btn-success {
-    background-color: #A6FF00 !important;
-    color: black !important;
-}
-
-/* Buttons */
-.btn-success {
-    background-color: #A6FF00 !important; /* Neon Green */
-    color: black !important;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-.btn-success:hover {
-    background-color: #8FE600 !important; /* Darker Neon Green */
-}
-
-.btn-primary {
-    background-color: #007BFF !important;
+.btn-gradient-deactivate {
+    background: linear-gradient(90deg, #7ED957 0%, #5BC0F8 100%);
+    color: #23272b !important;
     border: none;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(91,192,248,0.10);
+    transition: background 0.2s;
 }
-
-.btn-danger {
-    background-color: #FF4C4C !important;
+.btn-gradient-deactivate:hover {
+    background: linear-gradient(90deg, #5BC0F8 0%, #7ED957 100%);
+    color: #23272b !important;
+}
+.btn-gradient-delete {
+    background: linear-gradient(90deg, #7ED957 0%, #FF6B6B 100%);
+    color: #23272b !important;
     border: none;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(255,107,107,0.10);
+    transition: background 0.2s;
 }
-
-/* Table */
-.table-dark {
-    background-color: white !important; /* Change table background to white */
-    color: black !important; /* Ensure text is readable */
-    border-color: #dee2e6; /* Light grey borders */
+.btn-gradient-delete:hover {
+    background: linear-gradient(90deg, #FF6B6B 0%, #7ED957 100%);
+    color: #23272b !important;
 }
-
-.table-dark th {
-    background-color: #f8f9fa !important; /* Light grey background for headers */
-    color: black !important; /* Black text for headers */
+.btn-highlight-greenyellow {
+    background: linear-gradient(90deg, #b6e2a1 0%, #ffe066 100%);
+    color: #23272b !important;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 2px 12px rgba(182, 226, 161, 0.25);
+    transition: background 0.2s;
 }
-
-.table-dark td {
-    color: white !important; /* Black text for table data */
+.btn-highlight-greenyellow:hover {
+    background: linear-gradient(90deg, #ffe066 0%, #b6e2a1 100%);
+    color: #23272b !important;
 }
-
-/* Table Borders */
-.table-bordered th, 
-.table-bordered td {
-    border-color: #000040!important; /* Light grey border */
+/* White placeholder text for Bootstrap forms */
+.form-control::placeholder, .form-select::placeholder {
+    color: #fff !important;
+    opacity: 1;
 }

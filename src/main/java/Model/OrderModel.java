@@ -1,7 +1,7 @@
 package Model;
 import java.sql.Date;
 
-public class orderModel {
+public class OrderModel {
     private int o_id;
     private Date o_date;
     private String o_address;
@@ -9,7 +9,7 @@ public class orderModel {
     private int customer_id;
 
     // Constructor
-    public orderModel(int o_id, Date o_date, String o_address, String o_phone, int customer_id) {
+    public OrderModel(int o_id, Date o_date, String o_address, String o_phone, int customer_id) {
         this.o_id = o_id;
         this.o_date = o_date;
         this.o_address = o_address;
