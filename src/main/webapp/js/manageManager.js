@@ -1,22 +1,22 @@
-// 1. Form Validation
-function validateManagerForm() {
+// Form Validation
+    function validateManagerForm() {
 	const form = document.getElementById("managerForm");
 	const errors = [];
 
-	// Get trimmed form values
+// Get trimmed form values
 	const firstName = form.firstName.value.trim();
 	const lastName = form.lastName.value.trim();
 	const email = form.email.value.trim();
 	const phone = form.phone.value.trim();
 	const password = form.password.value;
 
-	// Validation rules with regex patterns
+// Validation rules with regex patterns
 	const nameRegex = /^[A-Za-z ]+$/;
 	const emailRegex = /^[\w.-]+@[\w.-]+\.[\w]{2,}$/;
 	const phoneRegex = /^(\+94|0)\d{9}$/;
 	const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
 
-	// First name validation
+// First name validation
 	if (firstName.length < 2 || !nameRegex.test(firstName)) {
 		errors.push("First name: 2+ letters/spaces only");
 	}
@@ -26,22 +26,22 @@ function validateManagerForm() {
 		errors.push("Last name: 2+ letters/spaces only");
 	}
 
-	// Email validation
+// Email validation
 	if (!emailRegex.test(email)) {
 		errors.push("Invalid email format");
 	}
 
-	// Phone validation (Sri Lankan format)
+// Phone validation (Sri Lankan format)
 	if (!phoneRegex.test(phone)) {
 		errors.push("Phone: Start with +94/0 and 9 digits");
 	}
 
-	// Password strength
+// Password strength
 	if (!passwordRegex.test(password)) {
 		errors.push("Password: 8+ chars with letters & numbers");
 	}
 
-	// Show errors or submit form
+// Show errors or submit form
 	if (errors.length > 0) {
 		showTempAlert(errors.join("\n"), 5000);
 		return false;
@@ -49,7 +49,7 @@ function validateManagerForm() {
 	return true;
 }
 
-// 2. Show Temporary Alert
+// Show Temporary Alert
 function showTempAlert(msg, duration = 3000) {
 	const alertDiv = document.createElement("div");
 	alertDiv.className = "temp-alert"; // Add CSS for styling
@@ -89,7 +89,7 @@ function highlightRow(email) {
 	});
 }
 
-// 8. Filter Manager List by Query
+// Filter Manager List by Query
 function filterManagerList(query) {
 	query = query.toLowerCase();
 	document.querySelectorAll("tbody tr").forEach(row => {
