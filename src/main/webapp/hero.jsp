@@ -1,54 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home - AutoElite</title>
-    
-    <!-- Link bootstrap style sheet -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    
-    <!-- Link bootstrap icons -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
-    
-    <!-- Favicon -->
+    <title>AutoElite - Home</title>
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
-    
-    <!-- Link style sheet -->
+    <!-- THIS page's style only; does NOT affect header/footer -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hero.css">
+    <!-- For feature icons -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
 </head>
 <body>
-	<!-- include header -->
+    <%-- HEADER --%>
     <jsp:include page="Header.jsp"/>
-    
-    <!-- Home Product page -->
-     <section id="hero" class="min-vh-100 d-flex align-items-center text-center">
-        <div class="d-flex justify-content-center align-items-center z-n1 position-absolute p-5  rounded-3 opacity-50">
-            <img src="${pageContext.request.contextPath}/images/back-image.jpg" alt="background-image" class="b-image" >
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="text-uppercase fw-semibold display-1 text-white">Welcome to AutoElite</h1>
-                    <p class="text-white">Find the best products for your car</p>
-                    <div class="button">
-                        <a href="${pageContext.request.contextPath}/displayProducts">
-                            <button id="shop" type="button" class="btn btn-primary">Shop Now</button>
-                        </a>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="ae-hero">
+            <div class="ae-hero-bg">
+                <img src="${pageContext.request.contextPath}/images/back-image.jpg" alt="AutoElite Hero" />
+                <div class="ae-hero-overlay"></div>
+            </div>
+            <div class="ae-hero-main">
+                <h1><span class="ae-hero-highlight">AutoElite</span></h1>
+                <p class="ae-hero-subtitle">Unleash The Best For Your Car</p>
+                <a href="${pageContext.request.contextPath}/displayProducts" class="ae-hero-btn">
+                    Shop Now <svg width="23" height="23" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0-4.5-4.5M15 10l-4.5 4.5" stroke="#222831" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <div class="ae-hero-stats">
+                    <div>
+                        <span class="ae-stat-num">100+</span>
+                        <span class="ae-stat-label">Brands</span>
+                    </div>
+                    <div>
+                        <span class="ae-stat-num">20K+</span>
+                        <span class="ae-stat-label">Happy Customers</span>
+                    </div>
+                    <div>
+                        <span class="ae-stat-num">24/7</span>
+                        <span class="ae-stat-label">Support</span>
                     </div>
                 </div>
+                <div class="ae-hero-scroll">
+                    <div class="ae-scroll-arrow"></div>
+                    <span>Scroll down</span>
+                </div>
             </div>
-        </div>
-     </section>
-    
-    
+        </section>
 
+        <!-- Features Section -->
+        <section class="ae-features">
+            <h2>Why <span class="ae-hero-highlight">AutoElite</span>?</h2>
+            <div class="ae-features-grid">
+                <div class="ae-feature-card">
+                    <div class="ae-feature-icon"><i class="bi bi-shield-check"></i></div>
+                    <h3>Genuine Brands</h3>
+                    <p>Only certified, authentic spare parts and accessories. No compromises.</p>
+                </div>
+                <div class="ae-feature-card">
+                    <div class="ae-feature-icon"><i class="bi bi-lightning-charge"></i></div>
+                    <h3>Lightning Fast Delivery</h3>
+                    <p>Global logistics partners ensure your part arrives safe and quick.</p>
+                </div>
+                <div class="ae-feature-card">
+                    <div class="ae-feature-icon"><i class="bi bi-star"></i></div>
+                    <h3>Rated by Enthusiasts</h3>
+                    <p>Thousands of real customers and experts trust and rate our service.</p>
+                </div>
+                <div class="ae-feature-card">
+                    <div class="ae-feature-icon"><i class="bi bi-headset"></i></div>
+                    <h3>Dedicated Support</h3>
+                    <p>Reach us anytime—before or after your purchase. We care, 24/7.</p>
+                </div>
+            </div>
+        </section>
 
-	
-	<!-- include footer -->
+        <!-- Call to Action / CTA -->
+        <section class="ae-cta">
+            <div class="ae-cta-inner">
+                <h2>Transform Your Vehicle Today!</h2>
+                <p>Discover the latest, most reliable parts for your ride. Join <b>AutoElite</b>—where car passion meets quality.</p>
+                <a href="${pageContext.request.contextPath}/displayProducts" class="ae-cta-btn">
+                    Start Shopping
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <%-- FOOTER --%>
     <jsp:include page="Footer.jsp"/>
-    
-	<!-- Link bootstrap script file -->
-    <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>

@@ -186,6 +186,11 @@ h2, h3 {
     display: none;
 }
 
+.ae-header-desktop, .ae-header-tablet, .ae-header-mobile {
+    position: relative; /* or 'fixed' if you need it ALWAYS visible */
+    z-index: 1002;
+}
+
 /* --- Tablet View: 768px to 993px --- */
 @media (max-width: 993px) and (min-width: 768px) {
     .ae-header-desktop { display: none !important; }
