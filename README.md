@@ -2,6 +2,8 @@
 
 A team project for an **Online Vehicle Spare Parts System** built with Java EE and Bootstrap.
 
+![Landing Page](./src/main/webapp/images/landing-page.png)
+
 ---
 
 ## Overview
@@ -67,12 +69,6 @@ A team project for an **Online Vehicle Spare Parts System** built with Java EE a
 4. **Start the Application:**
    - Visit [http://localhost:8080/online-spare-parts-management-system/](http://localhost:8080/online-spare-parts-management-system/)
    - Register as a new user, or login using a seeded admin account (`admin@example.com` / `password`)
-
----
-
-## Screenshots
-
-![Landing Page](./images/landing-page.png)
 
 ---
 
