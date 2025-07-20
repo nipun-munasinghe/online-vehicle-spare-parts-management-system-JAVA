@@ -10,16 +10,12 @@
     
     <!-- Link bootstrap style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    
     <!-- Link bootstrap icons -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
-    
     <!-- Favicon -->
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
-    
     <!-- Link style sheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Payment.css">
-    
     <!-- Link js file -->
     <script src="${pageContext.request.contextPath}/js/OrderForm.js"></script>
 </head>
@@ -29,7 +25,6 @@
     
     <!-- include top bar -->
     <jsp:include page="TopBar.jsp"/>
-    
       
     <!-- products cards -->
       <!-- trending -->
@@ -71,22 +66,17 @@
                       	<fmt:formatNumber value="${product.pPrice}" type="number" maxFractionDigits="2" minFractionDigits="2" />
                       </h3>
                       <a href="${pageContext.request.contextPath}/OrderFormServlet?p_id=${product.pId}&u_price=${product.pPrice}" class="btn btn-primary">Buy Now</a>
-
                     </div>
                   </div>
             </div>
             </c:forEach>
-
         </div>
     </div>
-    
 	
 	<!-- include footer -->
     <jsp:include page="Footer.jsp"/>
     
 	<!-- Link bootstrap script file -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js" defer></script>
-    
-    
 </body>
 </html>

@@ -85,5 +85,4 @@ public class AddProductServlet extends HttpServlet {
             throw new ServletException(e);
         }
     }
-    
 }

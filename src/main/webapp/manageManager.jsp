@@ -3,17 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Manager Management</title>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-<link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addManager.css">
-<script src="${pageContext.request.contextPath}/js/manageManager.js"></script>
-
+	<meta charset="UTF-8">
+	<title>Manager Management</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+	<link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addManager.css">
+	<script src="${pageContext.request.contextPath}/js/manageManager.js"></script>
 </head>
+
 <body class="bg-black text-white min-vh-100 d-flex flex-column">
 
 <jsp:include page="Header.jsp" />
@@ -31,7 +31,6 @@
 
     <div class="row">
         <div class="col-12">
-
             <!-- Manager Action Section -->
             <h2>Manager Actions</h2>
             <div class="card bg-dark text-white shadow rounded-2 mb-4 p-4">
@@ -165,7 +164,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

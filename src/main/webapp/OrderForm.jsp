@@ -3,34 +3,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- ... existing head content ... -->
+	
 </head>
 <body>
     <jsp:include page="Header.jsp"/>
     <jsp:include page="TopBar.jsp"/>
     
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const unitPriceInput = document.querySelector('input[name="unitprice"]');
-        const quantityInput = document.querySelector('input[name="quantity"]');
-        const totalPriceInput = document.querySelector('input[name="totalPrice"]');
-
-        function updateTotal() {
-            const unitPrice = parseFloat(unitPriceInput.value) || 0;
-            const quantity = parseInt(quantityInput.value) || 0;
-            const total = unitPrice * quantity;
-            totalPriceInput.value = total.toFixed(2);
-        }
-
-        // Initial calculation
-        updateTotal();
-
-        // Event listeners for changes
-        quantityInput.addEventListener('input', updateTotal);
-    });
-</script>
+	    document.addEventListener("DOMContentLoaded", function() {
+	        const unitPriceInput = document.querySelector('input[name="unitprice"]');
+	        const quantityInput = document.querySelector('input[name="quantity"]');
+	        const totalPriceInput = document.querySelector('input[name="totalPrice"]');
+	
+	        function updateTotal() {
+	            const unitPrice = parseFloat(unitPriceInput.value) || 0;
+	            const quantity = parseInt(quantityInput.value) || 0;
+	            const total = unitPrice * quantity;
+	            totalPriceInput.value = total.toFixed(2);
+	        }
+	
+	        // Initial calculation
+	        updateTotal();
+	
+	        // Event listeners for changes
+	        quantityInput.addEventListener('input', updateTotal);
+	    });
+	</script>
     
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -56,7 +55,6 @@
                             <input type="text" class="form-control" name="phoneno" required>
                         </div>
 
-		                    
                         <div class="mb-4">
                             <label class="form-label">Delivery Address</label>
                             <textarea class="form-control" name="shippingAddress" rows="3" required></textarea>
@@ -94,7 +92,5 @@
             </div>
         </div>
     </div>
-
-    <!-- ... existing footer and scripts ... -->
 </body>
 </html>

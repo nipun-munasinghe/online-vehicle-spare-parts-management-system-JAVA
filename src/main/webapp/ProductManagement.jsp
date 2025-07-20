@@ -239,6 +239,5 @@
     <!-- Link script file -->
     <script src="${pageContext.request.contextPath}/js/ProductManagement.js"></script>
     <script src="${pageContext.request.contextPath}/js/SideBar.js"></script>
-    
 </body>
 </html>

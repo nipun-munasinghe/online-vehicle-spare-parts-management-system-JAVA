@@ -27,7 +27,9 @@
                 <h1><span class="ae-hero-highlight">AutoElite</span></h1>
                 <p class="ae-hero-subtitle">Unleash The Best For Your Car</p>
                 <a href="${pageContext.request.contextPath}/displayProducts" class="ae-hero-btn">
-                    Shop Now <svg width="23" height="23" viewBox="0 0 20 20" fill="none"><path d="M5 10h10m0 0-4.5-4.5M15 10l-4.5 4.5" stroke="#222831" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Shop Now <svg width="23" height="23" viewBox="0 0 20 20" fill="none">
+                    			<path d="M5 10h10m0 0-4.5-4.5M15 10l-4.5 4.5" stroke="#222831" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+                    		 </svg>
                 </a>
                 <div class="ae-hero-stats">
                     <div>

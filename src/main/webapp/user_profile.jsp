@@ -11,12 +11,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>My Profile</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
-<link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user_profile.css">
+	<meta charset="UTF-8">
+	<title>My Profile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
+	<link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/user_profile.css">
 </head>
 <body>
 <jsp:include page="Header.jsp"/>
@@ -139,6 +139,7 @@
 </div>
 
 <jsp:include page="Footer.jsp"/>
+
 <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
 <script>
     // Enable delete button only if user ID matches
