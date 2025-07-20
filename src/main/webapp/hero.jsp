@@ -12,7 +12,9 @@
 </head>
 <body>
     <%-- HEADER --%>
-    <jsp:include page="Header.jsp"/>
+    <div style="background: rgba(0, 0, 0, 0.29);">
+    	<jsp:include page="Header.jsp"/>
+    </div>
 
     <main>
         <!-- Hero Banner -->

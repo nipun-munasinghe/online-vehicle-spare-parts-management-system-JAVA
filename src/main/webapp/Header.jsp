@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Header.css">
 
 <!-- Desktop Header (default, visible on large screens) -->
-<section class="ae-nav-section ae-header-desktop" style="background: rgba(0, 0, 0, 0.29);">
+<section class="ae-nav-section ae-header-desktop">
     <div class="ae-container-nav">
         <nav class="ae-nav-class">
             <div class="ae-navbar-widget">
