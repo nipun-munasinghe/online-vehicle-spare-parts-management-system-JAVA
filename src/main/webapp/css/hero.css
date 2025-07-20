@@ -182,7 +182,6 @@ body, html {
 .ae-features {
     background: var(--ae-light);
     padding: 76px 0 54px 0;
-    border-radius: 0 0 32px 32px;
     margin-top: -14px;
     z-index: 2;
     position: relative;
