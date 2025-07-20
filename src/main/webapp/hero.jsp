@@ -50,7 +50,7 @@
 
         <!-- Features Section -->
         <section class="ae-features">
-            <h2>Why <span class="ae-hero-highlight">AutoElite</span>?</h2>
+            <h2>Why <span class="ae-hero-highlight-down">AutoElite ?</span></h2>
             <div class="ae-features-grid">
                 <div class="ae-feature-card">
                     <div class="ae-feature-icon"><i class="bi bi-shield-check"></i></div>

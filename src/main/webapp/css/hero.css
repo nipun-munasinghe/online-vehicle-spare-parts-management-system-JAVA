@@ -75,6 +75,15 @@ body, html {
     font-weight: 900;
     letter-spacing: 2.6px;
 }
+
+.ae-hero-highlight-down {
+    background: linear-gradient(90deg, #000, var(--ae-green) 96%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    letter-spacing: 2.6px;
+}
 .ae-hero-subtitle {
     color: #fff;
     font-size: 1.28rem;
@@ -212,6 +221,7 @@ body, html {
     transform: translateY(-6px) scale(1.03);
     box-shadow: 0 18px 48px #A6FF0040;
     border-color: var(--ae-green);
+    cursor: default !important;
 }
 .ae-feature-icon {
     font-size: 2.2rem;
@@ -304,7 +314,6 @@ body, html {
     .ae-hero-stats { gap: 17px; }
 }
 
-/* ----------- HEADER LAYERING FIX ----------- */
 /* Make sure any header section is always in front */
 .ae-header-desktop, .ae-header-tablet, .ae-header-mobile {
     position: relative;

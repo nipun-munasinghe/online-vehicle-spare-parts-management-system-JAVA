@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Common JSP file</title>
+    <title>Sign In</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-icons.css">
     <link rel="icon" href="${pageContext.request.contextPath}/images/favicon.ico" type="image/x-icon">
@@ -15,7 +15,7 @@
     <section>
         <div class="container p-3 h-100 ">
           <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col col-xl-10">s
+            <div class="col col-xl-10">
               <div class="card" style="border-radius: 1rem;">
                 <div class="row g-0">
                   <div class="col-md-3 col-lg-5 d-none d-md-block">
