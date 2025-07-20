@@ -8,10 +8,7 @@ import java.sql.Statement;
 import Model.User;
 
 public class UserDB {
-	
-	
 	//Login validation part
-	
 	public static User isValidUser(String u_email ,String u_password) {
 		try {
 			Connection con = DBConnection.getConnection();
@@ -20,11 +17,11 @@ public class UserDB {
 			
 			ResultSet rs = stmt .executeQuery(query);//executeQuery used for read
 			
-			
 			if (rs.next()) {
 				int userid = rs.getInt(1);
 				String u_firstname = rs.getString(2);
 				String u_lastname = rs.getString(3);
+				@SuppressWarnings("unused")
 				String u_email1 = rs.getString(4);
 				String u_password1 = rs.getString(5);
 				String u_type = rs.getString(6);
@@ -36,8 +33,7 @@ public class UserDB {
 				con.close();
 				
 				return user;//return user objects
-			}
-			else {
+			} else {
 				return null;
 			}
 		}
@@ -47,9 +43,7 @@ public class UserDB {
 			}
 		}
 	
-	
-	//register user 
-	
+		//register user 
 		public static boolean registerUser(String u_firstname, String u_lastname, String u_email, String u_password, String u_type, String u_image) {
 			try {
 				Connection con = DBConnection.getConnection();
@@ -62,8 +56,7 @@ public class UserDB {
 
 				if(success > 0) {
 					return true;
-				}
-				else{
+				} else{
 					return false;
 				}
 			}
@@ -71,13 +64,9 @@ public class UserDB {
 				System.out.println(e);
 				return false;
 			}
-			
 		}
-		
-
 
 	// get all user details
-
 	public static User getUserdetails(int u_id) {
 
 		Connection con = null;
@@ -102,13 +91,11 @@ public class UserDB {
 
 				con.close();
 				return user;
-
 			} else {
 				return null;
 			}
 
 		} catch (Exception e) {
-
 			System.out.println(e);
 			return null;
 		}
@@ -116,8 +103,6 @@ public class UserDB {
 
 	// update user details method
 	public static boolean updateUser(int u_id, String  u_firstname, String u_lastname, String u_email) {
-	 
-
 	    try {
 	        Connection con = DBConnection.getConnection();
 	        Statement stmt = con.createStatement();
@@ -133,12 +118,12 @@ public class UserDB {
 			else{
 				return false;
 			}
+		}
+		catch(Exception e) {
+			System.out.println(e);
+			return false;
+		}
 	}
-	catch(Exception e) {
-		System.out.println(e);
-		return false;
-	}
-}
 
 
 	// update profilepic function
@@ -185,8 +170,6 @@ public class UserDB {
 		}
 	}
 
-	
-
 	//delete user function
 	public static boolean deleteUser(int u_id) {
 		try {
@@ -210,7 +193,4 @@ public class UserDB {
 				return false;
 		}
 	}
-	
-	
-	}
-	
+}

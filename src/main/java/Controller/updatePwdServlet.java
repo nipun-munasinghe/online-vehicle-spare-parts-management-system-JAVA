@@ -24,9 +24,11 @@ public class updatePwdServlet extends HttpServlet {
             return;
         }
 
-        String oldPwd = request.getParameter("oldpwd");
+        @SuppressWarnings("unused")
+		String oldPwd = request.getParameter("oldpwd");
         String newpwd = request.getParameter("newpwd");
-        String confirmpwd = request.getParameter("confirmpwd");
+        @SuppressWarnings("unused")
+		String confirmpwd = request.getParameter("confirmpwd");
 
     
        
@@ -45,6 +47,4 @@ public class updatePwdServlet extends HttpServlet {
         	response.sendRedirect("myProfileServelet");
         }
     }
-    
-    
 }
